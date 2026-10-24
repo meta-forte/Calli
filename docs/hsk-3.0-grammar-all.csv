@@ -1,0 +1,429 @@
+﻿level,point,pattern,categoryChinese,categoryEnglish,explanation,exampleChinese,exampleEnglish
+1,前缀“小-”,,语素,Word parts,"The prefix 小- before a surname or given name makes a friendly, familiar form of address.",小王是我的同学。,Xiao Wang is my classmate.
+1,前缀“第-”,第＋数词,语素,Word parts,"The prefix 第- before a numeral forms ordinal numbers: 第一 first, 第二 second.",今天是我上班的第一天。,Today is my first day at work.
+1,后缀“-们”,,语素,Word parts,"The suffix -们 marks plural on pronouns and words for people: 我们, 老师们.",我们是学生。,We are students.
+1,后缀“-边”,,语素,Word parts,"The suffix -边 attaches to direction words to form location words: 上边, 前边, 外边.",书在桌子上边。,The book is on top of the table.
+1,方位名词（上、下、里、外、前、后）,,词类,Word classes,"Locality nouns like 上, 下, 里, 外 follow a noun to express “on / under / inside / outside”.",我的书在家里。,My book is at home.
+1,能愿动词“会、能”,,词类,Word classes,The modal verbs 会 and 能 before a verb express learned ability (会) or capability/possibility (能).,我会说汉语。,I can speak Chinese.
+1,能愿动词“想、要”,,词类,Word classes,The modal verbs 想 and 要 before a verb express wanting or intending to do something.,我想喝茶。,I want to drink tea.
+1,能愿动词“可以”,,词类,Word classes,The modal verb 可以 expresses permission or possibility: “may / be allowed to”.,你可以坐这儿。,You may sit here.
+1,离合词（睡觉、说话、上课……）,睡觉 → 睡（一个好）觉,词类,Word classes,"Separable verbs like 睡觉, 说话, 上课 are verb+object compounds that act as one verb, and come apart to take 了 or a measure phrase in the middle.",我晚上十点睡觉。,I go to bed at ten in the evening.
+1,疑问代词（什么、谁、哪儿、几、多少……）,,词类,Word classes,"Question words like 什么, 谁, 哪儿 stand in the sentence position of the thing being asked about.",这是什么？,What is this?
+1,人称代词（我、你、您、他、她、大家……）,,词类,Word classes,Personal pronouns refer to people; 您 is the polite form of 你.,您好，王老师！,"Hello, Teacher Wang! (polite)"
+1,指示代词（这、那、这儿、那儿、这些……）,,词类,Word classes,"Demonstratives 这 “this” and 那 “that” point to people, things, and places.",这是我的书。,This is my book.
+1,数词（一……十、百、千、半、二/两）,,词类,Word classes,"Numerals count things; before a measure word, “two” is 两, not 二.",我有两个哥哥。,I have two older brothers.
+1,名量词（本、个、家、口、块、件、只、元；杯）,,词类,Word classes,A measure word must stand between a number or demonstrative and its noun; 个 is the most general one.,我买了三个苹果。,I bought three apples.
+1,时量词（日、号、岁、点、分、年、天）,,词类,Word classes,"Time measure words count dates, ages, and clock time; 岁 counts years of age.",你儿子几岁？,How old is your son?
+1,程度副词“很、太、非常、真、有点儿”,,词类,Word classes,Degree adverbs stand before adjectives; a plain adjective predicate usually takes 很.,我今天很忙。,I am very busy today.
+1,范围副词“都”,,词类,Word classes,"The adverb 都 before the verb means “all / both”, covering everything mentioned before it.",我们都是学生。,We are all students.
+1,时间副词“在、正在”,（正）在＋动词（＋呢）,词类,Word classes,"在 or 正在 before the verb marks an action in progress, often with 呢 at the end.",他在吃饭。,He is eating.
+1,频率副词“再”,,词类,Word classes,"The adverb 再 before a verb means “again / once more”, for a repeated future action.",你明天再来吧。,Come again tomorrow.
+1,关联副词“也、还”,,词类,Word classes,"The adverb 也 before the verb means “also / too”, linking a second parallel statement.",我是学生，他也是学生。,"I am a student, and he is a student too."
+1,否定副词“不”,,词类,Word classes,"不 before a verb or adjective negates present, habitual, or intended actions and states.",我不是老师。,I am not a teacher.
+1,否定副词“没（有）”,,词类,Word classes,没(有) negates possession and completed actions: “not have / did not”.,我没有钱。,I have no money.
+1,介词“在”（引出时间、处所）,在＋处所＋动词,词类,Word classes,"The preposition 在 introduces the place or time of an action, before the verb.",我在学校学习。,I study at school.
+1,介词“和、对”（引出对象）,,词类,Word classes,The preposition 和 introduces the person one does something with; 对 introduces the target “toward”.,我和妈妈去商店。,I go to the store with Mom.
+1,连词“和”（连接词语）,,词类,Word classes,The conjunction 和 joins nouns or noun phrases: “A and B”.,我有一只猫和一只狗。,I have a cat and a dog.
+1,结构助词“的”,定语＋的＋名词,词类,Word classes,The particle 的 links a modifier to its noun and marks possession: 我的书 “my book”.,那是我的书。,That is my book.
+1,动态助词“了”,动词＋了（＋宾语）,词类,Word classes,The aspect particle 了 right after a verb marks a completed action.,我买了三本书。,I bought three books.
+1,语气助词“吗”,……＋吗？,词类,Word classes,Sentence-final 吗 turns a statement into a yes-no question.,你是学生吗？,Are you a student?
+1,语气助词“呢”,,词类,Word classes,"Sentence-final 呢 asks “what about…?”, softens a question in progress, or asks where something is.",我是老师，你呢？,I am a teacher. What about you?
+1,语气助词“吧”,,词类,Word classes,Sentence-final 吧 makes a suggestion or marks an assumption the speaker expects to be right.,我们回家吧。,Let’s go home.
+1,语气助词“了”（变化）,……＋了,词类,Word classes,Sentence-final 了 marks a new situation or change of state: “now / anymore”.,天气冷了。,The weather has gotten cold.
+1,叹词“喂”,,词类,Word classes,The interjection 喂 opens a phone call or calls for someone’s attention: “hello?”.,喂，你现在忙吗？,"Hello, are you busy right now?"
+1,主谓句1：动词谓语句,主语＋动词（＋宾语）,句型,Sentence patterns,The basic sentence: a subject followed by a verb and an optional object.,我吃米饭。,I eat rice.
+1,主谓句2：形容词谓语句,主语＋（副词＋）形容词,句型,Sentence patterns,An adjective serves directly as the predicate: no 是 is used before it.,爸爸今天很忙。,Dad is very busy today.
+1,主谓句3：名词谓语句,主语＋名词性词语,句型,Sentence patterns,"A noun phrase serves directly as the predicate for dates, times, ages, and prices: no 是 needed.",今天星期一。,Today is Monday.
+1,非主谓句,,句型,Sentence patterns,"A complete utterance without a subject-predicate structure, common in greetings and requests.",请坐，请喝茶。,Please sit down and have some tea.
+1,正反问句,动词＋不＋动词,句型,Sentence patterns,A yes-no question formed by juxtaposing the positive and negative forms of the verb or adjective.,你去不去？,Are you going or not?
+1,祈使句（请／不要）,不要＋动词,句型,Sentence patterns,Imperatives use 请 for polite requests and 不要 to tell someone not to do something.,不要说话。,Don’t talk.
+1,“是”字句1（等同或类属）,A＋是＋B,特殊句型,Special sentence patterns,是 links the subject to what it equals or what category it belongs to.,我是学生。,I am a student.
+1,“有”字句1（领有）,主语＋有＋宾语,特殊句型,Special sentence patterns,有 expresses possession: the subject has something.,我有一个姐姐。,I have an older sister.
+1,存现句1,处所＋有＋数量短语＋名词,特殊句型,Special sentence patterns,"An existence sentence: a place comes first, then 有 (or 是) introduces what exists there.",桌子上有三本书。,There are three books on the table.
+1,连动句1,主语＋动词1（＋宾语）＋动词2（＋宾语）,特殊句型,Special sentence patterns,Two verbs in sequence share one subject; the first is often 去/来 stating purpose or means.,我去商店买苹果。,I go to the store to buy apples.
+1,双宾语句1,主语＋动词＋宾语1＋宾语2,特殊句型,Special sentence patterns,"Some verbs take two objects: first the person, then the thing.",妈妈给我十块钱。,Mom gives me ten yuan.
+1,时间表示法,数词＋点（＋数词＋分）,特殊表达法,Special ways of saying things,"Clock time is stated with 点 for the hour and 分 for the minutes, placed before the verb.",现在三点十分。,It is now ten past three.
+1,钱数表示法,数词＋块（钱）,特殊表达法,Special ways of saying things,Prices are counted with 块 (colloquial) or 元 (formal): 三块钱 “three yuan”.,这个苹果三块钱。,This apple is three yuan.
+2,后缀“-面”,,语素,Word parts,"The suffix -面 attaches to direction words to form location words: 上面, 里面, 外面.",书在桌子上面。,The book is on the table.
+2,方位名词（左、右）,,词类,Word classes,The locality nouns 左 “left” and 右 “right” combine with 边/面 to give directions.,医院在商店的左边。,The hospital is to the left of the store.
+2,动词重叠,AA／A一A／A了A／ABAB,词类,Word classes,"Reduplicating a verb (看看, 看一看) makes the action brief, casual, or tentative.",我可以看看吗？,May I take a look?
+2,能愿动词“可能”,,词类,Word classes,The modal verb 可能 expresses possibility: “might / maybe”.,他可能生病了。,He might be sick.
+2,离合词（帮忙、游泳、跳舞、跑步）,游泳 → 游（半个小时的）泳,词类,Word classes,"More separable verbs: activity words like 游泳 and 跑步 behave as verb+object compounds, and split when you say how long or how often.",我会游泳。,I can swim.
+2,疑问代词“为什么”,,词类,Word classes,为什么 asks for the reason: “why?”.,你为什么不吃饭？,Why aren’t you eating?
+2,人称代词“自己”,,词类,Word classes,自己 “oneself” reflects back on the subject or emphasizes doing something personally.,这是我自己做的菜。,This is a dish I made myself.
+2,指示代词（这么、那么、这样、那样、每）,,词类,Word classes,"这么/那么 before an adjective mean “so / this …”, pointing at degree or manner.",今天怎么这么热？,Why is it so hot today?
+2,形容词重叠,AA／AABB,词类,Word classes,"Reduplicated adjectives (好好, 高高兴兴) intensify and vivify the description.",你好好休息吧。,Have a good rest.
+2,数词（万、好多、多）,,词类,Word classes,"万 counts ten-thousands; Chinese numbers group by 万, not by thousand.",这个电脑一万块钱。,This computer costs ten thousand yuan.
+2,名量词（条、位、间、名；包）,,词类,Word classes,"More measure words: 条 for long thin things and animals, 位 politely for people, 间 for rooms.",我买了一条鱼。,I bought a fish.
+2,动量词“次”,动词＋数词＋次,词类,Word classes,The verbal measure word 次 counts how many times an action happens.,我去过一次北京。,I have been to Beijing once.
+2,程度副词（多、好、最）,,词类,Word classes,The degree adverb 最 marks the superlative: “the most”.,我最喜欢吃苹果。,I like eating apples the most.
+2,范围副词“一起”,,词类,Word classes,The adverb 一起 before the verb means doing something together.,我们一起去吃饭吧。,Let’s go eat together.
+2,时间副词（已经、还、有时候、快、正）,,词类,Word classes,"Time adverbs like 已经 “already” stand before the verb, often with sentence-final 了.",他已经走了。,He has already left.
+2,频率副词“常、经常”,,词类,Word classes,The adverb 经常 before the verb means “often / frequently”.,我经常去游泳。,I often go swimming.
+2,否定副词“别”,别＋动词（＋了）,词类,Word classes,别 before a verb tells someone not to do something: “don’t”.,上课别说话。,Don’t talk in class.
+2,关联副词“就”,,词类,Word classes,"The adverb 就 links two actions in quick sequence: as soon as one happens, the next follows.",你到了就给我打电话。,Call me as soon as you arrive.
+2,介词“从”,从＋时间/处所,词类,Word classes,The preposition 从 marks the starting point in time or space: “from”.,他从中国来。,He comes from China.
+2,介词“往”,往＋方向＋动词,词类,Word classes,The preposition 往 marks the direction of movement: “toward”.,请往前走。,Please go forward.
+2,介词“给”,给＋对象＋动词,词类,Word classes,The preposition 给 introduces the beneficiary or recipient of an action: “for / to”.,我晚上给你打电话。,I will call you this evening.
+2,介词“跟”,跟＋对象＋动词,词类,Word classes,The preposition 跟 introduces the person one does something with or learns from.,明天我跟妈妈去买东西。,Tomorrow I am going shopping with Mom.
+2,连词“那”,,词类,Word classes,The conjunction 那 “then / in that case” draws a conclusion from what was just said.,你不去，那我自己去。,"If you are not going, then I will go myself."
+2,结构助词“得”（状态补语）,动词＋得＋形容词性短语,词类,Word classes,得 after a verb links a complement describing how the action is done.,他跑得很快。,He runs very fast.
+2,结构助词“地”,形容词＋地＋动词,词类,Word classes,"地 links an adjective to the verb it modifies, forming an adverbial: 高兴地说.",孩子们高兴地唱歌。,The children sing happily.
+2,动态助词“过”,动词＋过,词类,Word classes,The aspect particle 过 after a verb marks past experience: “have (ever) done”.,我去过中国。,I have been to China.
+2,动态助词“着”,动词＋着,词类,Word classes,The aspect particle 着 after a verb marks an ongoing state or continuing action.,门开着呢。,The door is open.
+2,语气助词“啊”,,词类,Word classes,"Sentence-final 啊 adds exclamation, agreement, or urging to the sentence.",今天天气真好啊！,The weather is so nice today!
+2,固定短语“什么的”,……、……什么的,固定格式,Fixed expressions,什么的 after a list means “and so on / and such”.,我买了苹果、茶什么的。,"I bought apples, tea, and so on."
+2,还是……吧,还是＋……＋吧,固定格式,Fixed expressions,还是……吧 proposes the better alternative after weighing options: “we’d better…”.,太晚了，我们还是回家吧。,It is too late. We had better go home.
+2,要/快要/就要……了,要/快要/就要＋动词＋了,固定格式,Fixed expressions,The frame 要……了 (also 快要/就要……了) marks something about to happen.,火车就要开了。,The train is about to leave.
+2,都……了,都＋……＋了,固定格式,Fixed expressions,The frame 都……了 stresses that a point has already been reached: “it’s already…”.,都十点了，你怎么还在睡觉？,It is already ten. Why are you still sleeping?
+2,结果补语1,动词＋错/懂/好/会/完,句子成分,Parts of the sentence,"A result complement right after the verb states the outcome: 完 “finished”, 错 “wrongly”, 懂 “understood”.",我吃完饭了。,I have finished eating.
+2,趋向补语1,动词＋来/去,句子成分,Parts of the sentence,"Directional complements 来/去 (and 进来, 回来…) after a verb show movement toward or away from the speaker.",你快进来吧。,Come on in.
+2,数量补语2（时量）,动词＋了＋时段,句子成分,Parts of the sentence,A duration complement after the verb states how long the action lasts.,我睡了八个小时。,I slept for eight hours.
+2,主谓句4：主谓谓语句,主语＋[主语＋谓语],句型,Sentence patterns,A subject-predicate phrase itself serves as the predicate: 我身体很好 “my health is good”.,我身体很好。,My health is very good.
+2,选择问句“还是”,A＋还是＋B？,句型,Sentence patterns,"还是 joins two alternatives in a choice question: “A or B?”, also inside a sentence after 不知道 or 不管.",你喝茶还是喝咖啡？,Do you want tea or coffee?
+2,“是”字句2（说明或特征）,,特殊句型,Special sentence patterns,"是 links the subject to a description or characteristic, often with a 的-phrase.",这件衣服是红的。,This piece of clothing is red.
+2,“有”字句2（达到）,,特殊句型,Special sentence patterns,有 before a quantity or comparison states that an amount or degree is reached.,从我家到学校有二十分钟。,It takes a good twenty minutes from my home to school.
+2,存现句2,处所＋动词＋着（＋数量短语）＋名词,特殊句型,Special sentence patterns,"An existence sentence with verb+着: a place comes first, then what is there in that state.",椅子上坐着一个人。,A person is sitting on the chair.
+2,比较句1,A＋比＋B＋形容词,特殊句型,Special sentence patterns,比 compares two things: A is more … than B; a measure of difference can follow.,他比我高。,He is taller than me.
+2,“是……的”句1,是＋时间/地点/方式＋动词＋的,特殊句型,Special sentence patterns,"The 是……的 frame highlights the time, place, manner, or agent of a past action.",你是什么时候来的？,When was it that you came?
+2,兼语句1,主语＋请/叫/让＋宾语1＋动词（＋宾语2）,特殊句型,Special sentence patterns,A pivotal sentence: the object of 请/叫/让 is also the subject of the following verb.,我想请你吃饭。,I would like to invite you to a meal.
+2,双宾语句2,主语＋动词＋给＋宾语1＋宾语2,特殊句型,Special sentence patterns,Verbs like 送 and 带 combine with 给 before the recipient and the thing given.,他送给我一本书。,He gave me a book as a gift.
+2,紧缩复句“一……就……”,一＋动词1＋就＋动词2,复句,Multi-clause sentences,"The frame 一…就… means “as soon as A happens, B happens”.",我一到家就给你打电话。,I will call you as soon as I get home.
+2,转折复句“虽然……但是……”,虽然……，但是……,复句,Multi-clause sentences,"虽然…但是… links two clauses with a contrast: “although… , but…”.",虽然很贵，但是我很喜欢。,"Although it is expensive, I like it very much."
+2,因果复句“因为……所以……”,因为……，所以……,复句,Multi-clause sentences,"因为…所以… links cause and result: “because… , therefore…”.",因为下雨，所以我没去跑步。,"Because it rained, I did not go running."
+2,概数表达法1,数词＋多＋量词,特殊表达法,Special ways of saying things,Approximate numbers use 几 or add 多 after the numeral: 十多个 “ten-odd”.,我买了十多个苹果。,I bought more than ten apples.
+3,前缀“老-”,,语素,Word parts,Prefix 老- before a surname forms a familiar way to address someone.,老王是我爸爸的老朋友。,Lao Wang is an old friend of my father.
+3,后缀“-员／-家／-子”,,语素,Word parts,Suffixes like -员 form nouns for people with a role or job.,她是饭店的服务员。,She is a waitress at the restaurant.
+3,能愿动词“应该”,,词类,Word classes,应该 expresses what should or ought to be done.,你应该早点儿睡觉。,You should go to bed earlier.
+3,离合词,洗澡 → 洗（个）澡,词类,Word classes,"Separable verbs like 洗澡 can split to take 了, 个 or other material in the middle.",他每天晚上都洗澡。,He takes a shower every evening.
+3,疑问代词的任指用法,疑问代词＋都／也……,词类,Word classes,"Question words + 都/也 mean “any / every”: 什么都, 谁都.",他什么都想学。,He wants to learn everything.
+3,人称代词“咱们”,,词类,Word classes,"咱们 means “we”, always including the listener.",咱们一起去吃饭吧。,Let us go eat together.
+3,指示代词“别的／其他”,,词类,Word classes,别的 means “other / something else”.,我不要别的，就要这个。,"I do not want anything else, just this one."
+3,量词重叠与数量重叠,个个／一个一个,词类,Word classes,Reduplicated measure words mean “every one”; 一M一M means “one by one”.,他们个个都很高兴。,Every one of them is very happy.
+3,动量词“遍”,,词类,Word classes,Verbal measure word 遍 counts complete run-throughs of an action.,请你再说一遍。,Please say it one more time.
+3,程度副词“更”,,词类,Word classes,"更 means “even more”, raising the degree in a comparison.",今天比昨天更冷。,Today is even colder than yesterday.
+3,范围副词“一共”,,词类,Word classes,"一共 means “altogether, in total”.",我们班一共有二十人。,Our class has twenty people in total.
+3,时间副词“才”,,词类,Word classes,才 marks that something happens later than expected: “not until”.,他十点才起床。,He did not get up until ten o'clock.
+3,频率副词“总是”,,词类,Word classes,总是 means “always”.,他总是第一个到学校。,He is always the first to arrive at school.
+3,情态副词“一定”,,词类,Word classes,"一定 means “definitely, must”.",明天我一定来。,I will definitely come tomorrow.
+3,语气副词“终于”,,词类,Word classes,"终于 means “finally, at last” after a long wait or effort.",我们终于到北京了。,We finally arrived in Beijing.
+3,否定副词“不用／不必”,,词类,Word classes,不用 means “no need to”.,你不用担心我。,You do not need to worry about me.
+3,介词“关于”,,词类,Word classes,"关于 introduces the topic “about, concerning”.",这是一本关于中国的书。,This is a book about China.
+3,介词“根据”,,词类,Word classes,"根据 means “according to, based on”.",请根据要求写句子。,Please write sentences according to the requirements.
+3,介词“为了”与目的复句,为了……，……,词类,Word classes,"为了 introduces the purpose “in order to, for the sake of”.",为了健康，他每天跑步。,"For his health, he runs every day."
+3,连词“或者”与选择复句,或者……，或者……,词类,Word classes,或者 offers alternatives in statements and suggestions: “or / either… or…”. A question “A or B?” takes 还是.,我们坐公交车或者地铁去。,We'll go by bus or subway.
+3,助词“的话”,……的话，就……,词类,Word classes,"的话 after a clause marks “if…”, often paired with 就.",你有时间的话，就来我家玩。,"If you have time, come to my place."
+3,四字格“不A不B”,,短语,Phrases,"不A不B with opposite words means “neither too A nor too B, just right”.",这件衣服不大不小。,This piece of clothing is neither too big nor too small.
+3,越来越……,越来越＋形容词,短语,Phrases,越来越 means “more and more” over time.,天气越来越热了。,The weather is getting hotter and hotter.
+3,看起来／看上去／在……看来,,短语,Phrases,看起来 means “it seems / looks like”; 在……看来 gives a point of view.,你今天看起来很累。,You look very tired today.
+3,对……来说／一般来说,,固定格式,Fixed expressions,对……来说 means “as far as… is concerned”; 一般来说 means “generally speaking”.,对我来说，汉字最难。,"For me, Chinese characters are the hardest."
+3,除了……（以外），还／也／都……,,固定格式,Fixed expressions,"除了 means “besides / except”, often with 还, 也 or 都.",除了汉语，他还会英语。,"Besides Chinese, he also speaks English."
+3,从……起,,固定格式,Fixed expressions,从……起 means “starting from (a time)”.,从明天起，我要早点儿起床。,"Starting tomorrow, I will get up earlier."
+3,一……也／都＋不／没……,一＋量词＋也／都＋不／没……,固定格式,Fixed expressions,一…也/都 + negation means “not even one / not at all”.,他一句话也没说。,He did not say a single word.
+3,越……越……,越A越B,固定格式,Fixed expressions,"越…越… means “the more…, the more…”.",雨越下越大了。,The rain is falling harder and harder.
+3,（在）……以前／以后,,固定格式,Fixed expressions,以前/以后 after a phrase mean “before / after …”.,下课以后我们去打球。,After class we will go play ball.
+3,该……了,,固定格式,Fixed expressions,该…了 means “it is time to…”.,十点了，该睡觉了。,It is ten o'clock; time to sleep.
+3,在……上／下／中,,固定格式,Fixed expressions,"在…下 frames a condition, e.g. “with the help of…”.",在老师的帮助下，成绩提高了。,"With the teacher's help, my grades improved."
+3,X什么（啊）,,固定格式,Fixed expressions,Verb + 什么（啊） dismisses an action: “what are you …-ing for?”.,哭什么啊，没事了。,What are you crying for? It is all right now.
+3,结果补语“到／住／走／上”,动词＋到／住／走／上,句子成分,Parts of the sentence,Result complements like 到 mark that the action reached its result.,我找到手机了。,I found my phone.
+3,趋向补语的引申用法,动词＋起来／下去／下来,句子成分,Parts of the sentence,Directional complements extend to meanings like starting (起来) or continuing (下去).,大家都笑了起来。,Everyone started laughing.
+3,可能补语1,动词＋得／不＋动词／形容词,句子成分,Parts of the sentence,V + 得/不 + complement says whether a result can be achieved.,黑板上的字你看得清楚吗？,Can you see the characters on the blackboard clearly?
+3,程度补语“极了／得很”,形容词＋极了,句子成分,Parts of the sentence,极了 after an adjective means “extremely”.,今天天气热极了。,The weather today is extremely hot.
+3,数量补语（时间间隔）,动词＋时段＋了,句子成分,Parts of the sentence,A duration after the verb + 了 marks time elapsed since an event.,他离开北京三年了。,It has been three years since he left Beijing.
+3,“怎样＋动词”的特指问句,,句类,Sentence types,怎样 + verb asks “how” something is done.,这个字怎样读？,How is this character read?
+3,反问句“不是……吗？”,,句类,Sentence types,Rhetorical 不是…吗 emphasizes something the listener should know.,你不是去过北京吗？,Have you not been to Beijing before?
+3,“把”字句1,主语＋把＋宾语＋动词＋其他成分,特殊句型,Special sentence patterns,The 把 sentence moves the object before the verb to show what is done to it.,请你把门关上。,Please close the door.
+3,被动句1,主语＋被（＋宾语）＋动词＋其他成分,特殊句型,Special sentence patterns,The 被 sentence marks the subject as affected by an action.,我的蛋糕被弟弟吃了。,My cake was eaten by my younger brother.
+3,连动句“着”,动词1＋着＋动词2,特殊句型,Special sentence patterns,V1着V2 shows the first action accompanying the second.,他笑着回答问题。,He answered the question with a smile.
+3,比较句2,A＋比＋B＋更／还＋形容词,特殊句型,Special sentence patterns,"比 compares two things, with 更/还, 不比, or a measured difference.",他比我更喜欢运动。,He likes sports even more than I do.
+3,跟……一样,A＋跟＋B＋一样（＋形容词）,特殊句型,Special sentence patterns,跟…一样 says two things are the same (optionally in some quality).,我的书包跟你的一样。,My schoolbag is the same as yours.
+3,存现句3,处所词＋动词＋补语＋了＋数量＋人／物,特殊句型,Special sentence patterns,Existential sentences report someone or something appearing or disappearing at a place.,我们班来了一个新同学。,A new classmate came to our class.
+3,“是……的”句2,,特殊句型,Special sentence patterns,是…的 here emphasizes the speaker's view or attitude.,放心吧，他是会来的。,Do not worry; he will definitely come.
+3,重动句,主语＋动词＋宾语＋动词＋补语,特殊句型,Special sentence patterns,The verb is repeated after its object so a complement can follow.,他说汉语说得很好。,He speaks Chinese very well.
+3,承接复句,先……，再／然后……,复句,Multi-clause sentences,先…然后/再… orders actions in sequence.,我们先吃饭，然后看电影。,We will eat first and then watch a movie.
+3,并列复句“一会儿……，一会儿……”,,复句,Multi-clause sentences,一会儿…一会儿… marks quick alternation between actions or states.,天气一会儿冷，一会儿热。,The weather is cold one moment and hot the next.
+3,并列复句“又……，又……”,,复句,Multi-clause sentences,又…又… joins two qualities or actions that hold at once.,这个西瓜又大又甜。,This watermelon is both big and sweet.
+3,并列复句“一边……，一边……”,,复句,Multi-clause sentences,一边…一边… marks two actions done at the same time.,他一边走路，一边听音乐。,He listens to music while walking.
+3,递进复句,不但……，而且……,复句,Multi-clause sentences,不但…而且… means “not only… but also…”.,他不但会开车，而且开得很好。,He can not only drive but drives very well.
+3,转折复句,虽然……，可是……,复句,Multi-clause sentences,"虽然…可是… means “although…, but…”.",虽然下雨了，可是他还是来了。,"Although it rained, he still came."
+3,假设复句,如果……，就……,复句,Multi-clause sentences,"如果…就… means “if…, then…”.",如果明天不下雨，我们就去爬山。,"If it does not rain tomorrow, we will go hiking."
+3,条件复句“只有……，才……”,,复句,Multi-clause sentences,只有…才… states a necessary condition: “only if…”.,只有多练习，才能学好汉语。,Only by practicing a lot can you learn Chinese well.
+3,条件复句“只要……，就……”,,复句,Multi-clause sentences,只要…就… states a sufficient condition: “as long as…”.,只要努力，成绩就会提高。,"As long as you work hard, your grades will improve."
+3,紧缩复句,……了……（就）……,复句,Multi-clause sentences,"Compressed clauses: as soon as one action finishes, the next follows with 就.",他下了课就回家。,He goes home as soon as class is over.
+3,概数表达法2,大概＋数量／相邻数词连用,特殊表达法,Special ways of saying things,大概 or two adjacent numbers express an approximate amount.,教室里大概有三十个人。,There are about thirty people in the classroom.
+4,能愿动词“敢”,,词类,Word classes,敢 means “to dare to”.,我不敢告诉妈妈这件事。,I dare not tell Mom about this.
+4,指示代词“任何／各／此”,,词类,Word classes,"任何 means “any”, usually reinforced with 都.",任何人都可以参加。,Anyone can take part.
+4,动量词“趟／场／顿”,,词类,Word classes,Verbal measure words like 趟 count trips or rounds of an action.,我去了一趟银行。,I made a trip to the bank.
+4,程度副词“十分”,,词类,Word classes,"十分 means “very, fully” (a formal “extremely”).",他对这次考试十分满意。,He is very satisfied with this exam.
+4,范围副词“至少”,,词类,Word classes,至少 means “at least”.,从这儿到机场至少要一个小时。,It takes at least an hour from here to the airport.
+4,时间副词“从来”,,词类,Word classes,从来 with negation means “never (up to now)”.,他从来不迟到。,He is never late.
+4,频率副词“重新”,,词类,Word classes,"重新 means “anew, all over again”.",这篇文章我要重新写一遍。,I will rewrite this article from scratch.
+4,方式副词“互相”,,词类,Word classes,"互相 means “mutually, each other”.",同学们应该互相帮助。,Classmates should help each other.
+4,关联副词“却”,,词类,Word classes,"却 marks an unexpected contrast: “yet, however”.",他答应来，却没有来。,"He promised to come, yet he did not."
+4,情态副词“恐怕／也许”,,词类,Word classes,"恐怕 means “I am afraid that…”, marking a worried guess.",恐怕明天要下雨。,I am afraid it will rain tomorrow.
+4,语气副词“竟然”,,词类,Word classes,"竟然 marks surprise: “unexpectedly, to my surprise”.",他竟然忘了自己的生日。,He actually forgot his own birthday.
+4,介词“随着”,,词类,Word classes,"随着 means “along with, as (something changes)”.",随着时间过去，他习惯了这里的生活。,"As time passed, he got used to life here."
+4,介词“由”,,词类,Word classes,由 introduces the agent responsible: “to be done by…”.,这件事由我来负责。,I will be responsible for this matter.
+4,介词“对于”,,词类,Word classes,对于 introduces the object of an attitude or comment: “regarding”.,对于这个问题，大家的看法不同。,"Regarding this question, people have different views."
+4,介词“按照／按”,,词类,Word classes,"按照 means “according to, in line with”.",请按照老师说的做。,Please do as the teacher says.
+4,连词“并（且）”,,词类,Word classes,"并且/并 joins verbs or clauses: “and, moreover”.",我同意这个办法，并且愿意帮忙。,I agree with this plan and am willing to help.
+4,助词“等”,,词类,Word classes,"等 after a list means “and so on, etc.”.",桌子上放着苹果、香蕉等水果。,"On the table are apples, bananas and other fruit."
+4,数词＋形容词＋量词,一大＋量词,短语,Phrases,"An adjective can slot between number and measure word: 一大杯, 一大袋.",他买了一大袋水果。,He bought a big bag of fruit.
+4,四字格“一A一B／有A有B／无A无B”,,短语,Phrases,Four-character frames like 有说有笑 pack two parallel actions or qualities.,孩子们有说有笑地走进教室。,The children walked into the classroom talking and laughing.
+4,来得及／来不及,,短语,Phrases,来得及/来不及 say whether there is still time to do something.,再不出发就来不及了。,"If we do not leave now, there will be no time."
+4,有的是,,短语,Phrases,有的是 means “to have plenty of”.,别着急，我们有的是时间。,Do not worry; we have plenty of time.
+4,说不定,,短语,Phrases,"说不定 means “perhaps, you never know”.",你问问他，说不定他知道。,Ask him; he might just know.
+4,就是说／这就是说,,短语,Phrases,就是说 restates something: “that is to say”.,他没回短信，就是说他可能很忙。,"He did not reply, which means he is probably busy."
+4,一＋量词＋比＋一＋量词,,固定格式,Fixed expressions,One-M-比-one-M shows steady change: 一天比一天 “day by day”.,天气一天比一天热。,The weather is getting hotter day by day.
+4,在……方面,,固定格式,Fixed expressions,"在…方面 means “in the area of, as regards”.",在学习方面，他从来不让人担心。,"When it comes to studying, he never worries anyone."
+4,够……的,,固定格式,Fixed expressions,够…的 emphasizes a high degree: “really quite…”.,今天可真够热的。,It is really quite hot today.
+4,拿……来说,,固定格式,Fixed expressions,拿…来说 means “take… for example”.,拿我们班来说，一半人会游泳。,Take our class: half the people can swim.
+4,再也不／没……,,固定格式,Fixed expressions,再也 + negation means “never again”.,我再也不想看这部电影了。,I never want to watch this movie again.
+4,怎么都／也＋不／没……,,固定格式,Fixed expressions,"怎么都/也 + negation means “no matter how, just cannot”.",这个门怎么都打不开。,This door just will not open no matter what.
+4,为了……而……,,固定格式,Fixed expressions,为了 A 而 B: do B for the sake of A.,他为了考上大学而努力学习。,He studies hard in order to get into university.
+4,X是X（一X是一X／X是X，Y是Y）,,固定格式,Fixed expressions,是-frames concede or separate: 能V一点是一点; A是A，B是B.,时间不多了，能多学一点是一点。,Time is short; every bit more we learn counts.
+4,X也得X，不X也得X／说什么也得X,,固定格式,Fixed expressions,也得-frames insist there is no way around doing something.,这件事你去也得去，不去也得去。,You must go whether you want to or not.
+4,（没）有什么（好）X的,,固定格式,Fixed expressions,没什么好X的 means “there is nothing worth X-ing about”.,这件事没有什么好担心的。,There is nothing to worry about in this matter.
+4,X就X（点儿）吧／X就是了,,固定格式,Fixed expressions,"就-frames accept something or reassure: “fine, so be it / just do it”.",贵就贵点儿吧，东西好就行。,"If it is expensive, so be it, as long as it is good."
+4,还X呢,,固定格式,Fixed expressions,还X呢 mocks a mismatch between a label and reality.,还大学生呢，这个字都不认识。,Some university student you are; you do not even know this character.
+4,你X你的（吧）,,固定格式,Fixed expressions,你X你的 tells someone to carry on with their own business.,你忙你的吧，我自己来。,You go on with your work; I will manage myself.
+4,程度补语2,形容词／心理动词＋死了／得厉害,句子成分,Parts of the sentence,"死了 after adjectives or feeling verbs means “to death, terribly”.",走了一天，我累死了。,"After walking all day, I am dead tired."
+4,可能补语2,动词＋得／不＋了,句子成分,Parts of the sentence,V得了/V不了 say whether an action is possible or manageable.,这么多菜，我一个人吃不了。,So much food; I cannot eat it all by myself.
+4,反问句2,难道……吗？,句类,Sentence types,难道…吗 forms a rhetorical question expressing disbelief.,难道你忘了吗？,Do not tell me you forgot?
+4,“把”字句2,主语＋把＋宾语＋动词＋了／一下／动量补语,特殊句型,Special sentence patterns,"Extended 把 patterns with 了, reduplication, or measure complements.",你把这句话再读一遍。,Read this sentence once more.
+4,被动句2,主语＋叫／让＋宾语＋动词＋其他成分,特殊句型,Special sentence patterns,叫/让 mark colloquial passives like 被.,蛋糕让弟弟吃完了。,The cake was finished off by my little brother.
+4,兼语句2,主语＋使／让＋人＋动词短语,特殊句型,Special sentence patterns,Pivotal sentences with 使/让 express causing someone to feel or do something.,这个消息使大家很高兴。,This news made everyone very happy.
+4,比较句3“A不如B”,A＋不如＋B（＋形容词）,特殊句型,Special sentence patterns,不如 means “not as good as / not as … as”.,我的汉语不如他好。,My Chinese is not as good as his.
+4,跟……相比,,特殊句型,Special sentence patterns,跟…相比 sets up a comparison: “compared with…”.,跟去年相比，今年冬天冷多了。,"Compared with last year, this winter is much colder."
+4,双重否定句,,特殊句型,Special sentence patterns,Double negation emphasizes a strong affirmative.,班里没有人不认识他。,There is no one in the class who does not know him.
+4,并列复句“不是……，而是……”,,复句,Multi-clause sentences,不是A而是B corrects: “not A but B”.,他不是不想去，而是没有时间。,"It is not that he does not want to go, but that he has no time."
+4,并列复句“既……，又／也……”,,复句,Multi-clause sentences,既A又B joins two coexisting qualities or actions.,这个房间既干净又安静。,This room is both clean and quiet.
+4,并列复句“一方面……，另一方面……”,,复句,Multi-clause sentences,一方面…另一方面… presents two sides of a matter.,他一方面想去，另一方面又怕花钱。,On one hand he wants to go; on the other he fears spending money.
+4,承接复句“首先……，其次／然后……”,,复句,Multi-clause sentences,首先…其次/然后… lists steps or points in order.,首先要努力，其次要有好方法。,First you must work hard; second you need good methods.
+4,承接复句“……，于是……”,,复句,Multi-clause sentences,于是 links a situation to what happened as a result: “and so”.,外面下雨了，于是我们留在家里。,"It started raining outside, so we stayed home."
+4,递进复句“……，甚至……”,,复句,Multi-clause sentences,甚至 pushes to an extreme case: “even”.,他忙得甚至忘了吃饭。,He was so busy he even forgot to eat.
+4,递进复句“不仅／不光……，还／而且……”,,复句,Multi-clause sentences,不仅…还… means “not only… but also…”.,她不仅会英语，还会汉语。,She knows not only English but also Chinese.
+4,递进复句“连……也／都……”,,复句,Multi-clause sentences,连…也/都 highlights an extreme case: “even”.,他忙得连饭都没吃。,He was so busy he did not even eat.
+4,选择复句“不是……，就是……”,,复句,Multi-clause sentences,"不是A就是B means “if not A, then B, always one of the two”.",他周末不是打球，就是游泳。,On weekends he is either playing ball or swimming.
+4,转折复句“尽管……，但是／可是……”,,复句,Multi-clause sentences,尽管 concedes a fact before the contrast: “even though”.,尽管很难，但是他没有放弃。,"Even though it was hard, he did not give up."
+4,转折复句“……，然而……”,,复句,Multi-clause sentences,然而 is a formal “however”.,他试了很多次，然而都失败了。,"He tried many times; however, he failed every time."
+4,转折复句“……，不过……”,,复句,Multi-clause sentences,"不过 adds a mild reservation: “but, though”.",这个手机不错，不过有点儿贵。,"This phone is good, though a bit expensive."
+4,假设复句“……，否则……”,,复句,Multi-clause sentences,否则 warns of the alternative: “otherwise”.,快点儿走，否则要迟到了。,"Hurry up, otherwise we will be late."
+4,假设复句“要是……，就……”,,复句,Multi-clause sentences,"要是…就… is a colloquial “if…, then…”.",要是明天天气好，我们就去公园。,"If the weather is good tomorrow, we will go to the park."
+4,条件复句“不管／无论……，都／也……”,,复句,Multi-clause sentences,"不管/无论…都… means “no matter…, still…”.",不管天气怎么样，我们都去。,"No matter what the weather is like, we will go."
+4,因果复句“既然……，就……”,,复句,Multi-clause sentences,既然…就… draws a conclusion from a given fact: “since…”.,既然你不舒服，就在家休息吧。,"Since you are not feeling well, rest at home."
+4,因果复句“（由于）……，因此……”,,复句,Multi-clause sentences,因此 states the consequence: “therefore”.,他平时很努力，因此成绩很好。,He usually works hard; therefore his grades are good.
+4,目的复句“……，好……”,,复句,Multi-clause sentences,好 introduces the intended purpose: “so that…”.,请把地址写清楚，好让司机找到你。,Write the address clearly so the driver can find you.
+4,让步复句“即使／就是……，也……”,,复句,Multi-clause sentences,即使/就是…也… concedes a hypothetical: “even if…”.,即使下雨，我们也要去。,"Even if it rains, we will still go."
+4,紧缩复句“不……也……”,,复句,Multi-clause sentences,"Compressed “even without A, B still holds”.",你不说我也知道。,"Even if you do not say it, I still know."
+4,概数表示法3,数词＋来＋量词／大约／左右／前后,特殊表达法,Special ways of saying things,"左右 after an amount, or 数+来+量, expresses “approximately”.",现在是下午五点左右。,It is around five in the afternoon now.
+4,倍数、分数、百分数的表示法,,特殊表达法,Special ways of saying things,"倍 expresses multiples: A是B的两倍, 多了一倍.",今年的学生是去年的两倍。,This year's students are double last year's.
+5,后缀“-头”,,语素,Word parts,"Noun suffix -头 forming everyday nouns (石头, 木头, 念头).",他捡起一块石头扔进了河里。,He picked up a stone and threw it into the river.
+5,指示代词“彼此、如此、本”,,词类,Word classes,"Demonstrative pronouns: 彼此 (each other), 如此 (so/like this), 本 (this/one’s own).",老朋友之间应该彼此信任。,Old friends should trust each other.
+5,名量词“册、朵、届、颗、匹、行、架、群、支、根、批、束、副、集、周”,,词类,Word classes,Level-5 nominal measure words such as 颗 for small round things.,天上有几颗星星特别亮。,A few stars in the sky are especially bright.
+5,动量词“眼”,,词类,Word classes,Verbal measure word 眼: a glance (看一眼).,他回头看了我一眼，什么也没说。,He turned and gave me a glance without saying anything.
+5,程度副词“过于、相当、较、可、格外、极其”,,词类,Word classes,"Degree adverbs; 格外 = especially, exceptionally.",下过雨后，空气格外新鲜。,"After the rain, the air is especially fresh."
+5,时间副词“时刻、曾经、立刻、连忙、始终、早已、即将、急忙、渐渐、尽快、早晚”,,词类,Word classes,"Time adverbs; 曾经 marks a past experience: once, at some time.",我曾经在上海住过三年。,I once lived in Shanghai for three years.
+5,频率副词“老是、通常、时常”,,词类,Word classes,"Frequency adverbs; 老是 = always, again and again (often complaining).",他上课老是迟到，老师很生气。,"He is always late for class, and the teacher is angry."
+5,方式副词“尽量、亲自”,,词类,Word classes,"Manner adverbs; 亲自 = in person, personally.",这件事经理要亲自处理。,The manager wants to handle this matter personally.
+5,关联副词“便、一旦”,,词类,Word classes,"Linking adverbs; 便 = then, thereupon (written equivalent of 就).",他说完便转身离开了。,"As soon as he finished speaking, he turned and left."
+5,情态副词“似乎、仿佛”,,词类,Word classes,"Modal adverbs; 似乎 = it seems, apparently.",他似乎不太愿意谈这件事。,He seems unwilling to talk about this matter.
+5,语气副词“毕竟、居然、反正、根本、果然、简直、绝对、的确、反而、白、刚好、可”,,词类,Word classes,"Tone adverbs; 居然 = unexpectedly, to one’s surprise.",他居然忘了自己的生日。,He actually forgot his own birthday.
+5,介词“自从”（引出时间、处所）,,词类,Word classes,Preposition 自从: ever since (a past starting point).,自从搬到北京，我们很少见面了。,"Since moving to Beijing, we rarely see each other."
+5,介词“朝、沿（着）”（引出方向、路径）,,词类,Word classes,Prepositions of direction/path; 朝 = toward.,他朝我挥了挥手。,He waved his hand at me.
+5,介词“替、同、较”（引出对象）,,词类,Word classes,"Object-introducing prepositions; 替 = for, on behalf of.",你放心去吧，我替你照顾小狗。,Go without worry; I will look after the puppy for you.
+5,介词“凭、据、依据”（引出凭借、依据）,,词类,Word classes,"Prepositions of basis; 凭 = on the basis of, by virtue of.",凭这张票可以免费进入公园。,With this ticket you can enter the park for free.
+5,连词“以及、同”（连接词或词组）,,词类,Word classes,Conjunctions joining words/phrases; 以及 = as well as.,会议讨论了价格、质量以及服务问题。,"The meeting discussed price, quality, as well as service issues."
+5,连词“从而、可见、假如、总之”（连接分句或句子）,,词类,Word classes,"Clause-linking conjunctions; 总之 = in short, anyway.",总之，这次活动办得很成功。,"In short, this event was a great success."
+5,助词“似的”,,词类,Word classes,"Particle 似的 after a noun/phrase: like, as if.",他高兴得像个孩子似的。,He is as happy as a child.
+5,四字格“A来A去”,A来A去,短语,Phrases,"V来V去: doing the action back and forth, over and over.",我想来想去，还是决定留下来。,"After thinking it over and over, I decided to stay after all."
+5,四字格“A着A着”,A着A着,短语,Phrases,"V着V着: while doing something, another change happens.",她说着说着就哭了。,"As she was talking, she started to cry."
+5,四字格“没A没B”,没A没B,短语,Phrases,"没A没B: emphatic negation, e.g. 没完没了 = endless.",他一说起足球就没完没了。,"Once he starts talking about football, he goes on endlessly."
+5,四字格“说A就A”,说A就A,短语,Phrases,"说A就A: doing something right away, without hesitation.",他说走就走，谁也拦不住。,"When he says he is leaving, he leaves at once; no one can stop him."
+5,固定短语“不得了”,,短语,Phrases,不得了: terrible / extraordinary; also exclamation of alarm.,不得了了，火车马上就要开了！,"Oh no, the train is about to leave!"
+5,固定短语“用不着”,,短语,Phrases,用不着: there is no need to.,这点小事，用不着麻烦别人。,"For such a small matter, there is no need to trouble others."
+5,从……来看,从……来看,固定格式,Fixed expressions,"Judging from …, from the perspective of ….",从结果来看，我们的方法是对的。,"Judging from the result, our method was right."
+5,A的A，B的B,A的A，B的B,固定格式,Fixed expressions,"Some doing A, others doing B. Everyone busy in their own way.",晚会上，大家唱歌的唱歌，跳舞的跳舞。,"At the party, some were singing and some were dancing."
+5,（自）……以来,（自）……以来,固定格式,Fixed expressions,Since … (up to now).,自开学以来，他一次课都没缺过。,"Since the semester started, he has not missed a single class."
+5,由……组成,由……组成,固定格式,Fixed expressions,"To be made up of, composed of ….",我们班由三十个学生组成。,Our class is made up of thirty students.
+5,X也不是，Y也不是,X也不是，Y也不是,固定格式,Fixed expressions,Neither X nor Y feels right: caught in an awkward dilemma.,他站在门口，进也不是，退也不是。,"He stood at the door: going in felt wrong, and so did backing out."
+5,X也X不得，Y也Y不得,X也X不得，Y也Y不得,固定格式,Fixed expressions,Can neither do X nor do Y: nothing is permissible.,这孩子被惯坏了，说也说不得，碰也碰不得。,The child is spoiled. You can neither scold him nor touch him.
+5,X是它，Y也是它,X是它，Y也是它,固定格式,Fixed expressions,It does X and it does Y too: one thing serves every purpose.,查资料是它，付钱也是它，手机什么都能做。,It looks things up and it pays the bills: the phone does everything.
+5,X着也是X着,X着也是X着,固定格式,Fixed expressions,"Since it is idle anyway, might as well put it to use.",闲着也是闲着，我们把房间打扫一下吧。,We are idle anyway. Let’s clean the room.
+5,不管怎样说,不管怎样说,固定格式,Fixed expressions,No matter what one says; in any case.,不管怎样说，他都是你的亲弟弟。,"No matter what, he is still your own younger brother."
+5,真有你/他/她的,真有你/他/她的,固定格式,Fixed expressions,You really are something! Admiring (or teasing) praise.,这么难的比赛你都赢了，真有你的！,You even won such a difficult match. You really are something!
+5,X什么X,X什么X,固定格式,Fixed expressions,"V什么V: impatient rebuke, stop doing X!",哭什么哭，问题总能解决的。,Stop crying: the problem can always be solved.
+5,什么X不X（的）,什么X不X（的）,固定格式,Fixed expressions,什么X不X的: dismissing a concern as irrelevant.,什么贵不贵的，你喜欢就买。,"Never mind whether it is expensive: if you like it, buy it."
+5,不X白不X,不X白不X,固定格式,Fixed expressions,"If you don’t do X, it goes to waste: might as well do it.",这些水果是免费的，不吃白不吃。,"This fruit is free, not eating it would be a waste."
+5,X来X去，都是/就是……,X来X去，都是/就是……,固定格式,Fixed expressions,"After going back and forth, it always comes down to ….",大家说来说去，都是那几个老问题。,"After all the back and forth, it was still the same old problems."
+5,动词+什么（就）是什么,动词+什么（就）是什么,固定格式,Fixed expressions,Whatever one V-s counts: that person/thing decides.,这家小店没有菜单，老板做什么就是什么。,This little shop has no menu: whatever the owner cooks is what you get.
+5,多项状语,时间+处所+方式……+动词,句子成分,Parts of the sentence,Ordering multiple adverbials: time before place before manner.,他昨天在图书馆认真地复习了一天。,Yesterday he reviewed earnestly in the library all day.
+5,可能补语“动词+得/不得”,动词+得/不得,句子成分,Parts of the sentence,V不得: the action must not / cannot be done.,学习是慢功夫，急不得。,Learning takes time; you must not rush it.
+5,程度补语“形容词/心理动词+得+不得了”,形容词/心理动词+得+不得了,句子成分,Parts of the sentence,Adj/psych-verb + 得不得了: to an extreme degree.,听说能去旅游，孩子们高兴得不得了。,"Hearing they could go traveling, the children were overjoyed."
+5,趋向补语的引申用法（下来/下去/起来/过来/过去）,动词/形容词+下来/下去/起来/过来/过去,句子成分,Parts of the sentence,"Directional complements extended to states, e.g. 下来 = settling into a state.",老师进来后，教室里安静下来。,"After the teacher came in, the classroom quieted down."
+5,状态补语“动词/形容词+得+短语”,动词/形容词+得+动词短语/主谓短语/固定短语,句子成分,Parts of the sentence,V/Adj + 得 + phrase describing the resulting state.,他忙得连饭都忘了吃。,He was so busy that he even forgot to eat.
+5,“有”字句3,主语+有+着+宾语；主语+动词+有+宾语,特殊句型,Special sentence patterns,有着 expressing possession/existence with emphasis; V+有 for attachment.,这座城市有着一千多年的历史。,This city has a history of more than a thousand years.
+5,“把”字句3,主语+把+宾语+一+动词；主语+把+宾语1+动词+宾语2,特殊句型,Special sentence patterns,"把-sentence with 一+V for abrupt action, or with a second object.",他把书包一放，就跑出去玩了。,He plunked down his schoolbag and ran out to play.
+5,连动句3,动词短语1+动词短语2（因果/转折/条件关系）,特殊句型,Special sentence patterns,"Serial-verb sentence where the two verb phrases are linked by cause, contrast or condition.",大家听了这个笑话都笑了。,Everyone laughed on hearing this joke.
+5,比较句4,A+形容词+B+数量补语,特殊句型,Special sentence patterns,"Comparison without 比: A Adj B by amount, e.g. 大我三岁.",姐姐大我三岁，从小就照顾我。,My older sister is three years older than me and has looked after me since childhood.
+5,被动句3,主语+被/叫/让+宾语+给+动词+其他成分,特殊句型,Special sentence patterns,Passive with 被/叫/让 … 给 before the verb.,我的自行车叫弟弟给骑走了。,My bike was ridden off by my younger brother.
+5,承接复句“……，便……”,……，便……,复句,Multi-clause sentences,Sequential clauses linked by 便 (then).,他下了课，便急急忙忙赶回家了。,"As soon as class ended, he hurried home."
+5,选择复句“或是……，或是……”,或是……，或是……,复句,Multi-clause sentences,Alternative clauses: either … or ….,周末他或是看书，或是去爬山。,On weekends he either reads or goes hiking.
+5,假设复句“一旦……，就……”,一旦……，就……,复句,Multi-clause sentences,"Once … happens, then ….",一旦下定决心，就不要轻易放弃。,"Once you have made up your mind, do not give up lightly."
+5,假设复句“假如……，（就）……”,假如……，（就）……,复句,Multi-clause sentences,"If … (hypothetical), then ….",假如明天不下雨，我们就去公园。,"If it does not rain tomorrow, we will go to the park."
+5,假设复句“万一……，（就）……”,万一……，（就）……,复句,Multi-clause sentences,"In case … (unlikely bad event), then ….",万一路上堵车，你就打车来吧。,"In case there is a traffic jam, just take a taxi."
+5,假设复句“……，要不然/不然……”,……，要不然/不然……,复句,Multi-clause sentences,… otherwise ….,快点儿出发吧，要不然就赶不上火车了。,"Let’s set off quickly, otherwise we will miss the train."
+5,因果复句“……，因而……”,……，因而……,复句,Multi-clause sentences,… and as a result / therefore ….,他平时练习很多，因而进步很快。,"He practices a lot, and therefore improves quickly."
+5,因果复句“……，可见……”,……，可见……,复句,Multi-clause sentences,… from which one can see that ….,他连周末都在学习，可见有多努力。,He studies even on weekends. You can see how hard-working he is.
+5,让步复句“哪怕……，也……”,哪怕……，也……,复句,Multi-clause sentences,"Even if …, still ….",哪怕只有一点儿希望，我们也要努力。,"Even if there is only a little hope, we must still try hard."
+5,递进复句“不但不/不但没有……，反而……”,不但不/不但没有……，反而……,复句,Multi-clause sentences,"Not only not …, but on the contrary ….",吃了药，病不但没有好，反而更重了。,"After taking the medicine, the illness not only did not improve but got worse."
+5,递进复句“不是……，还/还是……”,不是……，还/还是……,复句,Multi-clause sentences,"Instead of …, (even) went further and ….",他不是来帮忙，还给大家添了不少麻烦。,"Instead of coming to help, he caused everyone a lot of trouble."
+5,目的复句“……，为的是……”,……，为的是……,复句,Multi-clause sentences,… for the purpose of ….,他每天早起跑步，为的是身体健康。,He gets up early to run every day for the sake of his health.
+5,紧缩复句“没有……就没有……”,没有……就没有……,复句,Multi-clause sentences,Without … there would be no ….,没有大家的帮助，就没有我今天的成绩。,"Without everyone’s help, I would not have today’s results."
+5,紧缩复句“不……不……”,不……不……,复句,Multi-clause sentences,"Condensed conditional: if not …, then not ….",他不做完作业不睡觉。,He will not sleep until he finishes his homework.
+5,紧缩复句“再……也……”,再……也……,复句,Multi-clause sentences,"No matter how …, still ….",天气再热，他也不开空调。,"No matter how hot it gets, he still will not turn on the air conditioner."
+6,类前缀“超-、多-、反-、无-、亚-、准-”,,语素,Word parts,"Productive prefixes; 超- = super-, ultra-.",这家店专卖超低价的日用品。,This shop specializes in ultra-low-priced daily goods.
+6,类后缀“-化、-式、-型、-性”,,语素,Word parts,Productive suffixes; -化 = -ize/-ification.,近几年，农村的生活越来越现代化了。,"In recent years, rural life has become more and more modernized."
+6,人称代词“人家”,,词类,Word classes,人家: others / that person / I (coy self-reference).,人家都开始复习了，你还在玩。,"Everyone else has started reviewing, and you are still playing."
+6,名量词“串、滴、枝、扇、卷”,,词类,Word classes,Level-6 nominal measure words; 串 = a string/bunch of.,他买了一串葡萄和两串香蕉。,He bought a bunch of grapes and two bunches of bananas.
+6,动量词“番”,,词类,Word classes,Verbal measure word 番: a round/bout of effortful action.,经过一番努力，他终于考上了大学。,"After a good deal of effort, he finally got into university."
+6,程度副词“特、异常、较为”,,词类,Word classes,"Degree adverbs; 异常 = unusually, exceptionally.",听到这个消息，他显得异常激动。,"On hearing the news, he seemed unusually agitated."
+6,范围副词“净、一同、大都”,,词类,Word classes,"Scope adverbs; 净 = nothing but, only.",你怎么净说些让人生气的话？,Why do you say nothing but infuriating things?
+6,时间副词“一时、不时、仍旧、依旧、一向”,,词类,Word classes,"Time adverbs; 依旧 = still, as before.",十年过去了，小镇依旧那么安静。,"Ten years on, the small town is as quiet as ever."
+6,频率副词“一再、再三”,,词类,Word classes,"Frequency adverbs; 再三 = again and again, repeatedly.",出门前，妈妈再三提醒我带伞。,"Before I left, Mom reminded me again and again to take an umbrella."
+6,方式副词“不禁、赶忙、特地、特意、偷偷”,,词类,Word classes,Manner adverbs; 不禁 = cannot help but.,看到儿时的照片，她不禁笑了。,"Seeing her childhood photos, she could not help smiling."
+6,否定副词“未必”,,词类,Word classes,未必: not necessarily.,贵的东西未必就是好的。,Expensive things are not necessarily good.
+6,语气副词“恰好、倒是、干脆、明明、总算”,,词类,Word classes,"Tone adverbs; 明明 = clearly, obviously (contradicting).",你明明知道答案，为什么不说？,You clearly know the answer. Why not say it?
+6,介词“于”（引出时间、处所）,,词类,Word classes,Formal preposition 于: at/in/on (time or place).,这座大桥建于上个世纪五十年代。,This bridge was built in the 1950s.
+6,介词“至于”（引出对象）,,词类,Word classes,"至于: as for, as to (shifting topic).",我先报名，至于去不去，以后再说。,"I will sign up first; as for whether I go, we will see later."
+6,介词“因”（引出目的、原因）,,词类,Word classes,"Formal preposition 因: because of, due to.",航班因大雾推迟了两个小时。,The flight was delayed two hours due to heavy fog.
+6,介词“除”（表示排除）,,词类,Word classes,"除 (…外/之外): except for, apart from.",除周末外，他每天都去健身房。,"Except on weekends, he goes to the gym every day."
+6,连词“不料”（连接分句或句子）,,词类,Word classes,"不料: unexpectedly, who would have thought.",我以为他会答应，不料他一口拒绝了。,"I thought he would agree; unexpectedly, he refused outright."
+6,结构助词“所”,,词类,Word classes,Structural particle 所 before a verb forming a nominal: that which is V-ed.,他所说的一切后来都得到了证实。,Everything he said was later confirmed.
+6,语气助词“啦、嘛”,,词类,Word classes,Sentence-final particles; 嘛 marks obviousness or mild urging.,有意见就直接提嘛，别放在心里。,"If you have objections, just raise them: don’t keep them inside."
+6,其他助词“也好”,,词类,Word classes,"X也好，Y也好: whether X or Y, it makes no difference.",同意也好，反对也好，请先听我说完。,"Whether you agree or object, please hear me out first."
+6,四字格“A这A那”,A这A那,短语,Phrases,V这V那: fussily doing the action to this and that.,她买衣服总是挑这挑那，半天定不下来。,When buying clothes she picks at this and that and cannot decide for ages.
+6,四字格“左A右B”,左A右B,短语,Phrases,"左A右B: doing the action repeatedly from all sides, e.g. 左思右想.",他左思右想，还是觉得这事不对劲。,He turned it over and over in his mind and still felt something was off.
+6,固定短语“好（不）容易”,,短语,Phrases,好（不）容易: only with great difficulty (both forms mean the same).,我排了两个小时队，好不容易才买到票。,I queued for two hours and finally managed to buy a ticket.
+6,固定短语“那倒（也）是”,,短语,Phrases,"那倒（也）是: “that’s true, actually”, conceding a point.",“坐高铁比开车快多了。”“那倒是。”,“Taking the high-speed train is much faster than driving.” “That’s true.”
+6,固定短语“算了”,,短语,Phrases,"算了: forget it, let it go.",他不愿意去就算了，咱们别勉强。,"If he does not want to go, forget it. Let’s not force him."
+6,固定短语“得了”,,短语,Phrases,Sentence-final 得了: just do X and be done with it.,别纠结了，就买这件得了。,"Stop agonizing, just buy this one and be done with it."
+6,A一+量词，B一+量词,A一+量词，B一+量词,固定格式,Fixed expressions,"One from A, one from B: many people chiming in by turns.",会上大家你一句，我一句，讨论得十分热烈。,"At the meeting everyone chimed in one after another, and the discussion was lively."
+6,东一A，西一A,东一A，西一A,固定格式,Fixed expressions,"One here, one there: scattered in disorder.",屋里衣服东一件，西一件，乱得下不去脚。,Clothes lay scattered here and there in the room; there was nowhere to step.
+6,到……为止,到……为止,固定格式,Fixed expressions,Up until …; ending at ….,到目前为止，报名的人已经超过一百了。,"Up to now, more than a hundred people have signed up."
+6,X到Y头上来了,X到Y头上来了,固定格式,Fixed expressions,The trouble/action has come down on Y’s head.,他居然把主意打到我头上来了。,He actually set his sights on me.
+6,不X不……，一X……,不X不……，一X……,固定格式,Fixed expressions,"You don’t know until you X, and when you do, it’s a shock.",不看不知道，一看吓一跳，这个月竟花了一万块。,"I had no idea until I looked, and what a shock: ten thousand yuan spent this month."
+6,好你个X,好你个X,固定格式,Fixed expressions,"Why, you …! Mock-angry exclamation at someone.",好你个小张，偷偷把我的零食吃光了！,"Why, you little Zhang. You secretly ate up all my snacks!"
+6,早（也）不X，晚（也）不X,早（也）不X，晚（也）不X,固定格式,Fixed expressions,"Of all times, it had to happen right now.",电梯早不坏，晚不坏，偏偏上班时坏了。,The elevator did not break earlier or later. It had to break right at rush hour.
+6,看/瞧+把+宾语（施事）+X得,看/瞧+把+宾语+X得,固定格式,Fixed expressions,Look how X-ed you are! Teasing comment on someone’s state.,瞧把你高兴得，不就是赢了一盘棋吗？,Look how pleased you are. It was only one game of chess!
+6,放着X不Y,放着X不Y,固定格式,Fixed expressions,To leave the obvious good option X aside and not do Y with it.,放着近路不走，你偏要绕远。,"With a shortcut right there, you insist on going the long way."
+6,X了就X了，（没）有……,X了就X了，（没）有……,固定格式,Fixed expressions,What’s done is done: no use dwelling on it.,杯子碎了就碎了，没有什么大不了的。,"The cup is broken, so be it; it is no big deal."
+6,这/那也不X，那/这也不Y,这/那也不X，那/这也不Y,固定格式,Fixed expressions,Unhappy with this and that alike: impossible to please.,他这也不吃，那也不吃，真难伺候。,"He will not eat this and will not eat that, so hard to please."
+6,X归X，Y归Y,X归X，Y归Y,固定格式,Fixed expressions,"X is one thing, Y is another: keep them separate.",工作归工作，生活归生活，得分开。,Work is work and life is life. They must be kept apart.
+6,看你X的/瞧他X的,看你X的/瞧他X的,固定格式,Fixed expressions,"Look at you, all X! Teasing or deflecting remark.",看你急的，先坐下喝口水慢慢说。,"Look how worked up you are: sit down, have some water, and tell me slowly."
+6,程度补语“动词/形容词+透+了”,动词/形容词+透+了,句子成分,Parts of the sentence,"V/Adj + 透了: thoroughly, to the utmost (usually negative).",连着加了一个星期班，他烦透了。,"After a whole week of overtime, he was utterly fed up."
+6,“把”字句4,主语（非生物体）+把+宾语+动词+其他成分；主语+把+宾语（施事）+动词+其他成分,特殊句型,Special sentence patterns,"把-sentence with an inanimate subject, or whose object is the agent of the result.",一场大风把院子里的花全刮倒了。,A strong wind blew down all the flowers in the yard.
+6,并列复句“一时……一时……”,一时……一时……,复句,Multi-clause sentences,"Now …, now …: alternating states.",山里的天气一时晴，一时雨，说变就变。,"The mountain weather is now sunny, now rainy. It changes in an instant."
+6,选择复句“要么……，要么……”,要么……，要么……,复句,Multi-clause sentences,Either … or … (exclusive choice).,周末他要么在家看书，要么去郊外爬山。,On weekends he either reads at home or hikes in the outskirts.
+6,转折复句“虽……，但/可/却/也……”,虽……，但/可/却/也……,复句,Multi-clause sentences,"Although … (written 虽), yet ….",房间虽小，却收拾得干净整齐。,"Though the room is small, it is kept clean and tidy."
+6,条件复句“凡是……，都……”,凡是……，都……,复句,Multi-clause sentences,All that … invariably ….,凡是他答应过的事，都会做到。,"Whatever he has promised, he will do."
+6,条件复句“除非……，才……”,除非……，才……,复句,Multi-clause sentences,Only if … will ….,除非亲眼看见，他才肯相信。,Only if he sees it with his own eyes will he believe it.
+6,条件复句“除非……，否则/不然……”,除非……，否则/不然……,复句,Multi-clause sentences,"Unless …, otherwise ….",除非提前预订，否则周末根本没有位子。,"Unless you book ahead, there are simply no seats on weekends."
+6,让步复句“就算……，也……”,就算……，也……,复句,Multi-clause sentences,"Even if …, still ….",就算再忙，也要按时吃饭。,"Even at your busiest, you should still eat on time."
+6,目的复句“……，以便……”,……，以便……,复句,Multi-clause sentences,"… so as to, in order to (facilitate) ….",请留下电话号码，以便我们及时联系您。,Please leave your phone number so that we can contact you promptly.
+7,"类前缀""后-、亲-""",,语素,Word parts,"Prefix-like morphemes: 后- ""post-"" (后疫情) and 亲- ""pro-"" (亲环境) coin new nouns and adjectives.",后疫情时代，远程办公已成为常态。,"In the post-pandemic era, remote work has become the norm."
+7,"类后缀""-观、-鬼、-界、-然、-坛、-为、-制""",,语素,Word parts,"Suffix-like morphemes productively form abstract nouns: 价值观, 学术界, 体坛, 终身制, 胆小鬼.",这一发现震动了整个学术界。,This discovery shook the entire academic world.
+7,"动词""恨不得/巴不得""",恨不得/巴不得+动词短语,词类,Word classes,"Expresses an intense, often unrealizable eagerness: ""to itch to, to wish one could"".",他恨不得立刻飞回家乡看望母亲。,He wished he could fly home at once to see his mother.
+7,"动词""免不了/犯不着/犯得着""",,词类,Word classes,"免不了 ""cannot avoid""; 犯不着/犯得着 ""not worth / worth the trouble of"".",为这点小事生气，实在犯不着。,It is really not worth getting angry over such a trifle.
+7,"动词""并非""",并非+名词/小句,词类,Word classes,"Formal emphatic negation: ""is by no means, is not at all"".",成功并非偶然，而是长期积累的结果。,Success is by no means accidental; it is the fruit of long accumulation.
+7,"动词""可谓""",,词类,Word classes,"Formal evaluative verb: ""may well be called, can be described as"".",这场演出可谓精彩绝伦。,This performance can well be called spectacular.
+7,"动词""所谓""",所谓（的）+名词,词类,Word classes,"""So-called"": quotes or distances the speaker from a label.",那些所谓的捷径往往暗藏风险。,Those so-called shortcuts often conceal risks.
+7,"动词""有所""",有所+双音节动词,词类,Word classes,"Formal ""to some extent"": 有所 + bisyllabic verb marks measured change.",与去年相比，公司业绩有所增长。,"Compared with last year, company performance has grown somewhat."
+7,"动词""予以""",予以+双音节动词,词类,Word classes,"Formal ""to give, to grant (a treatment)"": common in official writing.",对违规行为，监管部门将予以处罚。,Regulators will impose penalties on violations.
+7,"动词""可否""",,词类,Word classes,"Formal ""whether or not it is possible"", often in polite requests.",可否请您再详细说明一下？,Might I ask you to explain in a little more detail?
+7,"动词""除外""",……除外,词类,Word classes,"""Excepted, excluded"": placed after the item that is excluded.",展馆全年开放，法定节假日除外。,"The hall is open year-round, statutory holidays excepted."
+7,"文言代词""何/彼/兹""",,词类,Word classes,"Literary pronouns: 何 ""what/why"", 彼 ""that/the other"", 兹 ""this"", formal written register.",此事该从何说起，他一时语塞。,Where to even begin with this. He was momentarily at a loss.
+7,"代词""这么着/怎么着""",,词类,Word classes,"Colloquial pro-forms standing in for a manner or action: ""like this / do what"".",你到底想怎么着，痛快点说吧。,What exactly do you want? Out with it.
+7,"数量代词""若干""",若干+（量词）+名词,词类,Word classes,"Formal indefinite quantity: ""a certain number of, several"".",报告最后提出了若干条建议。,The report closes with a number of recommendations.
+7,名量词：重、截、缕、码、枚、摊、丸、则、幢、宗,,词类,Word classes,"Advanced nominal classifiers; 枚 counts small objects such as coins, medals, stamps.",她在世锦赛上摘得两枚金牌。,She took two gold medals at the world championships.
+7,"动量词""通""",动词+了+（一）通,词类,Word classes,"Verbal classifier for a bout of scolding, phoning, drumming, etc.",他把儿子狠狠训了一通。,He gave his son a good telling-off.
+7,"复合量词""人次""",数词+人次,词类,Word classes,"Compound classifier ""person-times"", counting cumulative visits or uses.",该展览累计接待观众逾百万人次。,The exhibition has received over a million visits in total.
+7,程度副词：尤为、分外、颇、愈加、越发等,,词类,Word classes,"Written-register degree adverbs: 尤为 ""especially"", 颇 ""quite"", 愈加/越发 ""increasingly"".",在众多参赛作品中，这一幅尤为出色。,"Among the many entries, this one is especially outstanding."
+7,范围副词：皆、均、唯、统统、一概等,,词类,Word classes,"Formal scope adverbs: 均/皆 ""all without exception"", 唯 ""only"", 一概 ""categorically"".",双方均对谈判结果表示满意。,Both sides expressed satisfaction with the outcome of the talks.
+7,时间副词：届时、尚、随即、历来、一经等,,词类,Word classes,"Formal time adverbs: 届时 ""at that (future) time"", 尚 ""still"", 随即 ""right after"".",决赛下月举行，届时强手云集。,The final is next month; strong contenders will gather then.
+7,频率副词：屡次、屡屡、时而、相继、再度等,,词类,Word classes,"Frequency adverbs of formal register: 屡次/屡屡 ""repeatedly"", 相继 ""one after another"", 再度 ""once again"".",他屡次打破全国纪录。,He has repeatedly broken the national record.
+7,方式副词：毅然、擅自、竭力、骤然、逐一等,,词类,Word classes,"Manner adverbs: 毅然 ""resolutely"", 擅自 ""without authorization"", 竭力 ""with all one’s might"".",他放弃高薪，毅然回乡创业。,He gave up a high salary and resolutely went home to start a business.
+7,否定副词：不见得、绝不、无从、无须、勿,,词类,Word classes,"Negation adverbs: 无从 ""have no way to"", 无须 ""need not"", 勿 ""do not (literary)"".",年代久远，传闻已无从考证。,"So long ago, the rumor can no longer be verified."
+7,语气副词：不妨、索性、势必、未免、偏偏等,,词类,Word classes,"Modal adverbs: 索性 ""might as well, simply"", 不妨 ""no harm in"", 势必 ""be bound to"".",既然睡不着，他索性起身看书。,"Unable to sleep, he simply got up to read."
+7,"语气副词""何必/何尝/何不/何苦""",,词类,Word classes,"Rhetorical 何-series adverbs: 何必 ""why bother"", 何尝 ""when ever did"", 何苦 ""why go to the trouble"".",都是多年同事，何必斤斤计较？,You are colleagues of many years. Why haggle over trifles?
+7,"判断副词""乃""",A乃B,词类,Word classes,"Literary copular adverb: ""is precisely, is indeed"".",失败乃成功之母。,Failure is the mother of success.
+7,"介词""打""（引出时间、处所）",打+时间/处所,词类,Word classes,"Colloquial preposition ""from (a time or place)"", equivalent to 从.",打这儿往北走，就是老城区。,Head north from here and you reach the old town.
+7,"介词""当着/就""（引出对象）",当着+人+的面,词类,Word classes,"当着 ""in the presence of""; 就 ""with regard to"": introduce the target of an act or comment.",他当着全组同事的面承认了失误。,He admitted the mistake in front of the whole team.
+7,"介词""本着/基于/鉴于/经/依""（引出凭借、依据）",,词类,Word classes,"Formal prepositions of basis: 本着 ""in the spirit of"", 基于/鉴于 ""based on / in view of"", 经 ""through"", 依 ""according to"".",基于以上数据，我们得出如下结论。,"Based on the data above, we draw the following conclusion."
+7,"连词""若/倘若""",倘若……，（就）……,词类,Word classes,"Formal hypothetical conjunctions: ""if, supposing that"".",倘若明天下雨，开幕式将改期。,"Should it rain tomorrow, the opening ceremony will be rescheduled."
+7,"连词""免得/以防""",……，免得/以防……,词类,Word classes,"Preventive conjunctions: ""so as to avoid / to guard against"".",出发前再核对一遍名单，免得出错。,"Check the list once more before leaving, to avoid mistakes."
+7,"连词""况且/加之/乃至/且""",,词类,Word classes,"Additive conjunctions: 况且 ""moreover"", 加之 ""in addition"", 乃至 ""and even"", 且 ""and (literary)"".",时间尚早，况且路也不远，不必慌张。,"It is still early, and besides, it is not far: no need to panic."
+7,"语气助词""矣/罢了/也罢""",,词类,Word classes,"Sentence-final particles: literary 矣 marks completion or exclamation; 罢了 ""that is all""; 也罢 ""so be it"".",如今再想补救，为时晚矣。,To try to remedy it now. It is already too late.
+7,"四字格""爱A不A""",爱A不A,短语,Phrases,"Dismissive verb reduplication: ""do A or not, as you please"".",爱信不信，反正我说的都是实话。,Believe it or not: everything I said is the truth.
+7,"四字格""半A半B/不A不B/非A非B""",半A半B,短语,Phrases,"Four-character frames of mixed or in-between states: 半信半疑, 不慌不忙, 非亲非故.",他对这个说法半信半疑。,He half believed and half doubted this claim.
+7,"四字格""忽A忽B/时A时B/或A或B/可A可B""",忽A忽B,短语,Phrases,"Alternation frames: 忽冷忽热, 时好时坏, 或多或少, 可有可无.",近来气温忽高忽低，极易感冒。,Temperatures have swung up and down lately; it is easy to catch cold.
+7,"四字格""东A西B/七A八B/连A带B/自A自B""",七A八B,短语,Phrases,"Coordination frames of disorder or pairing: 东奔西走, 七嘴八舌, 连滚带爬, 自言自语.",会议室里七嘴八舌，久议不决。,"The meeting room buzzed with competing voices, and no decision came."
+7,"四字格""无A不B/无A可B/不A而B""",无A可B,短语,Phrases,"Literary frames: 无微不至, 无家可归, 不劳而获.",谈判破裂，双方已无话可说。,"With talks collapsed, the two sides had nothing left to say."
+7,话语标记：综上所述、总而言之、归根到底等,,短语,Phrases,"Summing-up discourse markers: ""in summary / all in all / in the final analysis"".",综上所述，本方案切实可行。,"To sum up, this plan is practical and feasible."
+7,话语标记：换句话说、话说回来、退一步说等,,短语,Phrases,"Reformulating and conceding markers: ""in other words / then again / even granting that"".",他没有明确反对，换句话说，尚有余地。,"He did not object outright; in other words, there is still room."
+7,话语标记：老实说、不瞒你说、说真的等,,短语,Phrases,"Frankness markers opening a candid remark: ""honestly speaking / to tell the truth"".",老实说，这个结果我并不意外。,"Honestly, this outcome does not surprise me."
+7,X到这个地步/份上,X到这个地步/份上,固定格式,Fixed expressions,"""To such a point"": marks an extreme, usually regrettable degree.",事情闹到这个地步，谁也不愿看到。,Nobody wanted things to come to such a pass.
+7,X得要命/要死,形容词/动词+得要命,固定格式,Fixed expressions,"Extreme-degree complement: ""terribly, to death"".",三伏天里，机房闷得要命。,"In the dog days, the server room is stiflingly hot."
+7,X都不/没X,V都不/没V,固定格式,Fixed expressions,"Verb-copying emphasis: ""without even V-ing"".",他看都不看就把文件签了。,He signed the document without so much as a glance.
+7,X就X个Y,X就X个Y,固定格式,Fixed expressions,"""If you are going to X, then X thoroughly"": urges doing something wholeheartedly.",要干就干个漂亮，别拖泥带水。,"If you are going to do it, do it brilliantly: no half measures."
+7,X了Y，Y了X,X了Y，Y了X,固定格式,Fixed expressions,"Cyclic alternation of two verbs: doing one then the other, on and on.",假期里他吃了睡，睡了吃。,"On holiday he did nothing but eat then sleep, sleep then eat."
+7,X也好，Y也罢,X也好，Y也罢，都……,固定格式,Fixed expressions,"""Whether X or Y, either way"": concessive listing of alternatives.",同意也好，反对也罢，请说明理由。,"Agree or object, either way, please give your reasons."
+7,别提（有）多+形容词+了,别提多+形容词+了,固定格式,Fixed expressions,"""Indescribably (adjective)"": exclamatory intensifier.",拿到录取通知那天，他别提多高兴了。,"The day the admission letter came, he was indescribably happy."
+7,不亚于……,A不亚于B,固定格式,Fixed expressions,"""No less than, second to none compared with"".",她的中文水平不亚于母语者。,Her Chinese is no worse than a native speaker’s.
+7,不知X是/才好,不知……才好,固定格式,Fixed expressions,"""Not know what one should best do/say"": expresses being at a loss.",面对众人的夸奖，她不知说什么才好。,"Faced with everyone’s praise, she did not know what to say."
+7,动不动就……,动不动就+动词短语,固定格式,Fixed expressions,"""At the slightest provocation, apt to"": criticizes over-frequent behavior.",他动不动就拿辞职要挟人。,He threatens to resign at the drop of a hat.
+7,动词+（得）个X,动词+（得/了）个+补语,固定格式,Fixed expressions,"V+个+complement: casual emphatic result, e.g. 输了个彻底, 玩个痛快.",这场球他们输了个彻底。,They lost that match utterly.
+7,该X（就）X，该Y（就）Y,该X就X，该Y就Y,固定格式,Fixed expressions,"""Do X when X is due, do Y when Y is due"": life goes on as it should.",该吃吃，该睡睡，别自己吓自己。,"Eat when you should, sleep when you should: stop scaring yourself."
+7,何至于……,何至于……,固定格式,Fixed expressions,"Rhetorical ""how could it have come to…"": things need not have gone this far.",早些体检，何至于拖成大病？,"With earlier checkups, how could it have become so serious?"
+7,仅次于X,A仅次于B,固定格式,Fixed expressions,"""Second only to"".",该市经济总量仅次于省会。,The city’s economic output is second only to the provincial capital’s.
+7,看在X的面子上,看在……的面子上,固定格式,Fixed expressions,"""For the sake of, out of consideration for (someone’s face)"".",看在老同学的面子上，这次就算了。,"For an old classmate’s sake, let it go this once."
+7,有/没什么+动词+头儿,有/没什么+V+头儿,固定格式,Fixed expressions,"V+头儿 ""worth of V-ing"": whether something is worth doing.",剧情老套，这部剧没什么看头儿。,"With such a clichéd plot, this show is hardly worth watching."
+7,没什么好+动词+的,没什么好+V+的,固定格式,Fixed expressions,"""There is nothing worth V-ing about"": dismisses the need for an action.",事实摆在眼前，没什么好争的。,The facts are plain. There is nothing to argue about.
+7,莫过于……,……莫过于……,固定格式,Fixed expressions,"""Nothing surpasses; the greatest … is"".",人生至乐，莫过于家人平安团聚。,Life’s greatest joy is nothing other than family safe and reunited.
+7,你说你一个X，……,你说你一个X，……,固定格式,Fixed expressions,"Reproachful opener: ""you, of all people, a X, how could you…"".",你说你一个大人，怎么跟孩子计较？,"You, a grown-up. How can you bicker with a child?"
+7,什么A的B的,什么A的B的,固定格式,Fixed expressions,"Loose enumeration ""things like A and B and so on"".",什么吃的用的，母亲都备齐了。,"Food, daily necessities and the like: mother prepared it all."
+7,视……而定,视……而定,固定格式,Fixed expressions,"""To be decided depending on…"".",是否延期，视天气情况而定。,Whether to postpone depends on the weather.
+7,谈何……,谈何+双音节词,固定格式,Fixed expressions,"Rhetorical ""how can one even speak of…"": far easier said than done.",资金短缺，扩大生产谈何容易。,"With funds short, expanding production is easier said than done."
+7,无非/不过/只是……罢了/而已,无非……罢了/而已,固定格式,Fixed expressions,"""Nothing more than… that is all"": downplays significance.",他这样说，无非是想安慰你罢了。,"He said that merely to comfort you, nothing more."
+7,想X之所想，急X之所急,想X之所想，急X之所急,固定格式,Fixed expressions,"""Think what X thinks, feel the urgency X feels"": total devotion to someone’s needs.",企业要想用户之所想，急用户之所急。,A business must think what users think and feel their urgencies.
+7,向……致以……,向……致以……,固定格式,Fixed expressions,"Formal formula for extending greetings, thanks or respects.",谨向全体医护人员致以崇高的敬意。,We extend our highest respects to all medical workers.
+7,要X有/没X，要Y有/没Y,要X有X，要Y有Y,固定格式,Fixed expressions,"""Has X when you want X, Y when you want Y"": everything (or nothing) one could ask.",这地方要山有山，要水有水。,"This place has mountains if you want them, and water too."
+7,因……而……,因……而……,固定格式,Fixed expressions,"Formal cause frame: ""because of…, therefore…"".",航班因大雾而延误。,The flight was delayed on account of heavy fog.
+7,有何X,有何+名词,固定格式,Fixed expressions,"Formal interrogative ""what … is there"": 有何看法/意见/深意.",此举有何深意，外界众说纷纭。,"What deeper meaning this move carries, opinions vary widely."
+7,（在）……之余,（在）……之余,固定格式,Fixed expressions,"""In the time left over from…; beyond (doing)…"".",工作之余，他坚持写作。,"Outside of work, he keeps up his writing."
+7,值此……之际，……,值此……之际，……,固定格式,Fixed expressions,"Ceremonial opener: ""on the occasion of…"".",值此建校百年之际，谨致贺忱。,"On the centenary of the school’s founding, we offer congratulations."
+7,"比较句""A+形容词+于/过+B""",A+形容词+于/过+B,特殊句型,Special sentence patterns,"Literary comparison with 于/过 after the adjective: 高于, 强过.",今年的销量明显高于去年。,This year’s sales are clearly higher than last year’s.
+7,一来……，二来……（，三来……）,一来……，二来……,句型,Sentence patterns,"Parallel listing of reasons: ""for one thing…, for another…"".",他搬家一来图上班近，二来图环境好。,"He moved partly for the short commute, partly for the environment."
+7,一则……，二则……（，三则……）,一则……，二则……,句型,Sentence patterns,"Formal enumeration of reasons: ""firstly…, secondly…"".",项目搁浅，一则预算有限，二则人手不足。,"The project stalled: first, the budget was tight; second, staff were short."
+7,所谓……，就是……,所谓……，就是……,句型,Sentence patterns,"Expository definition: ""what is called X is precisely Y"".",所谓终身学习，就是把学习变成习惯。,So-called lifelong learning means making learning a habit.
+7,或……，或……,或……，或……,句型,Sentence patterns,"Literary alternative listing: ""either… or…; now… now…"".",周末他或读书，或爬山，从不虚度。,"On weekends he reads or hikes, never idling."
+7,宁可/宁愿……，也不……,宁可……，也不……,句型,Sentence patterns,"Preference by sacrifice: ""would rather… than…"".",他宁可通宵加班，也不敷衍了事。,He would rather work all night than do a slapdash job.
+7,与其……，宁愿/宁可……,与其……，宁可……,句型,Sentence patterns,"Comparative preference: ""rather than…, one would prefer to…"".",与其坐等机会，宁可主动出击。,"Rather than wait for chances, better to take the initiative."
+7,X（倒）是X（了），……,X倒是X（了），……,句型,Sentence patterns,"Concessive echo: ""X it may be, but…"".",东西好倒是好，就是价格偏高。,"Good it certainly is, only the price is on the high side."
+7,别看……，……,别看……，……,句型,Sentence patterns,"""Never mind that…; despite appearances…"".",别看他年纪小，主意却不少。,Never mind his age. He is full of ideas.
+7,虽说……，但/可……,虽说……，但/可……,句型,Sentence patterns,"Colloquial-formal concession: ""though admittedly…, yet…"".",虽说条件艰苦，但大家干劲十足。,"Though conditions are hard, everyone is full of drive."
+7,无论……与否，都……,无论……与否，都……,句型,Sentence patterns,"Unconditional with 与否 ""whether or not"".",无论成功与否，这次尝试都值得。,"Successful or not, the attempt is worthwhile."
+7,凡……（者），均（可）……,凡……者，均（可）……,句型,Sentence patterns,"Formal universal condition: ""whoever/whatever…, all…"".",凡年满十八周岁者，均可报名。,All who have reached eighteen may register.
+7,假若/假使……，……,假若……，……,句型,Sentence patterns,"Literary hypothesis: ""if, supposing"".",假若当初听劝，何至于此？,"Had he heeded the advice back then, would it have come to this?"
+7,幸亏/幸好……，不然/否则……,幸亏……，不然/否则……,句型,Sentence patterns,"""Luckily…, otherwise…"".",幸亏出门早，不然就误了高铁。,"Luckily we left early, or we would have missed the train."
+7,纵然/纵使……，也……,纵然……，也……,句型,Sentence patterns,"Literary concession: ""even if…, still…"".",纵然困难重重，我们也绝不言弃。,"Even with difficulties piled high, we will never speak of giving up."
+7,（因）……，故……,（因）……，故……,句型,Sentence patterns,"Literary cause-effect with 故 ""therefore"".",因证据不足，故本案暂缓审理。,"As evidence is insufficient, the case is therefore postponed."
+7,……，以至（于）……,……，以至（于）……,句型,Sentence patterns,"Result reaching an extreme: ""to the point that"".",他专心于实验，以至忘了吃饭。,He was so absorbed in the experiment that he forgot to eat.
+7,别说……，都/也……,别说……，都/也……,句型,Sentence patterns,"Escalation: ""to say nothing of…, even…"".",别说熬夜了，他连晚饭都顾不上吃。,Never mind staying up late. He cannot even manage dinner.
+7,……不说，还……,……不说，还……,句型,Sentence patterns,"Piling on: ""not to mention…, on top of that…"".",这款手机贵不说，还特别费电。,"This phone is expensive, and on top of that it drains the battery."
+7,（连……都……，）更不用说……了,连……都……，更不用说……了,句型,Sentence patterns,"""Even X…, let alone Y"": a fortiori escalation.",他连方言都能听懂，更不用说普通话了。,"He understands even dialects, let alone Mandarin."
+7,……尚且……，（更）何况……,……尚且……，（更）何况……,句型,Sentence patterns,"""Even… is the case, how much more so…"".",专家尚且难下结论，何况外行呢？,Even experts struggle to conclude. How much more so laypeople?
+7,为（了）……起见，……,为……起见，……,句型,Sentence patterns,"Purpose formula: ""for the sake of…"".",为安全起见，请系好安全带。,"For safety’s sake, please fasten your seat belt."
+7,……，以……,……，以+动词短语,句型,Sentence patterns,"Formal purpose clause introduced by 以 ""so as to"".",公司优化了流程，以提高生产效率。,The company streamlined its processes so as to raise efficiency.
+7,非得……才……,非得……才……,句型,Sentence patterns,"Condensed necessity: ""only if… will…; it takes… before…"".",这台设备非得专业人员才能维修。,Only a professional can repair this piece of equipment.
+7,任……也……,任……也……,句型,Sentence patterns,"Condensed concession: ""no matter how…, still…"".",任大家怎么劝，他也不肯松口。,"No matter how everyone urged, he would not budge."
