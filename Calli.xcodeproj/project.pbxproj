@@ -15,6 +15,7 @@
 		3FD1701D78751A52D21BBC11 /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF37EED43C7B421A62F3572 /* CharacterItem.swift */; };
 		50B5A01560277E86E0D9CFF8 /* StrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E43E9A7A7AB4CF9978FBF6 /* StrokeData.swift */; };
 		530A1BCC85408DDBADBE822F /* CalligraphyGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */; };
+		5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */; };
 		68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */; };
 		6AE0B905A5F2DAB45BE79E76 /* strokes.json in Resources */ = {isa = PBXBuildFile; fileRef = 80BA69668D2CD8242113FDB1 /* strokes.json */; };
 		7644C993E73FE33233D48C80 /* StrokePathParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16658D690D57E3856E57A4 /* StrokePathParser.swift */; };
@@ -22,7 +23,9 @@
 		83DDA1131C3CFF5731CB8941 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB120B8B1C4487FFCA1341C0 /* characters.json */; };
 		8857C35AD29919B0E15CF7CB /* StrokeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */; };
 		C15733207962A98BEA076D41 /* DataLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */; };
+		C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */; };
 		CBD862C39990570DCDB1C399 /* CharacterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C293E2631E96D8DABF20DED /* CharacterCellView.swift */; };
+		D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */; };
 		E68A790369C7453A85D5857C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5AB87E66B977E710659 /* Assets.xcassets */; };
 		EEA2A3C62780EE0FECE230E3 /* CalliUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1086B29257CC76456427D7 /* CalliUITests.swift */; };
 		FC883065D7220D000D5112F1 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE431CD255FD0A93A0E06C18 /* CharacterStore.swift */; };
@@ -48,11 +51,13 @@
 /* Begin PBXFileReference section */
 		202905D945AE25FB57499947 /* Calli.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Calli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EF4567B68F2796423B07D6 /* CharacterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGridView.swift; sourceTree = "<group>"; };
+		29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NotoSansSC.ttf; sourceTree = "<group>"; };
 		2A37972B1CAF2C7CCCAA5F03 /* CalliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalliApp.swift; sourceTree = "<group>"; };
 		2C16658D690D57E3856E57A4 /* StrokePathParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokePathParser.swift; sourceTree = "<group>"; };
 		3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 		40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		42EF1F7103C1D317CE180666 /* CalliTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CalliTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStorageService.swift; sourceTree = "<group>"; };
 		6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeMatcher.swift; sourceTree = "<group>"; };
 		6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalligraphyGridView.swift; sourceTree = "<group>"; };
 		7C293E2631E96D8DABF20DED /* CharacterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellView.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		BE88D5AB87E66B977E710659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA113A5089B9D3066478A6D7 /* StrokeCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeCanvasView.swift; sourceTree = "<group>"; };
 		CE431CD255FD0A93A0E06C18 /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
+		D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStorageTests.swift; sourceTree = "<group>"; };
 		DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingTests.swift; sourceTree = "<group>"; };
 		DB120B8B1C4487FFCA1341C0 /* characters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		E144EAFD646E6A4A81A8D2DB /* CalliUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CalliUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */,
+				4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */,
+				D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */,
 				ED79A564E5B5F27905C0FE31 /* StrokeMatcherTests.swift */,
 				80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */,
 			);
@@ -145,6 +153,7 @@
 			children = (
 				BE88D5AB87E66B977E710659 /* Assets.xcassets */,
 				DB120B8B1C4487FFCA1341C0 /* characters.json */,
+				29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */,
 				80BA69668D2CD8242113FDB1 /* strokes.json */,
 			);
 			name = Resources;
@@ -273,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E68A790369C7453A85D5857C /* Assets.xcassets in Resources */,
+				C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */,
 				83DDA1131C3CFF5731CB8941 /* characters.json in Resources */,
 				6AE0B905A5F2DAB45BE79E76 /* strokes.json in Resources */,
 			);
@@ -294,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15733207962A98BEA076D41 /* DataLoadingTests.swift in Sources */,
+				5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */,
 				0B81180C771BDE4E57157F32 /* StrokeMatcherTests.swift in Sources */,
 				68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */,
 			);
@@ -311,6 +322,7 @@
 				7F946BD7E11080E835258678 /* CharacterGridView.swift in Sources */,
 				3FD1701D78751A52D21BBC11 /* CharacterItem.swift in Sources */,
 				FC883065D7220D000D5112F1 /* CharacterStore.swift in Sources */,
+				D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */,
 				39322FF1C7F470EF69A083D7 /* StrokeCanvasView.swift in Sources */,
 				50B5A01560277E86E0D9CFF8 /* StrokeData.swift in Sources */,
 				8857C35AD29919B0E15CF7CB /* StrokeMatcher.swift in Sources */,
@@ -449,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Calli/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Calli;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -485,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Calli/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Calli;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

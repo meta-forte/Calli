@@ -8,33 +8,38 @@ struct CharacterDetailView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var currentStrokeIndex: Int = 0
-    @State private var completedStrokes: Set<Int> = []
+    @State private var completedUserStrokes: [[CGPoint]] = []
     @State private var isCompleted: Bool = false
+    @State private var todayPracticeCount: Int = 0
+    @State private var canvasOpacity: Double = 1.0
     @StateObject private var audioService = AudioPlayerService.shared
 
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 let margin: CGFloat = 32
-                let topBottomSpacing: CGFloat = 220
+                let topBottomSpacing: CGFloat = 240
                 let availableWidth = geometry.size.width - margin
                 let availableHeight = geometry.size.height - topBottomSpacing
                 let canvasDimension = max(240, min(availableWidth, availableHeight))
 
-                VStack(spacing: 12) {
+                VStack(spacing: 10) {
                     characterHeader
 
                     if let strokeInfo = strokeInfo, !strokeInfo.strokes.isEmpty {
                         StrokeCanvasView(
+                            character: character.hanzi,
                             strokeInfo: strokeInfo,
                             canvasSize: canvasDimension,
                             currentStrokeIndex: $currentStrokeIndex,
-                            completedStrokes: $completedStrokes,
+                            completedUserStrokes: $completedUserStrokes,
+                            isCompleted: $isCompleted,
                             onStrokeCompleted: { _ in },
                             onAllStrokesCompleted: {
                                 handleCompletion()
                             }
                         )
+                        .opacity(canvasOpacity)
 
                         progressInfo(totalStrokes: strokeInfo.strokes.count)
                     } else {
@@ -49,9 +54,11 @@ struct CharacterDetailView: View {
                         .frame(width: canvasDimension, height: canvasDimension)
                     }
 
+                    eraseAndRepeatButton
+
                     controlBar(totalStrokes: strokeInfo?.strokes.count ?? 0)
 
-                    Spacer(minLength: 8)
+                    Spacer(minLength: 6)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal, 16)
@@ -80,8 +87,12 @@ struct CharacterDetailView: View {
                 }
             }
         }
+        .onAppear {
+            refreshPracticeCount()
+        }
         .onChange(of: character) {
             resetState()
+            refreshPracticeCount()
         }
     }
 
@@ -106,6 +117,20 @@ struct CharacterDetailView: View {
                     .foregroundColor(.secondary)
                     .lineLimit(1)
             }
+
+            HStack(spacing: 6) {
+                Image(systemName: "repeat")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundColor(.blue)
+                Text("Repetitions today: \(todayPracticeCount)")
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 3)
+            .background(Color(UIColor.secondarySystemBackground))
+            .cornerRadius(12)
         }
         .padding(.top, 4)
     }
@@ -113,7 +138,7 @@ struct CharacterDetailView: View {
     private func progressInfo(totalStrokes: Int) -> some View {
         HStack {
             if isCompleted {
-                Label("Completed!", systemImage: "checkmark.seal.fill")
+                Label("Completed! Resetting...", systemImage: "checkmark.seal.fill")
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.green)
             } else {
@@ -127,7 +152,7 @@ struct CharacterDetailView: View {
             Button(action: {
                 autoFillNextStroke(totalStrokes: totalStrokes)
             }) {
-                Text(isCompleted ? "Practice Again" : "Trace Next")
+                Text(isCompleted ? "Repeating..." : "Trace Next")
                     .font(.system(size: 13, weight: .semibold))
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
@@ -139,8 +164,30 @@ struct CharacterDetailView: View {
         .padding(.horizontal, 12)
     }
 
+    private var eraseAndRepeatButton: some View {
+        Button(action: {
+            performAnimatedErase()
+        }) {
+            HStack(spacing: 6) {
+                Image(systemName: "eraser.fill")
+                    .font(.system(size: 13))
+                Text("Erase and Repeat")
+                    .font(.system(size: 13, weight: .semibold))
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 6)
+            .background(Color(UIColor.secondarySystemBackground))
+            .foregroundColor(.primary)
+            .cornerRadius(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.primary.opacity(0.08), lineWidth: 1)
+            )
+        }
+    }
+
     private func controlBar(totalStrokes: Int) -> some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 24) {
             Button(action: {
                 onPrevious?()
             }) {
@@ -150,7 +197,7 @@ struct CharacterDetailView: View {
             .disabled(onPrevious == nil)
 
             Button(action: {
-                resetState()
+                performAnimatedErase()
             }) {
                 Image(systemName: "arrow.counterclockwise.circle")
                     .font(.system(size: 28))
@@ -173,24 +220,42 @@ struct CharacterDetailView: View {
             .disabled(onNext == nil)
         }
         .foregroundColor(.primary)
-        .padding(.vertical, 4)
+        .padding(.vertical, 2)
     }
 
     private func handleCompletion() {
         isCompleted = true
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+        todayPracticeCount = PracticeStorageService.shared.recordPractice(character: character.hanzi)
         audioService.playPronunciation(for: character)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
+            withAnimation(Animation.easeInOut(duration: 0.45)) {
+                self.canvasOpacity = 0.0
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.resetState()
+                withAnimation(Animation.easeInOut(duration: 0.45)) {
+                    self.canvasOpacity = 1.0
+                }
+            }
+        }
     }
 
     private func autoFillNextStroke(totalStrokes: Int) {
         if isCompleted {
-            resetState()
             return
         }
 
         if currentStrokeIndex < totalStrokes {
-            completedStrokes.insert(currentStrokeIndex)
-            if completedStrokes.count >= totalStrokes {
+            if let strokeInfo = strokeInfo {
+                let size = CGSize(width: 300, height: 300)
+                let median = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
+                completedUserStrokes.append(median)
+            }
+
+            if completedUserStrokes.count >= totalStrokes {
                 handleCompletion()
             } else {
                 currentStrokeIndex += 1
@@ -198,9 +263,25 @@ struct CharacterDetailView: View {
         }
     }
 
+    private func performAnimatedErase() {
+        withAnimation(Animation.easeOut(duration: 0.2)) {
+            canvasOpacity = 0.0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.22) {
+            resetState()
+            withAnimation(Animation.easeIn(duration: 0.2)) {
+                canvasOpacity = 1.0
+            }
+        }
+    }
+
     private func resetState() {
         currentStrokeIndex = 0
-        completedStrokes.removeAll()
+        completedUserStrokes.removeAll()
         isCompleted = false
+    }
+
+    private func refreshPracticeCount() {
+        todayPracticeCount = PracticeStorageService.shared.getPracticeCount(character: character.hanzi)
     }
 }

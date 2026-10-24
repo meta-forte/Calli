@@ -1,21 +1,25 @@
 import SwiftUI
 
 struct StrokeCanvasView: View {
+    let character: String
     let strokeInfo: CharacterStrokeInfo
     let canvasSize: CGFloat
     @Binding var currentStrokeIndex: Int
-    @Binding var completedStrokes: Set<Int>
+    @Binding var completedUserStrokes: [[CGPoint]]
+    @Binding var isCompleted: Bool
     let onStrokeCompleted: (Int) -> Void
     let onAllStrokesCompleted: () -> Void
 
-    @State private var userTouchPoints: [CGPoint] = []
+    @State private var currentUserPoints: [CGPoint] = []
     @State private var matchedProgress: Int = 0
-    @State private var guideAnimationPhase: CGFloat = 0.0
+    @State private var systemTraceProgress: CGFloat = 0.0
+    @State private var isDemonstrating: Bool = false
+    @State private var idleTimer: Timer? = nil
 
-    private let darkGrayColor = Color(red: 0.35, green: 0.36, blue: 0.38)
-    private let completedColor = Color(red: 0.15, green: 0.48, blue: 0.92)
-    private let activeGuideColor = Color(red: 0.98, green: 0.45, blue: 0.12)
-    private let userTraceColor = Color(red: 0.98, green: 0.35, blue: 0.15)
+    private let guideStrokeColor = Color.black
+    private let userTraceColor = Color.black
+    private let backgroundFontColor = Color(red: 0.35, green: 0.36, blue: 0.38).opacity(0.32)
+    private let skeletonColor = Color(red: 0.45, green: 0.46, blue: 0.48).opacity(0.28)
 
     var body: some View {
         let size = CGSize(width: canvasSize, height: canvasSize)
@@ -23,46 +27,48 @@ struct StrokeCanvasView: View {
         ZStack {
             CalligraphyGridView(size: canvasSize)
 
-            ForEach(0..<strokeInfo.strokes.count, id: \.self) { index in
-                let path = StrokePathParser.parse(svgPath: strokeInfo.strokes[index], canvasSize: size)
+            Text(character)
+                .font(.custom("Noto Sans SC", size: canvasSize * 0.72))
+                .foregroundColor(backgroundFontColor)
 
-                if completedStrokes.contains(index) {
-                    path.fill(completedColor)
-                } else if index == currentStrokeIndex {
-                    path.fill(darkGrayColor)
-                    path.stroke(activeGuideColor.opacity(0.6), lineWidth: 2)
-                } else {
-                    path.fill(darkGrayColor)
-                }
+            ForEach(0..<strokeInfo.medians.count, id: \.self) { idx in
+                let median = strokeInfo.medianPoints(strokeIndex: idx, canvasSize: size)
+                guidePath(for: median)
+                    .stroke(
+                        skeletonColor,
+                        style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round)
+                    )
             }
 
-            if currentStrokeIndex < strokeInfo.strokes.count {
-                let medianPoints = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
-                if !medianPoints.isEmpty {
-                    guidePath(for: medianPoints)
-                        .trim(from: 0, to: guideAnimationPhase)
-                        .stroke(
-                            activeGuideColor,
-                            style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round)
-                        )
-
-                    if let guidePoint = pointAlong(points: medianPoints, progress: guideAnimationPhase) {
-                        Circle()
-                            .fill(activeGuideColor)
-                            .frame(width: 14, height: 14)
-                            .shadow(color: activeGuideColor.opacity(0.8), radius: 6)
-                            .position(guidePoint)
-                    }
-                }
-            }
-
-            if !userTouchPoints.isEmpty {
+            ForEach(0..<completedUserStrokes.count, id: \.self) { idx in
                 Path { path in
-                    path.addLines(userTouchPoints)
+                    path.addLines(completedUserStrokes[idx])
                 }
                 .stroke(
                     userTraceColor,
-                    style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round)
+                    style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round)
+                )
+            }
+
+            if isDemonstrating && currentStrokeIndex < strokeInfo.strokes.count && !isCompleted {
+                let medianPoints = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
+                if !medianPoints.isEmpty {
+                    guidePath(for: medianPoints)
+                        .trim(from: 0, to: systemTraceProgress)
+                        .stroke(
+                            guideStrokeColor,
+                            style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round)
+                        )
+                }
+            }
+
+            if !currentUserPoints.isEmpty {
+                Path { path in
+                    path.addLines(currentUserPoints)
+                }
+                .stroke(
+                    userTraceColor,
+                    style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round)
                 )
             }
         }
@@ -74,24 +80,42 @@ struct StrokeCanvasView: View {
                     handleDrag(point: value.location, size: size)
                 }
                 .onEnded { _ in
-                    userTouchPoints.removeAll()
-                    matchedProgress = 0
+                    handleDragEnded()
                 }
         )
         .onAppear {
-            startGuideAnimation()
+            startDemonstration()
+        }
+        .onDisappear {
+            idleTimer?.invalidate()
+            idleTimer = nil
         }
         .onChange(of: currentStrokeIndex) {
-            userTouchPoints.removeAll()
+            currentUserPoints.removeAll()
             matchedProgress = 0
-            startGuideAnimation()
+            if !isCompleted {
+                startDemonstration()
+            }
+        }
+        .onChange(of: isCompleted) {
+            if isCompleted {
+                idleTimer?.invalidate()
+                idleTimer = nil
+                isDemonstrating = false
+                systemTraceProgress = 0.0
+            }
         }
     }
 
     private func handleDrag(point: CGPoint, size: CGSize) {
-        guard currentStrokeIndex < strokeInfo.strokes.count else { return }
+        guard !isCompleted && currentStrokeIndex < strokeInfo.strokes.count else {
+            return
+        }
 
-        userTouchPoints.append(point)
+        idleTimer?.invalidate()
+        idleTimer = nil
+
+        currentUserPoints.append(point)
 
         let median = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
         guard !median.isEmpty else { return }
@@ -109,29 +133,72 @@ struct StrokeCanvasView: View {
         }
     }
 
+    private func handleDragEnded() {
+        guard !isCompleted && currentStrokeIndex < strokeInfo.strokes.count else { return }
+        currentUserPoints.removeAll()
+        matchedProgress = 0
+        startIdleTimer()
+    }
+
     private func completeCurrentStroke() {
         let finishedIndex = currentStrokeIndex
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-        completedStrokes.insert(finishedIndex)
-        userTouchPoints.removeAll()
+
+        completedUserStrokes.append(currentUserPoints)
+        currentUserPoints.removeAll()
         matchedProgress = 0
+        isDemonstrating = false
+        systemTraceProgress = 0.0
+
+        idleTimer?.invalidate()
+        idleTimer = nil
 
         onStrokeCompleted(finishedIndex)
 
-        if completedStrokes.count >= strokeInfo.strokes.count {
+        if completedUserStrokes.count >= strokeInfo.strokes.count {
             onAllStrokesCompleted()
         } else {
             currentStrokeIndex += 1
         }
     }
 
-    private func startGuideAnimation() {
-        guideAnimationPhase = 0.0
-        withAnimation(
-            Animation.easeInOut(duration: 1.4)
-                .repeatForever(autoreverses: false)
-        ) {
-            guideAnimationPhase = 1.0
+    private func startDemonstration() {
+        guard !isCompleted && currentStrokeIndex < strokeInfo.strokes.count else {
+            isDemonstrating = false
+            systemTraceProgress = 0.0
+            return
+        }
+
+        idleTimer?.invalidate()
+        idleTimer = nil
+
+        isDemonstrating = true
+        systemTraceProgress = 0.0
+
+        withAnimation(Animation.easeInOut(duration: 0.8)) {
+            systemTraceProgress = 1.0
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
+            withAnimation(Animation.easeOut(duration: 0.15)) {
+                self.isDemonstrating = false
+                self.systemTraceProgress = 0.0
+            }
+            self.startIdleTimer()
+        }
+    }
+
+    private func startIdleTimer() {
+        idleTimer?.invalidate()
+        guard !isCompleted && currentStrokeIndex < strokeInfo.strokes.count else { return }
+
+        idleTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { _ in
+            DispatchQueue.main.async {
+                guard !self.isCompleted && self.currentStrokeIndex < self.strokeInfo.strokes.count else { return }
+                self.currentUserPoints.removeAll()
+                self.matchedProgress = 0
+                self.startDemonstration()
+            }
         }
     }
 
@@ -143,41 +210,5 @@ struct StrokeCanvasView: View {
             path.addLine(to: pt)
         }
         return path
-    }
-
-    private func pointAlong(points: [CGPoint], progress: CGFloat) -> CGPoint? {
-        guard !points.isEmpty else { return nil }
-        if points.count == 1 || progress <= 0 { return points.first }
-        if progress >= 1.0 { return points.last }
-
-        var totalLength: CGFloat = 0
-        var lengths: [CGFloat] = [0]
-
-        for i in 1..<points.count {
-            let dist = StrokeMatcher.distance(points[i - 1], points[i])
-            totalLength += dist
-            lengths.append(totalLength)
-        }
-
-        if totalLength == 0 { return points.first }
-
-        let targetDist = progress * totalLength
-
-        for i in 1..<lengths.count {
-            if lengths[i] >= targetDist {
-                let segmentStart = lengths[i - 1]
-                let segmentEnd = lengths[i]
-                let segmentLength = segmentEnd - segmentStart
-                let segmentProgress = segmentLength > 0 ? (targetDist - segmentStart) / segmentLength : 0
-                let p1 = points[i - 1]
-                let p2 = points[i]
-                return CGPoint(
-                    x: p1.x + (p2.x - p1.x) * segmentProgress,
-                    y: p1.y + (p2.y - p1.y) * segmentProgress
-                )
-            }
-        }
-
-        return points.last
     }
 }

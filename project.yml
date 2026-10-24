@@ -17,6 +17,8 @@ targets:
     sources:
       - path: Calli/Sources
       - path: Calli/Resources
+    info:
+      path: Calli/Info.plist
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.calli.app
       INFOPLIST_KEY_CFBundleDisplayName: "Calli"
