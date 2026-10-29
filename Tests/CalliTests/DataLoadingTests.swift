@@ -51,5 +51,9 @@ final class DataLoadingTests: XCTestCase {
         let ai = try XCTUnwrap(strokes["爱"])
         XCTAssertEqual(ai.strokes.count, 10)
         XCTAssertEqual(ai.medians.count, 10)
+
+        let cha = try XCTUnwrap(strokes["茶"])
+        XCTAssertEqual(cha.strokes.count, 9)
+        XCTAssertEqual(cha.components, [[0, 1, 2], [3, 4], [5, 6, 7, 8]])
     }
 }

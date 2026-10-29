@@ -10,24 +10,36 @@
 		0B81180C771BDE4E57157F32 /* StrokeMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED79A564E5B5F27905C0FE31 /* StrokeMatcherTests.swift */; };
 		0FF0C3E1F945675968F90344 /* AudioPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */; };
 		1020F87326561CEE10B49FA3 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */; };
+		1896FAB2E84144A57EA4B588 /* FontSizeSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F00730EC51C6145F72BF05 /* FontSizeSliderTests.swift */; };
 		39322FF1C7F470EF69A083D7 /* StrokeCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA113A5089B9D3066478A6D7 /* StrokeCanvasView.swift */; };
 		3BC73C2A2773302CDD5CAC92 /* CalliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A37972B1CAF2C7CCCAA5F03 /* CalliApp.swift */; };
 		3FD1701D78751A52D21BBC11 /* CharacterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF37EED43C7B421A62F3572 /* CharacterItem.swift */; };
 		50B5A01560277E86E0D9CFF8 /* StrokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E43E9A7A7AB4CF9978FBF6 /* StrokeData.swift */; };
 		530A1BCC85408DDBADBE822F /* CalligraphyGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */; };
+		5826137D55E6BC815310DC7D /* UpdateSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16256F71D5E1360588E384 /* UpdateSheetView.swift */; };
 		5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */; };
+		628BEF0CBC10F3A63A3A9714 /* AppStoreMetadata.properties in Resources */ = {isa = PBXBuildFile; fileRef = E80FD86E8122A94B23589EFB /* AppStoreMetadata.properties */; };
+		66865A213B07B7DC07964C77 /* StrokeSmoother.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D8AAD81D07A3CF6068C3BE /* StrokeSmoother.swift */; };
 		68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */; };
 		6AE0B905A5F2DAB45BE79E76 /* strokes.json in Resources */ = {isa = PBXBuildFile; fileRef = 80BA69668D2CD8242113FDB1 /* strokes.json */; };
 		7644C993E73FE33233D48C80 /* StrokePathParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16658D690D57E3856E57A4 /* StrokePathParser.swift */; };
 		7F946BD7E11080E835258678 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF4567B68F2796423B07D6 /* CharacterGridView.swift */; };
 		83DDA1131C3CFF5731CB8941 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB120B8B1C4487FFCA1341C0 /* characters.json */; };
+		86088D93289382DF32D56EDE /* AppConfig.properties in Resources */ = {isa = PBXBuildFile; fileRef = 5FAB81C1CC78562F32FCBB10 /* AppConfig.properties */; };
+		88171DC24AC28FBCFA2DC2B8 /* AppUpdateServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C0EDC0775D6E5FCAD47494 /* AppUpdateServiceTests.swift */; };
 		8857C35AD29919B0E15CF7CB /* StrokeMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */; };
+		9EBE0E2E9C95A0A93C44E175 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767E0E1F184AA73DD2A15C75 /* ColorExtensions.swift */; };
+		9F06B04DF59AEFB4ABFADA47 /* AppUpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17D8581674FBFC6BE61487 /* AppUpdateService.swift */; };
+		B263C4FB96FC6035C3C54229 /* NotoGlyphProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B99E8212EF064DE76C9A2 /* NotoGlyphProvider.swift */; };
 		C15733207962A98BEA076D41 /* DataLoadingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */; };
 		C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */; };
 		CBD862C39990570DCDB1C399 /* CharacterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C293E2631E96D8DABF20DED /* CharacterCellView.swift */; };
 		D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */; };
+		E58792B8957F2A061E7426B2 /* ForcedUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A6F449B299F251C2A86CA2 /* ForcedUpdateView.swift */; };
 		E68A790369C7453A85D5857C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5AB87E66B977E710659 /* Assets.xcassets */; };
+		E6D76194BF3A4196B3F9C30B /* PairwiseStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E744FF8449BD3FBF3E1A3AD /* PairwiseStrokeTests.swift */; };
 		EEA2A3C62780EE0FECE230E3 /* CalliUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1086B29257CC76456427D7 /* CalliUITests.swift */; };
+		F4619BFEC56E64976AAC49AB /* StrokeSmootherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411BB89713D9D3B6A909CE0 /* StrokeSmootherTests.swift */; };
 		FC883065D7220D000D5112F1 /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE431CD255FD0A93A0E06C18 /* CharacterStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E744FF8449BD3FBF3E1A3AD /* PairwiseStrokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairwiseStrokeTests.swift; sourceTree = "<group>"; };
+		1A16256F71D5E1360588E384 /* UpdateSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSheetView.swift; sourceTree = "<group>"; };
 		202905D945AE25FB57499947 /* Calli.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Calli.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EF4567B68F2796423B07D6 /* CharacterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGridView.swift; sourceTree = "<group>"; };
 		29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NotoSansSC.ttf; sourceTree = "<group>"; };
@@ -58,13 +72,20 @@
 		40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		42EF1F7103C1D317CE180666 /* CalliTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CalliTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeStorageService.swift; sourceTree = "<group>"; };
+		5FAB81C1CC78562F32FCBB10 /* AppConfig.properties */ = {isa = PBXFileReference; path = AppConfig.properties; sourceTree = "<group>"; };
+		613B99E8212EF064DE76C9A2 /* NotoGlyphProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotoGlyphProvider.swift; sourceTree = "<group>"; };
 		6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeMatcher.swift; sourceTree = "<group>"; };
 		6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalligraphyGridView.swift; sourceTree = "<group>"; };
+		767E0E1F184AA73DD2A15C75 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		7C293E2631E96D8DABF20DED /* CharacterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellView.swift; sourceTree = "<group>"; };
 		80BA69668D2CD8242113FDB1 /* strokes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = strokes.json; sourceTree = "<group>"; };
 		80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeParserTests.swift; sourceTree = "<group>"; };
 		80E43E9A7A7AB4CF9978FBF6 /* StrokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeData.swift; sourceTree = "<group>"; };
+		80F00730EC51C6145F72BF05 /* FontSizeSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSliderTests.swift; sourceTree = "<group>"; };
+		9411BB89713D9D3B6A909CE0 /* StrokeSmootherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSmootherTests.swift; sourceTree = "<group>"; };
 		9BF37EED43C7B421A62F3572 /* CharacterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItem.swift; sourceTree = "<group>"; };
+		9D17D8581674FBFC6BE61487 /* AppUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateService.swift; sourceTree = "<group>"; };
+		B9A6F449B299F251C2A86CA2 /* ForcedUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcedUpdateView.swift; sourceTree = "<group>"; };
 		BE88D5AB87E66B977E710659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA113A5089B9D3066478A6D7 /* StrokeCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeCanvasView.swift; sourceTree = "<group>"; };
 		CE431CD255FD0A93A0E06C18 /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
@@ -72,8 +93,11 @@
 		DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingTests.swift; sourceTree = "<group>"; };
 		DB120B8B1C4487FFCA1341C0 /* characters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		E144EAFD646E6A4A81A8D2DB /* CalliUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CalliUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E80FD86E8122A94B23589EFB /* AppStoreMetadata.properties */ = {isa = PBXFileReference; path = AppStoreMetadata.properties; sourceTree = "<group>"; };
 		EB1086B29257CC76456427D7 /* CalliUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalliUITests.swift; sourceTree = "<group>"; };
 		ED79A564E5B5F27905C0FE31 /* StrokeMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeMatcherTests.swift; sourceTree = "<group>"; };
+		F2D8AAD81D07A3CF6068C3BE /* StrokeSmoother.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSmoother.swift; sourceTree = "<group>"; };
+		F9C0EDC0775D6E5FCAD47494 /* AppUpdateServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -81,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				2A37972B1CAF2C7CCCAA5F03 /* CalliApp.swift */,
+				767E0E1F184AA73DD2A15C75 /* ColorExtensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -88,6 +113,7 @@
 		03A7566C78EEF18B7AD5C1B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9D17D8581674FBFC6BE61487 /* AppUpdateService.swift */,
 				3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */,
 				4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */,
 			);
@@ -110,9 +136,11 @@
 			children = (
 				9BF37EED43C7B421A62F3572 /* CharacterItem.swift */,
 				CE431CD255FD0A93A0E06C18 /* CharacterStore.swift */,
+				613B99E8212EF064DE76C9A2 /* NotoGlyphProvider.swift */,
 				80E43E9A7A7AB4CF9978FBF6 /* StrokeData.swift */,
 				6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */,
 				2C16658D690D57E3856E57A4 /* StrokePathParser.swift */,
+				F2D8AAD81D07A3CF6068C3BE /* StrokeSmoother.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,10 +148,14 @@
 		3B65F0C7CD4FC697BA52C264 /* CalliTests */ = {
 			isa = PBXGroup;
 			children = (
+				F9C0EDC0775D6E5FCAD47494 /* AppUpdateServiceTests.swift */,
 				DA62AA82C8AC04BBD0F868F1 /* DataLoadingTests.swift */,
+				80F00730EC51C6145F72BF05 /* FontSizeSliderTests.swift */,
+				0E744FF8449BD3FBF3E1A3AD /* PairwiseStrokeTests.swift */,
 				D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */,
 				ED79A564E5B5F27905C0FE31 /* StrokeMatcherTests.swift */,
 				80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */,
+				9411BB89713D9D3B6A909CE0 /* StrokeSmootherTests.swift */,
 			);
 			name = CalliTests;
 			path = Tests/CalliTests;
@@ -151,6 +183,8 @@
 		D3F0DAE9B33C3C5FA248980C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5FAB81C1CC78562F32FCBB10 /* AppConfig.properties */,
+				E80FD86E8122A94B23589EFB /* AppStoreMetadata.properties */,
 				BE88D5AB87E66B977E710659 /* Assets.xcassets */,
 				DB120B8B1C4487FFCA1341C0 /* characters.json */,
 				29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */,
@@ -167,7 +201,9 @@
 				7C293E2631E96D8DABF20DED /* CharacterCellView.swift */,
 				40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */,
 				25EF4567B68F2796423B07D6 /* CharacterGridView.swift */,
+				B9A6F449B299F251C2A86CA2 /* ForcedUpdateView.swift */,
 				CA113A5089B9D3066478A6D7 /* StrokeCanvasView.swift */,
+				1A16256F71D5E1360588E384 /* UpdateSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,7 +287,17 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					08B1479B5730ADF8DCDE815A = {
+						DevelopmentTeam = YP88XG6Z29;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 906EADED3A51B778B5E0660B;
+					};
+					906EADED3A51B778B5E0660B = {
+						DevelopmentTeam = YP88XG6Z29;
+						ProvisioningStyle = Automatic;
+					};
+					98E30BF95C9221936A18D753 = {
+						DevelopmentTeam = YP88XG6Z29;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -281,6 +327,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86088D93289382DF32D56EDE /* AppConfig.properties in Resources */,
+				628BEF0CBC10F3A63A3A9714 /* AppStoreMetadata.properties in Resources */,
 				E68A790369C7453A85D5857C /* Assets.xcassets in Resources */,
 				C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */,
 				83DDA1131C3CFF5731CB8941 /* characters.json in Resources */,
@@ -303,10 +351,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88171DC24AC28FBCFA2DC2B8 /* AppUpdateServiceTests.swift in Sources */,
 				C15733207962A98BEA076D41 /* DataLoadingTests.swift in Sources */,
+				1896FAB2E84144A57EA4B588 /* FontSizeSliderTests.swift in Sources */,
+				E6D76194BF3A4196B3F9C30B /* PairwiseStrokeTests.swift in Sources */,
 				5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */,
 				0B81180C771BDE4E57157F32 /* StrokeMatcherTests.swift in Sources */,
 				68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */,
+				F4619BFEC56E64976AAC49AB /* StrokeSmootherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F06B04DF59AEFB4ABFADA47 /* AppUpdateService.swift in Sources */,
 				0FF0C3E1F945675968F90344 /* AudioPlayerService.swift in Sources */,
 				3BC73C2A2773302CDD5CAC92 /* CalliApp.swift in Sources */,
 				530A1BCC85408DDBADBE822F /* CalligraphyGridView.swift in Sources */,
@@ -322,11 +375,16 @@
 				7F946BD7E11080E835258678 /* CharacterGridView.swift in Sources */,
 				3FD1701D78751A52D21BBC11 /* CharacterItem.swift in Sources */,
 				FC883065D7220D000D5112F1 /* CharacterStore.swift in Sources */,
+				9EBE0E2E9C95A0A93C44E175 /* ColorExtensions.swift in Sources */,
+				E58792B8957F2A061E7426B2 /* ForcedUpdateView.swift in Sources */,
+				B263C4FB96FC6035C3C54229 /* NotoGlyphProvider.swift in Sources */,
 				D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */,
 				39322FF1C7F470EF69A083D7 /* StrokeCanvasView.swift in Sources */,
 				50B5A01560277E86E0D9CFF8 /* StrokeData.swift in Sources */,
 				8857C35AD29919B0E15CF7CB /* StrokeMatcher.swift in Sources */,
 				7644C993E73FE33233D48C80 /* StrokePathParser.swift in Sources */,
+				66865A213B07B7DC07964C77 /* StrokeSmoother.swift in Sources */,
+				5826137D55E6BC815310DC7D /* UpdateSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +414,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.CalliUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.CalliUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Calli;
@@ -373,7 +431,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.CalliTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.CalliTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calli.app/Calli";
@@ -413,9 +471,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YP88XG6Z29;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -449,7 +509,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.CalliTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.CalliTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calli.app/Calli";
@@ -462,7 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calli/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Calli;
+				INFOPLIST_KEY_CFBundleDisplayName = HanziSlate;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -470,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.hanzislate;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -486,7 +546,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.CalliUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.CalliUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Calli;
@@ -499,7 +559,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calli/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Calli;
+				INFOPLIST_KEY_CFBundleDisplayName = HanziSlate;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -507,7 +567,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.calli.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ibhatech.hanzislate;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -546,9 +606,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YP88XG6Z29;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

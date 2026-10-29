@@ -9,11 +9,11 @@ struct CharacterCellView: View {
             VStack(spacing: 4) {
                 Text(character.hanzi)
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.primary)
+                    .foregroundColor(Color(white: 0.12))
 
                 Text(character.pinyin)
                     .font(.system(size: 11, weight: .regular))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color(white: 0.42))
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
             }
@@ -21,11 +21,11 @@ struct CharacterCellView: View {
             .aspectRatio(1.0, contentMode: .fit)
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(UIColor.secondarySystemBackground))
+                    .fill(Color.white)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.primary.opacity(0.08), lineWidth: 1)
+                    .stroke(Color(white: 0.85), lineWidth: 1)
             )
         }
         .buttonStyle(PlainButtonStyle())

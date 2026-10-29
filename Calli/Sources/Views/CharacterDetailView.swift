@@ -1,6 +1,11 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
+    static let tracingFontSizeStorageKey = "kTracingCharacterFontSize"
+    static let defaultTracingFontSize: Double = 300.0
+    static let minTracingFontSize: Double = 160.0
+    static let maxTracingFontSize: Double = 520.0
+
     let character: CharacterItem
     let strokeInfo: CharacterStrokeInfo?
     let onPrevious: (() -> Void)?
@@ -12,19 +17,71 @@ struct CharacterDetailView: View {
     @State private var isCompleted: Bool = false
     @State private var todayPracticeCount: Int = 0
     @State private var canvasOpacity: Double = 1.0
+    @AppStorage("selectedGuideMode") private var selectedGuideMode: GuideStrokeMode = .single
+    @AppStorage(CharacterDetailView.tracingFontSizeStorageKey) var tracingFontSize: Double = CharacterDetailView.defaultTracingFontSize
+    @State var isShowingFontSizeSlider: Bool = false
     @StateObject private var audioService = AudioPlayerService.shared
+
+    private var fontSizeBinding: Binding<Double> {
+        Binding(
+            get: {
+                min(max(tracingFontSize, Self.minTracingFontSize), Self.maxTracingFontSize)
+            },
+            set: { newValue in
+                tracingFontSize = min(max(newValue, Self.minTracingFontSize), Self.maxTracingFontSize)
+            }
+        )
+    }
 
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 let margin: CGFloat = 32
-                let topBottomSpacing: CGFloat = 240
+                let topBottomSpacing: CGFloat = isShowingFontSizeSlider ? 300 : 240
                 let availableWidth = geometry.size.width - margin
                 let availableHeight = geometry.size.height - topBottomSpacing
-                let canvasDimension = max(240, min(availableWidth, availableHeight))
+                let maxAllowedDimension = max(Self.minTracingFontSize, min(availableWidth, availableHeight))
+                let canvasDimension = min(max(CGFloat(tracingFontSize), Self.minTracingFontSize), maxAllowedDimension)
 
                 VStack(spacing: 10) {
                     characterHeader
+
+                    if isShowingFontSizeSlider {
+                        HStack(spacing: 12) {
+                            Text("文")
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(Color(white: 0.42))
+                                .accessibilityHidden(true)
+
+                            Slider(
+                                value: fontSizeBinding,
+                                in: Self.minTracingFontSize...max(Self.minTracingFontSize + 40, maxAllowedDimension),
+                                step: 5.0
+                            )
+                            .tint(.blue)
+                            .accessibilityLabel("Tracing character font size slider")
+                            .accessibilityValue("\(Int(canvasDimension)) pt")
+
+                            Text("文")
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(Color(white: 0.42))
+                                .accessibilityHidden(true)
+
+                            Text("\(Int(canvasDimension)) pt")
+                                .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                                .foregroundColor(Color(white: 0.25))
+                                .frame(minWidth: 50, alignment: .trailing)
+                        }
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color(white: 0.85), lineWidth: 1)
+                        )
+                        .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
 
                     if let strokeInfo = strokeInfo, !strokeInfo.strokes.isEmpty {
                         StrokeCanvasView(
@@ -34,6 +91,7 @@ struct CharacterDetailView: View {
                             currentStrokeIndex: $currentStrokeIndex,
                             completedUserStrokes: $completedUserStrokes,
                             isCompleted: $isCompleted,
+                            mode: selectedGuideMode,
                             onStrokeCompleted: { _ in },
                             onAllStrokesCompleted: {
                                 handleCompletion()
@@ -41,20 +99,20 @@ struct CharacterDetailView: View {
                         )
                         .opacity(canvasOpacity)
 
-                        progressInfo(totalStrokes: strokeInfo.strokes.count)
+                        progressInfo(totalStrokes: strokeInfo.strokes.count, canvasSize: canvasDimension)
                     } else {
                         VStack(spacing: 16) {
                             Text(character.hanzi)
-                                .font(.system(size: 140))
-                                .foregroundColor(Color(red: 0.35, green: 0.36, blue: 0.38))
+                                .font(.system(size: canvasDimension * 0.58))
+                                .foregroundColor(Color(white: 0.35))
                             Text("Stroke data unavailable")
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(Color(white: 0.45))
                         }
                         .frame(width: canvasDimension, height: canvasDimension)
                     }
 
-                    eraseAndRepeatButton
+                    actionControls
 
                     controlBar(totalStrokes: strokeInfo?.strokes.count ?? 0)
 
@@ -62,38 +120,63 @@ struct CharacterDetailView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal, 16)
+                .onChange(of: canvasDimension) {
+                    resetState()
+                }
             }
+            .background(Color.appBackground.ignoresSafeArea())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: { dismiss() }) {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 20))
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color(white: 0.45))
                     }
                 }
                 ToolbarItem(placement: .principal) {
                     Text("HSK \(character.level)")
                         .font(.headline)
+                        .foregroundColor(Color(white: 0.12))
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        audioService.playPronunciation(for: character)
-                    }) {
-                        Image(systemName: audioService.isPlaying ? "speaker.wave.3.fill" : "speaker.wave.2")
-                            .font(.system(size: 18))
-                            .foregroundColor(.blue)
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    HStack(spacing: 10) {
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                isShowingFontSizeSlider.toggle()
+                            }
+                        }) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "textformat.size")
+                                    .font(.system(size: 14, weight: .semibold))
+
+                                Text("\(Int(tracingFontSize)) pt")
+                                    .font(.system(size: 12, weight: .semibold))
+                            }
+                            .foregroundColor(isShowingFontSizeSlider ? .blue : Color(white: 0.30))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(isShowingFontSizeSlider ? Color.blue : Color(white: 0.85), lineWidth: 1)
+                            )
+                        }
+                        .accessibilityLabel("Tracing font size options")
+
+                        Button(action: {
+                            audioService.playPronunciation(for: character)
+                        }) {
+                            Image(systemName: audioService.isPlaying ? "speaker.wave.3.fill" : "speaker.wave.2")
+                                .font(.system(size: 18))
+                                .foregroundColor(.blue)
+                        }
                     }
                 }
             }
         }
-        .onAppear {
-            refreshPracticeCount()
-        }
-        .onChange(of: character) {
-            resetState()
-            refreshPracticeCount()
-        }
+        .preferredColorScheme(.light)
     }
 
     private var characterHeader: some View {
@@ -101,12 +184,12 @@ struct CharacterDetailView: View {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text(character.pinyin)
                     .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(.primary)
+                    .foregroundColor(Color(white: 0.12))
 
                 if !character.meaning.isEmpty {
                     Text("•  \(character.meaning)")
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color(white: 0.42))
                         .lineLimit(1)
                 }
             }
@@ -114,7 +197,7 @@ struct CharacterDetailView: View {
             if !character.exampleChinese.isEmpty {
                 Text("\(character.exampleChinese)  \(character.examplePinyin)")
                     .font(.footnote)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color(white: 0.42))
                     .lineLimit(1)
             }
 
@@ -125,17 +208,28 @@ struct CharacterDetailView: View {
                 Text("Repetitions today: \(todayPracticeCount)")
                     .font(.caption)
                     .fontWeight(.semibold)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color(white: 0.42))
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 3)
-            .background(Color(UIColor.secondarySystemBackground))
+            .background(Color.white)
             .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color(white: 0.85), lineWidth: 1)
+            )
         }
         .padding(.top, 4)
+        .onAppear {
+            refreshPracticeCount()
+        }
+        .onChange(of: character) {
+            resetState()
+            refreshPracticeCount()
+        }
     }
 
-    private func progressInfo(totalStrokes: Int) -> some View {
+    private func progressInfo(totalStrokes: Int, canvasSize: CGFloat) -> some View {
         HStack {
             if isCompleted {
                 Label("Completed! Resetting...", systemImage: "checkmark.seal.fill")
@@ -144,24 +238,45 @@ struct CharacterDetailView: View {
             } else {
                 Text("Stroke \(min(currentStrokeIndex + 1, totalStrokes)) of \(totalStrokes)")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color(white: 0.42))
             }
 
             Spacer()
 
             Button(action: {
-                autoFillNextStroke(totalStrokes: totalStrokes)
+                autoFillNextStroke(totalStrokes: totalStrokes, canvasSize: canvasSize)
             }) {
                 Text(isCompleted ? "Repeating..." : "Trace Next")
                     .font(.system(size: 13, weight: .semibold))
                     .padding(.horizontal, 10)
                     .padding(.vertical, 4)
-                    .background(Color.blue.opacity(0.12))
+                    .background(Color.white)
                     .foregroundColor(.blue)
                     .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.blue.opacity(0.2), lineWidth: 1)
+                    )
             }
         }
         .padding(.horizontal, 12)
+    }
+
+    private var actionControls: some View {
+        VStack(spacing: 8) {
+            modePicker
+            eraseAndRepeatButton
+        }
+    }
+
+    private var modePicker: some View {
+        Picker("Guide Mode", selection: $selectedGuideMode) {
+            ForEach(GuideStrokeMode.allCases) { mode in
+                Text(mode.rawValue).tag(mode)
+            }
+        }
+        .pickerStyle(.segmented)
+        .frame(maxWidth: 280)
     }
 
     private var eraseAndRepeatButton: some View {
@@ -176,12 +291,12 @@ struct CharacterDetailView: View {
             }
             .padding(.horizontal, 14)
             .padding(.vertical, 6)
-            .background(Color(UIColor.secondarySystemBackground))
-            .foregroundColor(.primary)
+            .background(Color.white)
+            .foregroundColor(Color(white: 0.15))
             .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.primary.opacity(0.08), lineWidth: 1)
+                    .stroke(Color(white: 0.85), lineWidth: 1)
             )
         }
     }
@@ -219,7 +334,7 @@ struct CharacterDetailView: View {
             }
             .disabled(onNext == nil)
         }
-        .foregroundColor(.primary)
+        .foregroundColor(Color(white: 0.20))
         .padding(.vertical, 2)
     }
 
@@ -243,14 +358,14 @@ struct CharacterDetailView: View {
         }
     }
 
-    private func autoFillNextStroke(totalStrokes: Int) {
+    private func autoFillNextStroke(totalStrokes: Int, canvasSize: CGFloat) {
         if isCompleted {
             return
         }
 
         if currentStrokeIndex < totalStrokes {
             if let strokeInfo = strokeInfo {
-                let size = CGSize(width: 300, height: 300)
+                let size = CGSize(width: canvasSize, height: canvasSize)
                 let median = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
                 completedUserStrokes.append(median)
             }

@@ -37,15 +37,41 @@ def main():
         urllib.request.urlretrieve(url, graphics_cache)
         print("Downloaded graphics data.")
 
+    dictionary_cache = "docs/makemeahanzi_dictionary.txt"
+    dict_map = {}
+    if os.path.exists(dictionary_cache):
+        with open(dictionary_cache, "r", encoding="utf-8") as f:
+            for line in f:
+                item = json.loads(line)
+                dict_map[item.get("character")] = item
+
     strokes_data = {}
     with open(graphics_cache, "r", encoding="utf-8") as f:
         for line in f:
             item = json.loads(line)
             char = item["character"]
             if char in char_map:
+                total_strokes = len(item["strokes"])
+                components = [list(range(total_strokes))]
+                if char in dict_map:
+                    matches = dict_map[char].get("matches", [])
+                    if matches and len(matches) == total_strokes:
+                        groups = []
+                        curr = [0]
+                        for i in range(1, total_strokes):
+                            if matches[i] == matches[i - 1]:
+                                curr.append(i)
+                            else:
+                                groups.append(curr)
+                                curr = [i]
+                        if curr:
+                            groups.append(curr)
+                        components = groups
+
                 strokes_data[char] = {
                     "strokes": item["strokes"],
-                    "medians": item["medians"]
+                    "medians": item["medians"],
+                    "components": components
                 }
 
     print(f"Matched {len(strokes_data)} characters with stroke data.")
