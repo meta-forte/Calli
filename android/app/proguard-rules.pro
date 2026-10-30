@@ -1,0 +1,2 @@
+-keep class com.ibhatech.hanzislate.models.** { *; }
+-keep class com.ibhatech.hanzislate.services.** { *; }

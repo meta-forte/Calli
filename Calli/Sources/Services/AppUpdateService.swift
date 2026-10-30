@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 import UIKit
 
@@ -33,7 +34,12 @@ struct AppVersion: Comparable, Equatable {
 
     init(_ versionString: String) {
         let clean = versionString.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.components = clean.split(separator: ".").compactMap { Int($0) }
+        self.components = Array(
+            clean.split(separator: ".")
+                .compactMap { Int($0) }
+                .filter { $0 >= 0 }
+                .prefix(8)
+        )
     }
 
     static func < (lhs: AppVersion, rhs: AppVersion) -> Bool {
@@ -47,6 +53,11 @@ struct AppVersion: Comparable, Equatable {
         }
         return false
     }
+}
+
+struct SignedVersionResponse: Codable, Equatable {
+    let payload: AppUpdateInfo
+    let signature: String
 }
 
 struct AppUpdateInfo: Codable, Equatable {
@@ -161,13 +172,75 @@ final class AppUpdateService: ObservableObject {
         return initialURL
     }
 
+    var configuredPublicKey: String? {
+        let appConfig = PropertyConfig.loadProperties(named: "AppConfig")
+        let metadata = PropertyConfig.loadProperties(named: "AppStoreMetadata")
+        let key = appConfig["update_public_key"]
+            ?? appConfig["app.update_public_key"]
+            ?? metadata["app.update_public_key"]
+            ?? metadata["update_public_key"]
+        guard let trimmed = key?.trimmingCharacters(in: .whitespacesAndNewlines), !trimmed.isEmpty else {
+            return nil
+        }
+        return trimmed
+    }
+
+    nonisolated static func isValidAppStoreURL(_ url: URL) -> Bool {
+        guard let scheme = url.scheme?.lowercased(),
+              scheme == "https" || scheme == "itms-apps",
+              let host = url.host?.lowercased(),
+              host == "apps.apple.com",
+              url.user == nil,
+              url.password == nil else {
+            return false
+        }
+        return true
+    }
+
+    nonisolated static func verifySignedPayload(data: Data, publicKeyBase64: String) throws -> AppUpdateInfo {
+        guard let pubKeyData = Data(base64Encoded: publicKeyBase64.trimmingCharacters(in: .whitespacesAndNewlines)),
+              let publicKey = try? Curve25519.Signing.PublicKey(rawRepresentation: pubKeyData) else {
+            throw URLError(.cannotDecodeContentData)
+        }
+
+        if let rootObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let payloadDict = rootObject["payload"] as? [String: Any],
+           let signatureString = rootObject["signature"] as? String,
+           let signatureData = Data(base64Encoded: signatureString),
+           let canonicalData = try? JSONSerialization.data(
+               withJSONObject: payloadDict,
+               options: [.sortedKeys, .withoutEscapingSlashes]
+           ) {
+            if publicKey.isValidSignature(signatureData, for: canonicalData) {
+                return try JSONDecoder().decode(AppUpdateInfo.self, from: canonicalData)
+            }
+        }
+
+        let signedResponse = try JSONDecoder().decode(SignedVersionResponse.self, from: data)
+        guard let signatureData = Data(base64Encoded: signedResponse.signature) else {
+            throw URLError(.cannotDecodeContentData)
+        }
+
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
+        let payloadJson = try encoder.encode(signedResponse.payload)
+        guard publicKey.isValidSignature(signatureData, for: payloadJson) else {
+            throw URLError(.secureConnectionFailed)
+        }
+        return signedResponse.payload
+    }
+
     var appStoreURL: URL? {
-        if let customUrl = updateInfo?.appStoreUrl, let url = URL(string: customUrl) {
+        if let customUrl = updateInfo?.appStoreUrl,
+           let url = URL(string: customUrl),
+           Self.isValidAppStoreURL(url) {
             return url
         }
         let appConfig = PropertyConfig.loadProperties(named: "AppConfig")
         let metadata = PropertyConfig.loadProperties(named: "AppStoreMetadata")
-        if let raw = appConfig["app_store_url"] ?? metadata["app.store_url"], let url = URL(string: raw) {
+        if let raw = appConfig["app_store_url"] ?? metadata["app.store_url"],
+           let url = URL(string: raw),
+           Self.isValidAppStoreURL(url) {
             return url
         }
         return URL(string: "https://apps.apple.com")
@@ -190,8 +263,17 @@ final class AppUpdateService: ObservableObject {
                 return
             }
 
-            let info = try JSONDecoder().decode(AppUpdateInfo.self, from: data)
-            evaluateUpdate(with: info)
+            if let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+               root["payload"] != nil || root["signature"] != nil {
+                guard let pubKey = configuredPublicKey else {
+                    throw URLError(.secureConnectionFailed)
+                }
+                let info = try Self.verifySignedPayload(data: data, publicKeyBase64: pubKey)
+                evaluateUpdate(with: info)
+            } else {
+                let info = try JSONDecoder().decode(AppUpdateInfo.self, from: data)
+                evaluateUpdate(with: info)
+            }
         } catch {
             errorMessage = error.localizedDescription
         }

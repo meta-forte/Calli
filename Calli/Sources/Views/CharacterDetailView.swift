@@ -11,6 +11,7 @@ struct CharacterDetailView: View {
     let onPrevious: (() -> Void)?
     let onNext: (() -> Void)?
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     @State private var currentStrokeIndex: Int = 0
     @State private var completedUserStrokes: [[CGPoint]] = []
@@ -36,87 +37,53 @@ struct CharacterDetailView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
+                let isLandscape = geometry.size.width > geometry.size.height
                 let margin: CGFloat = 32
                 let topBottomSpacing: CGFloat = isShowingFontSizeSlider ? 300 : 240
-                let availableWidth = geometry.size.width - margin
-                let availableHeight = geometry.size.height - topBottomSpacing
+                let availableWidth = isLandscape ? (geometry.size.width * 0.45) : (geometry.size.width - margin)
+                let availableHeight = isLandscape ? (geometry.size.height - 24) : (geometry.size.height - topBottomSpacing)
                 let maxAllowedDimension = max(Self.minTracingFontSize, min(availableWidth, availableHeight))
                 let canvasDimension = min(max(CGFloat(tracingFontSize), Self.minTracingFontSize), maxAllowedDimension)
 
-                VStack(spacing: 10) {
-                    characterHeader
+                Group {
+                    if isLandscape {
+                        HStack(alignment: .center, spacing: 20) {
+                            canvasSection(canvasDimension: canvasDimension, includeProgressBelow: false)
 
-                    if isShowingFontSizeSlider {
-                        HStack(spacing: 12) {
-                            Text("文")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(Color(white: 0.42))
-                                .accessibilityHidden(true)
+                            VStack(spacing: 8) {
+                                characterHeader
 
-                            Slider(
-                                value: fontSizeBinding,
-                                in: Self.minTracingFontSize...max(Self.minTracingFontSize + 40, maxAllowedDimension),
-                                step: 5.0
-                            )
-                            .tint(.blue)
-                            .accessibilityLabel("Tracing character font size slider")
-                            .accessibilityValue("\(Int(canvasDimension)) pt")
+                                if isShowingFontSizeSlider {
+                                    fontSizeSliderBar(maxAllowedDimension: maxAllowedDimension, canvasDimension: canvasDimension)
+                                }
 
-                            Text("文")
-                                .font(.system(size: 24, weight: .bold))
-                                .foregroundColor(Color(white: 0.42))
-                                .accessibilityHidden(true)
+                                if let strokeInfo = strokeInfo, !strokeInfo.strokes.isEmpty {
+                                    progressInfo(totalStrokes: strokeInfo.strokes.count, canvasSize: canvasDimension)
+                                }
 
-                            Text("\(Int(canvasDimension)) pt")
-                                .font(.system(size: 13, weight: .semibold, design: .monospaced))
-                                .foregroundColor(Color(white: 0.25))
-                                .frame(minWidth: 50, alignment: .trailing)
-                        }
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(Color.white)
-                        .cornerRadius(12)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(Color(white: 0.85), lineWidth: 1)
-                        )
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                    }
+                                actionControls
 
-                    if let strokeInfo = strokeInfo, !strokeInfo.strokes.isEmpty {
-                        StrokeCanvasView(
-                            character: character.hanzi,
-                            strokeInfo: strokeInfo,
-                            canvasSize: canvasDimension,
-                            currentStrokeIndex: $currentStrokeIndex,
-                            completedUserStrokes: $completedUserStrokes,
-                            isCompleted: $isCompleted,
-                            mode: selectedGuideMode,
-                            onStrokeCompleted: { _ in },
-                            onAllStrokesCompleted: {
-                                handleCompletion()
+                                controlBar(totalStrokes: strokeInfo?.strokes.count ?? 0)
                             }
-                        )
-                        .opacity(canvasOpacity)
-
-                        progressInfo(totalStrokes: strokeInfo.strokes.count, canvasSize: canvasDimension)
-                    } else {
-                        VStack(spacing: 16) {
-                            Text(character.hanzi)
-                                .font(.system(size: canvasDimension * 0.58))
-                                .foregroundColor(Color(white: 0.35))
-                            Text("Stroke data unavailable")
-                                .font(.subheadline)
-                                .foregroundColor(Color(white: 0.45))
+                            .frame(maxWidth: .infinity)
                         }
-                        .frame(width: canvasDimension, height: canvasDimension)
+                    } else {
+                        VStack(spacing: 10) {
+                            characterHeader
+
+                            if isShowingFontSizeSlider {
+                                fontSizeSliderBar(maxAllowedDimension: maxAllowedDimension, canvasDimension: canvasDimension)
+                            }
+
+                            canvasSection(canvasDimension: canvasDimension, includeProgressBelow: true)
+
+                            actionControls
+
+                            controlBar(totalStrokes: strokeInfo?.strokes.count ?? 0)
+
+                            Spacer(minLength: 6)
+                        }
                     }
-
-                    actionControls
-
-                    controlBar(totalStrokes: strokeInfo?.strokes.count ?? 0)
-
-                    Spacer(minLength: 6)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal, 16)
@@ -132,7 +99,10 @@ struct CharacterDetailView: View {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 20))
                             .foregroundColor(Color(white: 0.45))
+                            .frame(minWidth: 44, minHeight: 44)
+                            .contentShape(Rectangle())
                     }
+                    .accessibilityLabel("Close")
                 }
                 ToolbarItem(placement: .principal) {
                     Text(character.isHSK ? character.levelTitle : "Other Character")
@@ -162,6 +132,8 @@ struct CharacterDetailView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(isShowingFontSizeSlider ? Color.blue : Color(white: 0.85), lineWidth: 1)
                             )
+                            .frame(minWidth: 44, minHeight: 44)
+                            .contentShape(Rectangle())
                         }
                         .accessibilityLabel("Tracing font size options")
 
@@ -171,12 +143,86 @@ struct CharacterDetailView: View {
                             Image(systemName: audioService.isPlaying ? "speaker.wave.3.fill" : "speaker.wave.2")
                                 .font(.system(size: 18))
                                 .foregroundColor(.blue)
+                                .frame(minWidth: 44, minHeight: 44)
+                                .contentShape(Rectangle())
                         }
+                        .accessibilityLabel("Play pronunciation audio")
                     }
                 }
             }
         }
         .preferredColorScheme(.light)
+    }
+
+    private func fontSizeSliderBar(maxAllowedDimension: CGFloat, canvasDimension: CGFloat) -> some View {
+        HStack(spacing: 12) {
+            Text("文")
+                .font(.system(size: 14, weight: .medium))
+                .foregroundColor(Color(white: 0.42))
+                .accessibilityHidden(true)
+
+            Slider(
+                value: fontSizeBinding,
+                in: Self.minTracingFontSize...max(Self.minTracingFontSize + 40, maxAllowedDimension),
+                step: 5.0
+            )
+            .tint(.blue)
+            .accessibilityLabel("Tracing character font size slider")
+            .accessibilityValue("\(Int(canvasDimension)) pt")
+
+            Text("文")
+                .font(.system(size: 24, weight: .bold))
+                .foregroundColor(Color(white: 0.42))
+                .accessibilityHidden(true)
+
+            Text("\(Int(canvasDimension)) pt")
+                .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                .foregroundColor(Color(white: 0.25))
+                .frame(minWidth: 50, alignment: .trailing)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .background(Color.white)
+        .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color(white: 0.85), lineWidth: 1)
+        )
+        .transition(.opacity.combined(with: .move(edge: .top)))
+    }
+
+    @ViewBuilder
+    private func canvasSection(canvasDimension: CGFloat, includeProgressBelow: Bool) -> some View {
+        if let strokeInfo = strokeInfo, !strokeInfo.strokes.isEmpty {
+            StrokeCanvasView(
+                character: character.hanzi,
+                strokeInfo: strokeInfo,
+                canvasSize: canvasDimension,
+                currentStrokeIndex: $currentStrokeIndex,
+                completedUserStrokes: $completedUserStrokes,
+                isCompleted: $isCompleted,
+                mode: selectedGuideMode,
+                onStrokeCompleted: { _ in },
+                onAllStrokesCompleted: {
+                    handleCompletion()
+                }
+            )
+            .opacity(canvasOpacity)
+
+            if includeProgressBelow {
+                progressInfo(totalStrokes: strokeInfo.strokes.count, canvasSize: canvasDimension)
+            }
+        } else {
+            VStack(spacing: 16) {
+                Text(character.hanzi)
+                    .font(.system(size: canvasDimension * 0.58))
+                    .foregroundColor(Color(white: 0.35))
+                Text("Stroke data unavailable")
+                    .font(.subheadline)
+                    .foregroundColor(Color(white: 0.45))
+            }
+            .frame(width: canvasDimension, height: canvasDimension)
+        }
     }
 
     private var characterHeader: some View {
@@ -248,8 +294,9 @@ struct CharacterDetailView: View {
             }) {
                 Text(isCompleted ? "Repeating..." : "Trace Next")
                     .font(.system(size: 13, weight: .semibold))
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .frame(minWidth: 44, minHeight: 44)
                     .background(Color.white)
                     .foregroundColor(.blue)
                     .cornerRadius(8)
@@ -257,6 +304,7 @@ struct CharacterDetailView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color.blue.opacity(0.2), lineWidth: 1)
                     )
+                    .contentShape(Rectangle())
             }
         }
         .padding(.horizontal, 12)
@@ -290,7 +338,8 @@ struct CharacterDetailView: View {
                     .font(.system(size: 13, weight: .semibold))
             }
             .padding(.horizontal, 14)
-            .padding(.vertical, 6)
+            .padding(.vertical, 8)
+            .frame(minWidth: 44, minHeight: 44)
             .background(Color.white)
             .foregroundColor(Color(white: 0.15))
             .cornerRadius(16)
@@ -298,6 +347,7 @@ struct CharacterDetailView: View {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color(white: 0.85), lineWidth: 1)
             )
+            .contentShape(Rectangle())
         }
     }
 
@@ -308,15 +358,21 @@ struct CharacterDetailView: View {
             }) {
                 Image(systemName: "chevron.left.circle")
                     .font(.system(size: 28))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
             }
             .disabled(onPrevious == nil)
+            .accessibilityLabel("Previous character")
 
             Button(action: {
                 performAnimatedErase()
             }) {
                 Image(systemName: "arrow.counterclockwise.circle")
                     .font(.system(size: 28))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
             }
+            .accessibilityLabel("Reset strokes")
 
             Button(action: {
                 audioService.playPronunciation(for: character)
@@ -324,15 +380,21 @@ struct CharacterDetailView: View {
                 Image(systemName: "speaker.wave.2.circle.fill")
                     .font(.system(size: 34))
                     .foregroundColor(.blue)
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
             }
+            .accessibilityLabel("Play pronunciation audio")
 
             Button(action: {
                 onNext?()
             }) {
                 Image(systemName: "chevron.right.circle")
                     .font(.system(size: 28))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
             }
             .disabled(onNext == nil)
+            .accessibilityLabel("Next character")
         }
         .foregroundColor(Color(white: 0.20))
         .padding(.vertical, 2)
@@ -344,15 +406,22 @@ struct CharacterDetailView: View {
         todayPracticeCount = PracticeStorageService.shared.recordPractice(character: character.hanzi)
         audioService.playPronunciation(for: character)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
-            withAnimation(Animation.easeInOut(duration: 0.45)) {
-                self.canvasOpacity = 0.0
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        if reduceMotion {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
                 self.resetState()
+                self.canvasOpacity = 1.0
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
                 withAnimation(Animation.easeInOut(duration: 0.45)) {
-                    self.canvasOpacity = 1.0
+                    self.canvasOpacity = 0.0
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.resetState()
+                    withAnimation(Animation.easeInOut(duration: 0.45)) {
+                        self.canvasOpacity = 1.0
+                    }
                 }
             }
         }
@@ -379,6 +448,11 @@ struct CharacterDetailView: View {
     }
 
     private func performAnimatedErase() {
+        if reduceMotion {
+            resetState()
+            canvasOpacity = 1.0
+            return
+        }
         withAnimation(Animation.easeOut(duration: 0.2)) {
             canvasOpacity = 0.0
         }

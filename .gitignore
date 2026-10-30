@@ -37,3 +37,7 @@ fastlane/test_output
 venv/
 tmp/
 .env
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties

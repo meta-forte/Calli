@@ -29,7 +29,7 @@ struct CharacterCellView: View {
                 if let meaningSubtitle, !meaningSubtitle.isEmpty {
                     Text(meaningSubtitle)
                         .font(.system(size: size.meaningFontSize, weight: .medium))
-                        .foregroundColor(Color.blue.opacity(0.85))
+                        .foregroundColor(Color.accessibleBlue)
                         .lineLimit(1)
                         .minimumScaleFactor(0.65)
                 }
@@ -49,6 +49,21 @@ struct CharacterCellView: View {
         }
         .buttonStyle(PlainButtonStyle())
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(character.hanzi), \(character.pinyin)")
+        .accessibilityLabel(Self.accessibilityDescription(for: character, meaningSubtitle: meaningSubtitle))
+        .accessibilityAddTraits(.isButton)
+    }
+
+    static func accessibilityDescription(for character: CharacterItem, meaningSubtitle: String? = nil) -> String {
+        let resolvedMeaning: String = {
+            if let subtitle = meaningSubtitle?.trimmingCharacters(in: .whitespacesAndNewlines), !subtitle.isEmpty {
+                return subtitle
+            }
+            return character.meaning
+        }()
+        let levelLabel = character.isHSK ? "HSK Level \(character.level)" : "Other Character"
+        if resolvedMeaning.isEmpty {
+            return "\(character.hanzi), pinyin \(character.pinyin), \(levelLabel). Double tap to trace."
+        }
+        return "\(character.hanzi), pinyin \(character.pinyin), meaning \(resolvedMeaning), \(levelLabel). Double tap to trace."
     }
 }

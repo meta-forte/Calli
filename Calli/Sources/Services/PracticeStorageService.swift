@@ -4,10 +4,12 @@ import SQLite3
 final class PracticeStorageService: ObservableObject {
     static let shared = PracticeStorageService()
 
+    let databasePath: String
     private var db: OpaquePointer?
 
     init(databasePath: String? = nil) {
         let path = databasePath ?? Self.defaultDatabasePath()
+        self.databasePath = path
         openDatabase(at: path)
         createTable()
     }
@@ -18,7 +20,7 @@ final class PracticeStorageService: ObservableObject {
         }
     }
 
-    private static func defaultDatabasePath() -> String {
+    static func defaultDatabasePath() -> String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let directory = paths[0]
         return directory.appendingPathComponent("practice.sqlite").path
@@ -27,7 +29,12 @@ final class PracticeStorageService: ObservableObject {
     private func openDatabase(at path: String) {
         if sqlite3_open(path, &db) != SQLITE_OK {
             db = nil
+            return
         }
+        try? FileManager.default.setAttributes(
+            [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+            ofItemAtPath: path
+        )
     }
 
     private func createTable() {
@@ -66,8 +73,8 @@ final class PracticeStorageService: ObservableObject {
         var statement: OpaquePointer?
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
             let transient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-            sqlite3_bind_text(statement, 1, character, -1, transient)
-            sqlite3_bind_text(statement, 2, date, -1, transient)
+            sqlite3_bind_text(statement, 1, character, Int32(character.utf8.count), transient)
+            sqlite3_bind_text(statement, 2, date, Int32(date.utf8.count), transient)
             sqlite3_step(statement)
         }
         sqlite3_finalize(statement)
@@ -82,8 +89,8 @@ final class PracticeStorageService: ObservableObject {
         var count = 0
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
             let transient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-            sqlite3_bind_text(statement, 1, character, -1, transient)
-            sqlite3_bind_text(statement, 2, date, -1, transient)
+            sqlite3_bind_text(statement, 1, character, Int32(character.utf8.count), transient)
+            sqlite3_bind_text(statement, 2, date, Int32(date.utf8.count), transient)
             if sqlite3_step(statement) == SQLITE_ROW {
                 count = Int(sqlite3_column_int(statement, 0))
             }
@@ -99,7 +106,7 @@ final class PracticeStorageService: ObservableObject {
         var count = 0
         if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK {
             let transient = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
-            sqlite3_bind_text(statement, 1, character, -1, transient)
+            sqlite3_bind_text(statement, 1, character, Int32(character.utf8.count), transient)
             if sqlite3_step(statement) == SQLITE_ROW {
                 count = Int(sqlite3_column_int(statement, 0))
             }

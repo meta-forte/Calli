@@ -8,9 +8,11 @@ struct StrokeCanvasView: View {
     @Binding var completedUserStrokes: [[CGPoint]]
     @Binding var isCompleted: Bool
     var mode: GuideStrokeMode = .single
+    var reduceMotionOverride: Bool? = nil
     let onStrokeCompleted: (Int) -> Void
     let onAllStrokesCompleted: () -> Void
 
+    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
     @State private var currentUserPoints: [CGPoint] = []
     @State private var matchedProgress: Int = 0
     @State private var hasReachedTarget: Bool = false
@@ -23,6 +25,35 @@ struct StrokeCanvasView: View {
 
     private let userTraceColor = Color.black
     private let backgroundFontColor = Color(red: 0.70, green: 0.70, blue: 0.72)
+
+    private var effectiveReduceMotion: Bool {
+        reduceMotionOverride ?? systemReduceMotion
+    }
+
+    static func strokeStatusDescription(currentStrokeIndex: Int, totalStrokes: Int, isCompleted: Bool) -> String {
+        if isCompleted {
+            return "Completed all \(totalStrokes) strokes"
+        }
+        guard totalStrokes > 0 else {
+            return "Stroke data unavailable"
+        }
+        return "Stroke \(min(currentStrokeIndex + 1, totalStrokes)) of \(totalStrokes)"
+    }
+
+    static func reducedMotionProgresses(
+        for strokeInfo: CharacterStrokeInfo,
+        currentStrokeIndex: Int,
+        mode: GuideStrokeMode
+    ) -> [Int: CGFloat] {
+        guard currentStrokeIndex < strokeInfo.strokes.count else { return [:] }
+        let group = strokeInfo.activeGroup(for: currentStrokeIndex, mode: mode)
+        let activeStrokes = group.filter { $0 >= currentStrokeIndex }
+        var result: [Int: CGFloat] = [:]
+        for s in activeStrokes {
+            result[s] = 1.0
+        }
+        return result
+    }
 
     private var strokeWidth: CGFloat {
         max(6, canvasSize * 0.032)
@@ -66,21 +97,21 @@ struct StrokeCanvasView: View {
             if !isCompleted {
                 let group = strokeInfo.activeGroup(for: currentStrokeIndex, mode: mode)
                 if mode == .single {
-                    if isDemonstrating, currentStrokeIndex < strokeInfo.strokes.count {
+                    if (isDemonstrating || effectiveReduceMotion), currentStrokeIndex < strokeInfo.strokes.count {
                         let median = strokeInfo.medianPoints(strokeIndex: currentStrokeIndex, canvasSize: size)
-                        let progress = strokeProgresses[currentStrokeIndex] ?? 0.0
+                        let progress = effectiveReduceMotion ? 1.0 : (strokeProgresses[currentStrokeIndex] ?? 0.0)
                         GuideStrokeView(
                             path: smoothPath(for: median),
                             progress: progress,
                             color: guideColor(forStep: 0, totalSteps: 1),
                             strokeWidth: strokeWidth
                         )
-                        .opacity(demonstrationOpacity)
+                        .opacity(effectiveReduceMotion ? 1.0 : demonstrationOpacity)
                     }
                 } else {
                     ForEach(group.filter { $0 >= currentStrokeIndex }, id: \.self) { strokeIdx in
                         let median = strokeInfo.medianPoints(strokeIndex: strokeIdx, canvasSize: size)
-                        let progress = isDemonstrating ? (strokeProgresses[strokeIdx] ?? 0.0) : 1.0
+                        let progress = effectiveReduceMotion ? 1.0 : (isDemonstrating ? (strokeProgresses[strokeIdx] ?? 0.0) : 1.0)
                         let step = group.firstIndex(of: strokeIdx) ?? 0
                         let color = guideColor(forStep: step, totalSteps: group.count)
                         GuideStrokeView(
@@ -103,6 +134,16 @@ struct StrokeCanvasView: View {
         }
         .frame(width: canvasSize, height: canvasSize)
         .contentShape(Rectangle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Tracing canvas for \(character)")
+        .accessibilityValue(
+            Self.strokeStatusDescription(
+                currentStrokeIndex: currentStrokeIndex,
+                totalStrokes: strokeInfo.strokes.count,
+                isCompleted: isCompleted
+            )
+        )
+        .accessibilityIdentifier("Tracing Canvas")
         .gesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { value in
@@ -262,6 +303,17 @@ struct StrokeCanvasView: View {
 
         guard !strokesToAnimate.isEmpty else {
             isDemonstrating = false
+            return
+        }
+
+        if effectiveReduceMotion {
+            strokeProgresses = Self.reducedMotionProgresses(
+                for: strokeInfo,
+                currentStrokeIndex: currentStrokeIndex,
+                mode: mode
+            )
+            isDemonstrating = false
+            demonstrationOpacity = 1.0
             return
         }
 

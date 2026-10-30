@@ -15,6 +15,7 @@ struct PinyinSyllable: Equatable {
     var uFoldedBase: String { base.replacingOccurrences(of: "v", with: "u") }
 
     static func parse(_ text: String) -> PinyinSyllable? {
+        guard text.unicodeScalars.count <= 16 else { return nil }
         var base = ""
         var tone: Int?
         var previousWasU = false

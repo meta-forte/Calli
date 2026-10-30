@@ -77,7 +77,7 @@ struct CharacterGridView: View {
                                     .offset(x: 2, y: -2)
                             }
                         }
-                        .frame(width: 32, height: 32)
+                        .frame(minWidth: 44, minHeight: 44)
                         .contentShape(Rectangle())
                     }
                     .accessibilityLabel("Main Menu")
@@ -106,7 +106,7 @@ struct CharacterGridView: View {
                         Image(systemName: "gearshape")
                             .font(.system(size: 18, weight: .medium))
                             .foregroundColor(Color(white: 0.25))
-                            .frame(width: 32, height: 32)
+                            .frame(minWidth: 44, minHeight: 44)
                             .contentShape(Rectangle())
                     }
                     .accessibilityLabel("Display Settings")
@@ -218,12 +218,15 @@ struct CharacterGridView: View {
                     }) {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(Color(white: 0.45))
+                            .frame(minWidth: 44, minHeight: 44)
+                            .contentShape(Rectangle())
                     }
                     .accessibilityLabel("Clear Search")
                 }
             }
             .padding(.horizontal, 10)
-            .padding(.vertical, 8)
+            .padding(.vertical, 2)
+            .frame(minHeight: 44)
             .background(Color.white)
             .cornerRadius(10)
             .overlay(
@@ -262,12 +265,14 @@ struct CharacterGridView: View {
                     }
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
+                    .frame(minWidth: 44, minHeight: 44)
                     .background(Color.white)
                     .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(Color(white: 0.85), lineWidth: 1)
                     )
+                    .contentShape(Rectangle())
                 }
                 .accessibilityLabel("HSK Level")
                 .accessibilityValue("Level \(store.selectedLevel)")

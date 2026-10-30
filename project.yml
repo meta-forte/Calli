@@ -21,6 +21,10 @@ targets:
       - path: Calli/Resources
     info:
       path: Calli/Info.plist
+      properties:
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: false
+          NSAllowsLocalNetworking: true
     settings:
       DEVELOPMENT_TEAM: DT46C4AJQ8
       CODE_SIGN_STYLE: Automatic

@@ -194,7 +194,7 @@ final class CalliUITests: XCTestCase {
         let path = URL(fileURLWithPath: "/Users/manas/dev/Calli/tmp/calli_tracing_font_slider.png")
         try? screenshot.pngRepresentation.write(to: path)
 
-        let nextButton = app.buttons.matching(NSPredicate(format: "label CONTAINS 'chevron.right'")).element(boundBy: 0)
+        let nextButton = app.buttons.matching(NSPredicate(format: "label == 'Next character' OR label CONTAINS 'chevron.right'")).element(boundBy: 0)
         if nextButton.waitForExistence(timeout: 2) && nextButton.isHittable {
             nextButton.tap()
             let retainedFontSizeButton = app.buttons["Tracing font size options"]
@@ -279,5 +279,103 @@ final class CalliUITests: XCTestCase {
         let closeButton = app.buttons["Close"]
         XCTAssertTrue(closeButton.waitForExistence(timeout: 5))
         closeButton.tap()
+    }
+
+    func testAccessibilityLabelsAndMinimumTouchTargets() throws {
+        let app = launchApp()
+
+        let menuButton = app.buttons["Main Menu"]
+        let settingsButton = app.buttons["Display Settings"]
+        let levelMenu = app.buttons["HSK Level"]
+        let firstCell = cell(app, hanzi: "爱")
+
+        XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(settingsButton.exists)
+        XCTAssertTrue(levelMenu.exists)
+        XCTAssertTrue(firstCell.exists)
+
+        XCTAssertEqual(
+            firstCell.label,
+            "爱, pinyin ài, meaning to love, HSK Level 1. Double tap to trace."
+        )
+
+        for control in [levelMenu, firstCell] {
+            XCTAssertGreaterThanOrEqual(control.frame.width, 44.0)
+            XCTAssertGreaterThanOrEqual(control.frame.height, 44.0)
+        }
+        for toolbarControl in [menuButton, settingsButton] {
+            XCTAssertTrue(toolbarControl.isHittable)
+            XCTAssertGreaterThanOrEqual(toolbarControl.frame.width, 36.0)
+            XCTAssertGreaterThanOrEqual(toolbarControl.frame.height, 36.0)
+        }
+
+        firstCell.tap()
+
+        let closeButton = app.buttons["Close"]
+        let fontSizeButton = app.buttons["Tracing font size options"]
+        let audioButtons = app.buttons.matching(NSPredicate(format: "label == 'Play pronunciation audio'"))
+        let traceNextButton = app.buttons["Trace Next"]
+        let eraseButton = app.buttons["Erase and Repeat"]
+        let resetButton = app.buttons["Reset strokes"]
+        let nextButton = app.buttons["Next character"]
+        let canvas = app.otherElements["Tracing Canvas"]
+
+        XCTAssertTrue(closeButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(fontSizeButton.exists)
+        XCTAssertGreaterThanOrEqual(audioButtons.count, 2)
+        XCTAssertTrue(traceNextButton.exists)
+        XCTAssertTrue(eraseButton.exists)
+        XCTAssertTrue(resetButton.exists)
+        XCTAssertTrue(nextButton.exists)
+        XCTAssertTrue(canvas.exists)
+
+        XCTAssertEqual(canvas.label, "Tracing canvas for 爱")
+        XCTAssertEqual(canvas.value as? String, "Stroke 1 of 10")
+
+        for detailControl in [traceNextButton, eraseButton, resetButton, nextButton] {
+            XCTAssertGreaterThanOrEqual(detailControl.frame.width, 44.0)
+            XCTAssertGreaterThanOrEqual(detailControl.frame.height, 44.0)
+        }
+        for detailToolbarControl in [closeButton, fontSizeButton] {
+            XCTAssertTrue(detailToolbarControl.isHittable)
+            XCTAssertGreaterThanOrEqual(detailToolbarControl.frame.width, 36.0)
+            XCTAssertGreaterThanOrEqual(detailToolbarControl.frame.height, 36.0)
+        }
+
+        traceNextButton.tap()
+        XCTAssertEqual(canvas.value as? String, "Stroke 2 of 10")
+
+        closeButton.tap()
+    }
+
+    func testDynamicTypeAndOrientationResilience() throws {
+        let app = XCUIApplication()
+        app.launchArguments = [
+            "-resetDisplayPreferences",
+            "-UIPreferredContentSizeCategoryName",
+            "UICTContentSizeCategoryAccessibilityMedium"
+        ]
+        app.launch()
+
+        let firstCell = cell(app, hanzi: "爱")
+        XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
+        XCTAssertTrue(firstCell.isHittable)
+
+        XCUIDevice.shared.orientation = .landscapeLeft
+        defer { XCUIDevice.shared.orientation = .portrait }
+
+        XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
+        firstCell.tap()
+
+        let eraseButton = app.buttons["Erase and Repeat"]
+        let traceNextButton = app.buttons["Trace Next"]
+        XCTAssertTrue(eraseButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(eraseButton.isHittable)
+        XCTAssertTrue(traceNextButton.isHittable)
+        saveScreenshot(app, name: "calli_landscape_a11y")
+
+        XCUIDevice.shared.orientation = .portrait
+        XCTAssertTrue(eraseButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(eraseButton.isHittable)
     }
 }

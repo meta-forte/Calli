@@ -22,11 +22,13 @@
 		5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */; };
 		628BEF0CBC10F3A63A3A9714 /* AppStoreMetadata.properties in Resources */ = {isa = PBXBuildFile; fileRef = E80FD86E8122A94B23589EFB /* AppStoreMetadata.properties */; };
 		66865A213B07B7DC07964C77 /* StrokeSmoother.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D8AAD81D07A3CF6068C3BE /* StrokeSmoother.swift */; };
+		67AC2D3EE59C559929759610 /* SecurityAndAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC294DF2EE8C86C3CB3F63B /* SecurityAndAccessibilityTests.swift */; };
 		68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */; };
 		6AE0B905A5F2DAB45BE79E76 /* strokes.json in Resources */ = {isa = PBXBuildFile; fileRef = 80BA69668D2CD8242113FDB1 /* strokes.json */; };
 		6AE74A1586E700EF40C9DB38 /* others.json in Resources */ = {isa = PBXBuildFile; fileRef = FF1FA91DD825519046285458 /* others.json */; };
 		74D228AAAD571E5A250E5EB8 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7AB3A6ECBC597C6241851B /* LegalView.swift */; };
 		7644C993E73FE33233D48C80 /* StrokePathParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16658D690D57E3856E57A4 /* StrokePathParser.swift */; };
+		7AD56C2D65333EE7C4CD9FE4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6642D8B435D6C328899D2A3E /* PrivacyInfo.xcprivacy */; };
 		7F946BD7E11080E835258678 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF4567B68F2796423B07D6 /* CharacterGridView.swift */; };
 		83DDA1131C3CFF5731CB8941 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB120B8B1C4487FFCA1341C0 /* characters.json */; };
 		86088D93289382DF32D56EDE /* AppConfig.properties in Resources */ = {isa = PBXBuildFile; fileRef = 5FAB81C1CC78562F32FCBB10 /* AppConfig.properties */; };
@@ -77,6 +79,7 @@
 		29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NotoSansSC.ttf; sourceTree = "<group>"; };
 		2A37972B1CAF2C7CCCAA5F03 /* CalliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalliApp.swift; sourceTree = "<group>"; };
 		2C16658D690D57E3856E57A4 /* StrokePathParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokePathParser.swift; sourceTree = "<group>"; };
+		2EC294DF2EE8C86C3CB3F63B /* SecurityAndAccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityAndAccessibilityTests.swift; sourceTree = "<group>"; };
 		3A7AB3A6ECBC597C6241851B /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
 		3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 		40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		6081C6B2F2E4028F270A78B7 /* CharacterSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSearch.swift; sourceTree = "<group>"; };
 		613B99E8212EF064DE76C9A2 /* NotoGlyphProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotoGlyphProvider.swift; sourceTree = "<group>"; };
 		6175EB60A3CF76A53DEC5862 /* StrokeMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeMatcher.swift; sourceTree = "<group>"; };
+		6642D8B435D6C328899D2A3E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalligraphyGridView.swift; sourceTree = "<group>"; };
 		6911E592481E5B5CA2563B22 /* DisplaySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsView.swift; sourceTree = "<group>"; };
 		767E0E1F184AA73DD2A15C75 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 				C3CF71C1A74DD9D4AFF229C1 /* GridCellSizeTests.swift */,
 				0E744FF8449BD3FBF3E1A3AD /* PairwiseStrokeTests.swift */,
 				D490BF2811538E90457BCAE8 /* PracticeStorageTests.swift */,
+				2EC294DF2EE8C86C3CB3F63B /* SecurityAndAccessibilityTests.swift */,
 				ED79A564E5B5F27905C0FE31 /* StrokeMatcherTests.swift */,
 				80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */,
 				9411BB89713D9D3B6A909CE0 /* StrokeSmootherTests.swift */,
@@ -212,6 +217,7 @@
 				29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */,
 				E34045AE0496B9440B3D5F33 /* others_strokes.json */,
 				FF1FA91DD825519046285458 /* others.json */,
+				6642D8B435D6C328899D2A3E /* PrivacyInfo.xcprivacy */,
 				80BA69668D2CD8242113FDB1 /* strokes.json */,
 			);
 			name = Resources;
@@ -358,6 +364,7 @@
 				628BEF0CBC10F3A63A3A9714 /* AppStoreMetadata.properties in Resources */,
 				E68A790369C7453A85D5857C /* Assets.xcassets in Resources */,
 				C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */,
+				7AD56C2D65333EE7C4CD9FE4 /* PrivacyInfo.xcprivacy in Resources */,
 				83DDA1131C3CFF5731CB8941 /* characters.json in Resources */,
 				6AE74A1586E700EF40C9DB38 /* others.json in Resources */,
 				CE7899EB24C320C606393A0D /* others_strokes.json in Resources */,
@@ -387,6 +394,7 @@
 				16E0322DB1B32FFEE6975500 /* GridCellSizeTests.swift in Sources */,
 				E6D76194BF3A4196B3F9C30B /* PairwiseStrokeTests.swift in Sources */,
 				5E370822EFCF792E79C1E169 /* PracticeStorageTests.swift in Sources */,
+				67AC2D3EE59C559929759610 /* SecurityAndAccessibilityTests.swift in Sources */,
 				0B81180C771BDE4E57157F32 /* StrokeMatcherTests.swift in Sources */,
 				68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */,
 				F4619BFEC56E64976AAC49AB /* StrokeSmootherTests.swift in Sources */,
