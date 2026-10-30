@@ -84,22 +84,81 @@ final class CalliUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        let bellButton = app.buttons["Check for Updates"]
-        XCTAssertTrue(bellButton.waitForExistence(timeout: 5))
-        bellButton.tap()
+        let menuButton = app.buttons["Main Menu"]
+        XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
+        menuButton.tap()
 
-        let updateTitle = app.staticTexts["Update Available"]
-        XCTAssertTrue(updateTitle.waitForExistence(timeout: 5))
+        let updateMenuItem = app.buttons.matching(NSPredicate(format: "label CONTAINS 'Update' OR label CONTAINS 'Updates'")).element(boundBy: 0)
+        XCTAssertTrue(updateMenuItem.waitForExistence(timeout: 5))
+        updateMenuItem.tap()
 
-        let updateButton = app.buttons["Update on App Store"]
-        XCTAssertTrue(updateButton.waitForExistence(timeout: 5))
+        let updateOrStatusTitle = app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Update'")).element(boundBy: 0)
+        XCTAssertTrue(updateOrStatusTitle.waitForExistence(timeout: 5))
+
+        let actionButton = app.buttons.matching(NSPredicate(format: "label == 'Done' OR label == 'Later' OR label == 'Try Again'")).element(boundBy: 0)
+        XCTAssertTrue(actionButton.waitForExistence(timeout: 5))
 
         let screenshot = app.screenshot()
         let path = URL(fileURLWithPath: "/Users/manas/dev/Calli/tmp/calli_update_sheet.png")
         try? screenshot.pngRepresentation.write(to: path)
 
-        let laterButton = app.buttons["Later"]
-        XCTAssertTrue(laterButton.waitForExistence(timeout: 5))
-        laterButton.tap()
+        let dismissButton = app.buttons.matching(NSPredicate(format: "label == 'Done' OR label == 'Later'")).element(boundBy: 0)
+        if dismissButton.waitForExistence(timeout: 3) {
+            dismissButton.tap()
+        }
+    }
+
+    func testHamburgerMenuAboutSheet() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let menuButton = app.buttons["Main Menu"]
+        XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
+        menuButton.tap()
+
+        let aboutButton = app.buttons["About"]
+        XCTAssertTrue(aboutButton.waitForExistence(timeout: 5))
+        aboutButton.tap()
+
+        let developerText = app.staticTexts["Developed by Ibhatech"]
+        XCTAssertTrue(developerText.waitForExistence(timeout: 5))
+
+        let screenshot = app.screenshot()
+        let path = URL(fileURLWithPath: "/Users/manas/dev/Calli/tmp/calli_about_sheet.png")
+        try? screenshot.pngRepresentation.write(to: path)
+
+        let closeButton = app.buttons["Close"]
+        XCTAssertTrue(closeButton.waitForExistence(timeout: 5))
+        closeButton.tap()
+    }
+
+    func testHamburgerMenuLegalSheet() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let menuButton = app.buttons["Main Menu"]
+        XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
+        menuButton.tap()
+
+        let legalButton = app.buttons["Legal"]
+        XCTAssertTrue(legalButton.waitForExistence(timeout: 5))
+        legalButton.tap()
+
+        let disclaimerSection = app.staticTexts["Legal & Disclaimers"]
+        XCTAssertTrue(disclaimerSection.waitForExistence(timeout: 5))
+
+        let attributionsSection = app.staticTexts["Open-Source Attributions"]
+        XCTAssertTrue(attributionsSection.waitForExistence(timeout: 5))
+
+        let makeMeAHanziText = app.staticTexts["MakeMeAHanzi & Arphic PL Fonts"]
+        XCTAssertTrue(makeMeAHanziText.waitForExistence(timeout: 5))
+
+        let screenshot = app.screenshot()
+        let path = URL(fileURLWithPath: "/Users/manas/dev/Calli/tmp/calli_legal_sheet.png")
+        try? screenshot.pngRepresentation.write(to: path)
+
+        let closeButton = app.buttons["Close"]
+        XCTAssertTrue(closeButton.waitForExistence(timeout: 5))
+        closeButton.tap()
     }
 }

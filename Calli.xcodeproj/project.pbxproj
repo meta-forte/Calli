@@ -22,6 +22,7 @@
 		66865A213B07B7DC07964C77 /* StrokeSmoother.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D8AAD81D07A3CF6068C3BE /* StrokeSmoother.swift */; };
 		68AAB7A10396D097C9A0410D /* StrokeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */; };
 		6AE0B905A5F2DAB45BE79E76 /* strokes.json in Resources */ = {isa = PBXBuildFile; fileRef = 80BA69668D2CD8242113FDB1 /* strokes.json */; };
+		74D228AAAD571E5A250E5EB8 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7AB3A6ECBC597C6241851B /* LegalView.swift */; };
 		7644C993E73FE33233D48C80 /* StrokePathParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C16658D690D57E3856E57A4 /* StrokePathParser.swift */; };
 		7F946BD7E11080E835258678 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EF4567B68F2796423B07D6 /* CharacterGridView.swift */; };
 		83DDA1131C3CFF5731CB8941 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = DB120B8B1C4487FFCA1341C0 /* characters.json */; };
@@ -35,6 +36,7 @@
 		C6DAE65BE41CE500A4124ADB /* NotoSansSC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */; };
 		CBD862C39990570DCDB1C399 /* CharacterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C293E2631E96D8DABF20DED /* CharacterCellView.swift */; };
 		D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5BE8381CB692F83F488700 /* PracticeStorageService.swift */; };
+		DE3514C508803A18F5726853 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924D51B8C3FB29212B2AFDBB /* AboutView.swift */; };
 		E58792B8957F2A061E7426B2 /* ForcedUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A6F449B299F251C2A86CA2 /* ForcedUpdateView.swift */; };
 		E68A790369C7453A85D5857C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE88D5AB87E66B977E710659 /* Assets.xcassets */; };
 		E6D76194BF3A4196B3F9C30B /* PairwiseStrokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E744FF8449BD3FBF3E1A3AD /* PairwiseStrokeTests.swift */; };
@@ -68,6 +70,7 @@
 		29FAF6672BF714C31BD242D6 /* NotoSansSC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NotoSansSC.ttf; sourceTree = "<group>"; };
 		2A37972B1CAF2C7CCCAA5F03 /* CalliApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalliApp.swift; sourceTree = "<group>"; };
 		2C16658D690D57E3856E57A4 /* StrokePathParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokePathParser.swift; sourceTree = "<group>"; };
+		3A7AB3A6ECBC597C6241851B /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
 		3B9A81383101BBD09F2497BB /* AudioPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerService.swift; sourceTree = "<group>"; };
 		40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		42EF1F7103C1D317CE180666 /* CalliTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CalliTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +85,7 @@
 		80D5796A678FA9942E3FE633 /* StrokeParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeParserTests.swift; sourceTree = "<group>"; };
 		80E43E9A7A7AB4CF9978FBF6 /* StrokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeData.swift; sourceTree = "<group>"; };
 		80F00730EC51C6145F72BF05 /* FontSizeSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeSliderTests.swift; sourceTree = "<group>"; };
+		924D51B8C3FB29212B2AFDBB /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9411BB89713D9D3B6A909CE0 /* StrokeSmootherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeSmootherTests.swift; sourceTree = "<group>"; };
 		9BF37EED43C7B421A62F3572 /* CharacterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItem.swift; sourceTree = "<group>"; };
 		9D17D8581674FBFC6BE61487 /* AppUpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateService.swift; sourceTree = "<group>"; };
@@ -197,11 +201,13 @@
 		E5BC099E4D9AB3EFA77E782F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				924D51B8C3FB29212B2AFDBB /* AboutView.swift */,
 				6721F7DE3D73CD4EDEE01DE9 /* CalligraphyGridView.swift */,
 				7C293E2631E96D8DABF20DED /* CharacterCellView.swift */,
 				40ADB3A861128030ADB389C2 /* CharacterDetailView.swift */,
 				25EF4567B68F2796423B07D6 /* CharacterGridView.swift */,
 				B9A6F449B299F251C2A86CA2 /* ForcedUpdateView.swift */,
+				3A7AB3A6ECBC597C6241851B /* LegalView.swift */,
 				CA113A5089B9D3066478A6D7 /* StrokeCanvasView.swift */,
 				1A16256F71D5E1360588E384 /* UpdateSheetView.swift */,
 			);
@@ -287,16 +293,16 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					08B1479B5730ADF8DCDE815A = {
-						DevelopmentTeam = YP88XG6Z29;
+						DevelopmentTeam = DT46C4AJQ8;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 906EADED3A51B778B5E0660B;
 					};
 					906EADED3A51B778B5E0660B = {
-						DevelopmentTeam = YP88XG6Z29;
+						DevelopmentTeam = DT46C4AJQ8;
 						ProvisioningStyle = Automatic;
 					};
 					98E30BF95C9221936A18D753 = {
-						DevelopmentTeam = YP88XG6Z29;
+						DevelopmentTeam = DT46C4AJQ8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -366,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3514C508803A18F5726853 /* AboutView.swift in Sources */,
 				9F06B04DF59AEFB4ABFADA47 /* AppUpdateService.swift in Sources */,
 				0FF0C3E1F945675968F90344 /* AudioPlayerService.swift in Sources */,
 				3BC73C2A2773302CDD5CAC92 /* CalliApp.swift in Sources */,
@@ -377,6 +384,7 @@
 				FC883065D7220D000D5112F1 /* CharacterStore.swift in Sources */,
 				9EBE0E2E9C95A0A93C44E175 /* ColorExtensions.swift in Sources */,
 				E58792B8957F2A061E7426B2 /* ForcedUpdateView.swift in Sources */,
+				74D228AAAD571E5A250E5EB8 /* LegalView.swift in Sources */,
 				B263C4FB96FC6035C3C54229 /* NotoGlyphProvider.swift in Sources */,
 				D06A147B87113D6FA2590367 /* PracticeStorageService.swift in Sources */,
 				39322FF1C7F470EF69A083D7 /* StrokeCanvasView.swift in Sources */,
@@ -475,7 +483,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YP88XG6Z29;
+				DEVELOPMENT_TEAM = DT46C4AJQ8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -521,6 +529,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DT46C4AJQ8;
 				INFOPLIST_FILE = Calli/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HanziSlate;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -558,6 +568,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DT46C4AJQ8;
 				INFOPLIST_FILE = Calli/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HanziSlate;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -610,7 +622,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = YP88XG6Z29;
+				DEVELOPMENT_TEAM = DT46C4AJQ8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

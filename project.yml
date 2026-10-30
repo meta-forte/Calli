@@ -9,7 +9,7 @@ settings:
   GENERATE_INFOPLIST_FILE: YES
   CURRENT_PROJECT_VERSION: 1
   MARKETING_VERSION: "1.0.0"
-  DEVELOPMENT_TEAM: YP88XG6Z29
+  DEVELOPMENT_TEAM: DT46C4AJQ8
   CODE_SIGN_STYLE: Automatic
 targets:
   Calli:
@@ -22,6 +22,8 @@ targets:
     info:
       path: Calli/Info.plist
     settings:
+      DEVELOPMENT_TEAM: DT46C4AJQ8
+      CODE_SIGN_STYLE: Automatic
       PRODUCT_BUNDLE_IDENTIFIER: com.ibhatech.hanzislate
       INFOPLIST_KEY_CFBundleDisplayName: "HanziSlate"
       INFOPLIST_KEY_UILaunchScreen_Generation: YES

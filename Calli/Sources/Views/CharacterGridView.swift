@@ -5,6 +5,8 @@ struct CharacterGridView: View {
     @StateObject private var store = CharacterStore()
     @State private var selectedCharacter: CharacterItem?
     @State private var isShowingDetail: Bool = false
+    @State private var isShowingAbout: Bool = false
+    @State private var isShowingLegal: Bool = false
 
     private let columns = [
         GridItem(.adaptive(minimum: 64, maximum: 76), spacing: 12)
@@ -50,14 +52,36 @@ struct CharacterGridView: View {
             .navigationTitle("HanziSlate")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        updateService.showUpdateSheet = true
-                    }) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Menu {
+                        Button(action: {
+                            updateService.showUpdateSheet = true
+                            Task {
+                                await updateService.checkForUpdates()
+                            }
+                        }) {
+                            Label(
+                                updateService.hasUnreadUpdate ? "Update Available" : "Check for Updates",
+                                systemImage: updateService.hasUnreadUpdate ? "bell.badge.fill" : "bell"
+                            )
+                        }
+
+                        Button(action: {
+                            isShowingAbout = true
+                        }) {
+                            Label("About", systemImage: "info.circle")
+                        }
+
+                        Button(action: {
+                            isShowingLegal = true
+                        }) {
+                            Label("Legal", systemImage: "doc.text")
+                        }
+                    } label: {
                         ZStack(alignment: .topTrailing) {
-                            Image(systemName: updateService.hasUnreadUpdate ? "bell.badge.fill" : "bell")
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundColor(updateService.hasUnreadUpdate ? .blue : Color(white: 0.35))
+                            Image(systemName: "line.3.horizontal")
+                                .font(.system(size: 18, weight: .medium))
+                                .foregroundColor(Color(white: 0.25))
 
                             if updateService.hasUnreadUpdate {
                                 Circle()
@@ -67,8 +91,9 @@ struct CharacterGridView: View {
                             }
                         }
                         .frame(width: 32, height: 32)
+                        .contentShape(Rectangle())
                     }
-                    .accessibilityLabel("Check for Updates")
+                    .accessibilityLabel("Main Menu")
                 }
 
                 ToolbarItem(placement: .principal) {
@@ -100,6 +125,13 @@ struct CharacterGridView: View {
                 .preferredColorScheme(.light)
                 .interactiveDismissDisabled()
             }
+        }
+        .sheet(isPresented: $isShowingAbout) {
+            AboutView()
+                .environmentObject(updateService)
+        }
+        .sheet(isPresented: $isShowingLegal) {
+            LegalView()
         }
         .sheet(isPresented: $updateService.showUpdateSheet) {
             UpdateSheetView(updateService: updateService)

@@ -185,6 +185,7 @@ final class AppUpdateService: ObservableObject {
 
             let (data, response) = try await urlSession.data(for: request)
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                errorMessage = "Server returned status \(httpResponse.statusCode)"
                 isChecking = false
                 return
             }
