@@ -1,9 +1,133 @@
 import XCTest
 
 final class CalliUITests: XCTestCase {
-    func testOpenCharacterDetailAndEraseRepeat() throws {
+    private let defaultPreferences = ["-resetDisplayPreferences"]
+
+    private func launchApp(resetPreferences: Bool = true) -> XCUIApplication {
         let app = XCUIApplication()
+        if resetPreferences {
+            app.launchArguments = defaultPreferences
+        }
         app.launch()
+        return app
+    }
+
+    private func saveScreenshot(_ app: XCUIApplication, name: String) {
+        let path = URL(fileURLWithPath: "/Users/manas/dev/Calli/tmp/\(name).png")
+        try? app.screenshot().pngRepresentation.write(to: path)
+    }
+
+    private func search(_ app: XCUIApplication, for text: String) {
+        let field = app.textFields["Search Characters"]
+        XCTAssertTrue(field.waitForExistence(timeout: 5))
+        field.tap()
+        field.typeText(text)
+    }
+
+    private func cell(_ app: XCUIApplication, hanzi: String) -> XCUIElement {
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "\(hanzi),")).element(boundBy: 0)
+    }
+
+    private func selectLevel(_ app: XCUIApplication, _ level: Int) {
+        let levelMenu = app.buttons["HSK Level"]
+        XCTAssertTrue(levelMenu.waitForExistence(timeout: 5))
+        levelMenu.tap()
+        let option = app.buttons["Level \(level)"]
+        XCTAssertTrue(option.waitForExistence(timeout: 5))
+        option.tap()
+    }
+
+    func testSearchSpansAllLevelsAndGroupsResults() throws {
+        let app = launchApp()
+        selectLevel(app, 3)
+
+        search(app, for: "fu")
+
+        XCTAssertTrue(app.staticTexts["HSK 1"].waitForExistence(timeout: 5))
+        XCTAssertTrue(cell(app, hanzi: "服").exists)
+        XCTAssertFalse(cell(app, hanzi: "乐").exists)
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label ENDSWITH 'results'")).element.exists)
+        saveScreenshot(app, name: "calli_search_fu")
+
+        app.buttons["Clear Search"].tap()
+        XCTAssertTrue(app.staticTexts["283 characters"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.staticTexts["HSK 1"].exists)
+    }
+
+    func testSearchFindsCharacterOutsideHSKInOthers() throws {
+        let app = launchApp()
+
+        search(app, for: "long2")
+
+        let othersHeader = app.staticTexts["Others"]
+        let othersCell = cell(app, hanzi: "龍")
+        var swipes = 0
+        while !(othersHeader.exists && othersCell.isHittable) && swipes < 10 {
+            app.swipeUp()
+            swipes += 1
+        }
+        XCTAssertTrue(othersHeader.exists)
+        XCTAssertTrue(othersCell.isHittable)
+        saveScreenshot(app, name: "calli_search_others")
+
+        othersCell.tap()
+        XCTAssertTrue(app.staticTexts["Other Character"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Stroke 1 of'")).element.waitForExistence(timeout: 5))
+        saveScreenshot(app, name: "calli_others_detail")
+    }
+
+    func testSelectedLevelPersistsAcrossLaunches() throws {
+        var app = launchApp()
+        selectLevel(app, 3)
+        XCTAssertTrue(app.staticTexts["283 characters"].waitForExistence(timeout: 5))
+        app.terminate()
+
+        app = launchApp(resetPreferences: false)
+        XCTAssertTrue(app.staticTexts["283 characters"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.buttons["HSK Level"].value as? String, "Level 3")
+
+        selectLevel(app, 1)
+        XCTAssertTrue(app.staticTexts["248 characters"].waitForExistence(timeout: 5))
+    }
+
+    func testDisplaySettingsChangeAndPersistCellSize() throws {
+        var app = launchApp()
+        let firstCell = cell(app, hanzi: "爱")
+        XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
+        let mediumWidth = firstCell.frame.width
+
+        app.buttons["Display Settings"].tap()
+        let large = app.segmentedControls["Character Size"].buttons["Large"]
+        XCTAssertTrue(large.waitForExistence(timeout: 5))
+        large.tap()
+        saveScreenshot(app, name: "calli_display_settings")
+        app.buttons["Done"].tap()
+
+        XCTAssertGreaterThan(firstCell.frame.width, mediumWidth)
+        app.terminate()
+
+        app = launchApp(resetPreferences: false)
+        let relaunchedCell = cell(app, hanzi: "爱")
+        XCTAssertTrue(relaunchedCell.waitForExistence(timeout: 5))
+        XCTAssertGreaterThan(relaunchedCell.frame.width, mediumWidth)
+        saveScreenshot(app, name: "calli_grid_large")
+
+        app.buttons["Display Settings"].tap()
+        let relaunchedLarge = app.segmentedControls["Character Size"].buttons["Large"]
+        XCTAssertTrue(relaunchedLarge.waitForExistence(timeout: 5))
+        XCTAssertTrue(relaunchedLarge.isSelected)
+        app.segmentedControls["Character Size"].buttons["Small"].tap()
+        app.buttons["Done"].tap()
+        saveScreenshot(app, name: "calli_grid_small")
+        XCTAssertLessThan(cell(app, hanzi: "爱").frame.width, mediumWidth)
+
+        app.buttons["Display Settings"].tap()
+        app.segmentedControls["Character Size"].buttons["Medium"].tap()
+        app.buttons["Done"].tap()
+    }
+
+    func testOpenCharacterDetailAndEraseRepeat() throws {
+        let app = launchApp()
 
         let firstCell = app.buttons.matching(NSPredicate(format: "label BEGINSWITH '爱'")).element(boundBy: 0)
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
@@ -26,8 +150,7 @@ final class CalliUITests: XCTestCase {
     }
 
     func testCompleteCharacterRepetition() throws {
-        let app = XCUIApplication()
-        app.launch()
+        let app = launchApp()
 
         let firstCell = app.buttons.matching(NSPredicate(format: "label BEGINSWITH '爱'")).element(boundBy: 0)
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
@@ -52,8 +175,7 @@ final class CalliUITests: XCTestCase {
     }
 
     func testAdjustFontSizeSlider() throws {
-        let app = XCUIApplication()
-        app.launch()
+        let app = launchApp()
 
         let firstCell = app.buttons.matching(NSPredicate(format: "label BEGINSWITH '爱'")).element(boundBy: 0)
         XCTAssertTrue(firstCell.waitForExistence(timeout: 5))
@@ -81,8 +203,7 @@ final class CalliUITests: XCTestCase {
     }
 
     func testUpdateBellAndSheet() throws {
-        let app = XCUIApplication()
-        app.launch()
+        let app = launchApp()
 
         let menuButton = app.buttons["Main Menu"]
         XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
@@ -109,8 +230,7 @@ final class CalliUITests: XCTestCase {
     }
 
     func testHamburgerMenuAboutSheet() throws {
-        let app = XCUIApplication()
-        app.launch()
+        let app = launchApp()
 
         let menuButton = app.buttons["Main Menu"]
         XCTAssertTrue(menuButton.waitForExistence(timeout: 5))
@@ -133,8 +253,7 @@ final class CalliUITests: XCTestCase {
     }
 
     func testHamburgerMenuLegalSheet() throws {
-        let app = XCUIApplication()
-        app.launch()
+        let app = launchApp()
 
         let menuButton = app.buttons["Main Menu"]
         XCTAssertTrue(menuButton.waitForExistence(timeout: 5))

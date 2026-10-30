@@ -7,10 +7,8 @@ struct CharacterGridView: View {
     @State private var isShowingDetail: Bool = false
     @State private var isShowingAbout: Bool = false
     @State private var isShowingLegal: Bool = false
-
-    private let columns = [
-        GridItem(.adaptive(minimum: 64, maximum: 76), spacing: 12)
-    ]
+    @State private var isShowingDisplaySettings: Bool = false
+    @AppStorage(GridCellSize.storageKey) private var cellSize: GridCellSize = .defaultSize
 
     var body: some View {
         NavigationStack {
@@ -21,7 +19,7 @@ struct CharacterGridView: View {
                     Spacer()
                     ProgressView("Loading characters...")
                     Spacer()
-                } else if store.filteredCharacters.isEmpty {
+                } else if store.displayedCount == 0 {
                     Spacer()
                     VStack(spacing: 8) {
                         Image(systemName: "character.book.closed")
@@ -33,18 +31,7 @@ struct CharacterGridView: View {
                     }
                     Spacer()
                 } else {
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 12) {
-                            ForEach(store.filteredCharacters) { item in
-                                CharacterCellView(character: item) {
-                                    selectedCharacter = item
-                                    isShowingDetail = true
-                                }
-                            }
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 12)
-                    }
+                    characterGrid
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -111,20 +98,37 @@ struct CharacterGridView: View {
                     .accessibilityElement(children: .combine)
                     .accessibilityLabel("HanziSlate")
                 }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        isShowingDisplaySettings = true
+                    }) {
+                        Image(systemName: "gearshape")
+                            .font(.system(size: 18, weight: .medium))
+                            .foregroundColor(Color(white: 0.25))
+                            .frame(width: 32, height: 32)
+                            .contentShape(Rectangle())
+                    }
+                    .accessibilityLabel("Display Settings")
+                }
             }
             .sheet(item: $selectedCharacter) { character in
                 let stroke = store.strokeInfo(for: character.hanzi)
-                let currentIndex = store.filteredCharacters.firstIndex(of: character)
+                let displayed = store.displayedCharacters
+                let currentIndex = displayed.firstIndex(of: character)
 
                 CharacterDetailView(
                     character: character,
                     strokeInfo: stroke,
-                    onPrevious: previousCharacter(for: currentIndex),
-                    onNext: nextCharacter(for: currentIndex)
+                    onPrevious: previousCharacter(in: displayed, for: currentIndex),
+                    onNext: nextCharacter(in: displayed, for: currentIndex)
                 )
                 .preferredColorScheme(.light)
                 .interactiveDismissDisabled()
             }
+        }
+        .sheet(isPresented: $isShowingDisplaySettings) {
+            DisplaySettingsView()
         }
         .sheet(isPresented: $isShowingAbout) {
             AboutView()
@@ -146,8 +150,87 @@ struct CharacterGridView: View {
         .preferredColorScheme(.light)
     }
 
+    private var characterGrid: some View {
+        ScrollView {
+            LazyVGrid(columns: cellSize.columns, spacing: GridCellSize.gridSpacing, pinnedViews: [.sectionHeaders]) {
+                ForEach(store.sections) { section in
+                    Section {
+                        ForEach(section.characters) { item in
+                            CharacterCellView(
+                                character: item,
+                                size: cellSize,
+                                meaningSubtitle: store.matchedMeaning(for: item)
+                            ) {
+                                selectedCharacter = item
+                                isShowingDetail = true
+                            }
+                        }
+                    } header: {
+                        if store.isSearching {
+                            sectionHeader(for: section)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, store.isSearching ? 0 : 12)
+            .padding(.bottom, 12)
+        }
+        .scrollDismissesKeyboard(.immediately)
+    }
+
+    private func sectionHeader(for section: CharacterSection) -> some View {
+        HStack(alignment: .firstTextBaseline) {
+            Text(section.title)
+                .font(.system(size: 15, weight: .semibold))
+                .foregroundColor(Color(white: 0.12))
+                .accessibilityAddTraits(.isHeader)
+
+            Spacer()
+
+            Text(Self.countLabel(section.characters.count, noun: "character"))
+                .font(.footnote)
+                .foregroundColor(Color(white: 0.42))
+        }
+        .padding(.top, 14)
+        .padding(.bottom, 8)
+        .background(Color.appBackground)
+    }
+
     private var topControlBar: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 10) {
+            HStack(spacing: 8) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color(white: 0.45))
+
+                TextField("Search Hanzi, Pinyin, or English word", text: $store.searchQuery)
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .font(.system(size: 15))
+                    .foregroundColor(Color(white: 0.12))
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .submitLabel(.search)
+                    .accessibilityIdentifier("Search Characters")
+
+                if !store.searchQuery.isEmpty {
+                    Button(action: {
+                        store.searchQuery = ""
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundColor(Color(white: 0.45))
+                    }
+                    .accessibilityLabel("Clear Search")
+                }
+            }
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+            .background(Color.white)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(white: 0.85), lineWidth: 1)
+            )
+
             HStack(spacing: 8) {
                 Text("HSK Level")
                     .font(.subheadline)
@@ -155,7 +238,7 @@ struct CharacterGridView: View {
                     .foregroundColor(Color(white: 0.42))
 
                 Menu {
-                    ForEach(1...9, id: \.self) { level in
+                    ForEach(store.availableLevels, id: \.self) { level in
                         Button(action: {
                             store.selectedLevel = level
                         }) {
@@ -186,40 +269,18 @@ struct CharacterGridView: View {
                             .stroke(Color(white: 0.85), lineWidth: 1)
                     )
                 }
+                .accessibilityLabel("HSK Level")
+                .accessibilityValue("Level \(store.selectedLevel)")
 
                 Spacer()
 
-                Text("\(store.filteredCharacters.count) characters")
+                Text(store.isSearching
+                     ? Self.countLabel(store.displayedCount, noun: "result")
+                     : Self.countLabel(store.displayedCount, noun: "character"))
                     .font(.footnote)
                     .foregroundColor(Color(white: 0.42))
+                    .accessibilityIdentifier("Character Count")
             }
-
-            HStack(spacing: 8) {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(Color(white: 0.45))
-
-                TextField("Search Hanzi, Pinyin, or Meaning", text: $store.searchQuery)
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(white: 0.12))
-
-                if !store.searchQuery.isEmpty {
-                    Button(action: {
-                        store.searchQuery = ""
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(Color(white: 0.45))
-                    }
-                }
-            }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 7)
-            .background(Color.white)
-            .cornerRadius(10)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color(white: 0.85), lineWidth: 1)
-            )
         }
         .padding(.horizontal, 16)
         .padding(.top, 8)
@@ -233,17 +294,21 @@ struct CharacterGridView: View {
         )
     }
 
-    private func previousCharacter(for index: Int?) -> (() -> Void)? {
+    private static func countLabel(_ count: Int, noun: String) -> String {
+        "\(count) \(noun)\(count == 1 ? "" : "s")"
+    }
+
+    private func previousCharacter(in characters: [CharacterItem], for index: Int?) -> (() -> Void)? {
         guard let idx = index, idx > 0 else { return nil }
         return {
-            selectedCharacter = store.filteredCharacters[idx - 1]
+            selectedCharacter = characters[idx - 1]
         }
     }
 
-    private func nextCharacter(for index: Int?) -> (() -> Void)? {
-        guard let idx = index, idx < store.filteredCharacters.count - 1 else { return nil }
+    private func nextCharacter(in characters: [CharacterItem], for index: Int?) -> (() -> Void)? {
+        guard let idx = index, idx < characters.count - 1 else { return nil }
         return {
-            selectedCharacter = store.filteredCharacters[idx + 1]
+            selectedCharacter = characters[idx + 1]
         }
     }
 }

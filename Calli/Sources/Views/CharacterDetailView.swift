@@ -135,7 +135,7 @@ struct CharacterDetailView: View {
                     }
                 }
                 ToolbarItem(placement: .principal) {
-                    Text("HSK \(character.level)")
+                    Text(character.isHSK ? character.levelTitle : "Other Character")
                         .font(.headline)
                         .foregroundColor(Color(white: 0.12))
                 }
